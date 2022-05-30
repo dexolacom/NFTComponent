@@ -1,6 +1,5 @@
 import React from 'react'
 import Button from '../../Button/Button'
-import { useTranslation } from 'react-i18next'
 import { convertToHuman } from '../../../../hooks/useConvertToHuman'
 import {
   BtnContainer,
@@ -29,7 +28,6 @@ interface ModalProps {
 }
 
 const BurnModal = ({ totals, isOpen, tokenId, currencyName, handleClose, handleAprove }: ModalProps) => {
-  const { t } = useTranslation()
 
   return (
     <>
@@ -38,38 +36,41 @@ const BurnModal = ({ totals, isOpen, tokenId, currencyName, handleClose, handleA
           <ModalPaddings>
             <ContentWrapper>
               <StyledPopupHr>
-                {t('nNFT.modal.burnYourNFT')} - {tokenId} ?
+                {'Burn your NFT'} - {tokenId} ?
               </StyledPopupHr>
-              <StyledPopupTitle>{t('nNFT.modal.burnMadalHeading')}</StyledPopupTitle>
+              <StyledPopupTitle>
+                Your NFT Total Balance with Rewards will be 
+                transfered to your wallet (in tokens listed below)
+              </StyledPopupTitle>
               <ModalList>
                 <ModalListItem>
                   {currencyName === 'BUSD' ? (
                     <>
-                      {t('nNFT.modal.totalBUSD')}
+                      Total BUSD:
                       <span>{totals.totalBUSD} BUSD</span>
                     </>
                   ) : (
                     <>
-                      {t('nNFT.modal.totalBNB')}
+                      Total BNB:
                       <span> {convertToHuman(totals.totalBNB, '18').toFixed(5)} BNB</span>
                     </>
                   )}
                 </ModalListItem>
                 <ModalListItem>
                   <>
-                    {t('nNFT.modal.totalNBU')}
+                    Total NBU:
                     <span>{Number(totals.totalNBU).toFixed(5)} NBU</span>
                   </>
                 </ModalListItem>
                 <ModalListItem>
                   {currencyName === 'BUSD' ? (
                     <>
-                      {t('nNFT.modal.totalBNB')}
+                      Total BNB:
                       <span> {convertToHuman(totals.totalBNB, '18').toFixed(5)} BNB</span>
                     </>
                   ) : (
                     <>
-                      {t('nNFT.modal.totalGNBU')}
+                      Total GNBU:
                       <span>{convertToHuman(totals.totalGNBU, '18').toFixed(5)} GNBU</span>
                     </>
                   )}
@@ -81,7 +82,7 @@ const BurnModal = ({ totals, isOpen, tokenId, currencyName, handleClose, handleA
                   size={'100%'}
                   height={'44px'}
                   fontSize={'17px'}
-                  name={t('p2p.header.confirm')}
+                  name={'Confirm'}
                   fontWeight="500"
                   color={'#fe5001'}
                   clickHandler={() => handleAprove(tokenId)}
@@ -91,7 +92,7 @@ const BurnModal = ({ totals, isOpen, tokenId, currencyName, handleClose, handleA
                   size={'100%'}
                   height={'44px'}
                   fontSize={'17px'}
-                  name={t('voting.cancel')}
+                  name={'Cancel'}
                   fontWeight="500"
                   color={'#c6d5dc51'}
                   clickHandler={handleClose}

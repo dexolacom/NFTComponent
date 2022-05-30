@@ -1,16 +1,18 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
 import { ContentWrapperNft, TextContainerNft, HeadingNft, HeadingTitleNft } from './HeadingText.styles'
 
 const HeadingText: React.FC = () => {
-  const { t } = useTranslation()
   return (
     <>
       <ContentWrapperNft>
         <TextContainerNft>
-          <HeadingNft>{t('nNFT.nNFTtext.headingText')}</HeadingNft>
+          <HeadingNft>Nimbus Non-Fungible Tokens (n-NFT)</HeadingNft>
           <HeadingTitleNft>
-          {t('nNFT.nNFTtext.headingTitleInfo')}
+            Benefit from n-NFT - the first yield-generating NFT of its kind. 
+            When you acquire it, the assets you supply get automatically 
+            distributed across several dApps and start working for you. 
+            This gives you ultimate risk mitigation and optimal yields, 
+            while saving you time and gas fees.
           </HeadingTitleNft>
         </TextContainerNft>
       </ContentWrapperNft>

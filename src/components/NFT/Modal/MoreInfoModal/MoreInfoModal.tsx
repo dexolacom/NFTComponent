@@ -1,7 +1,6 @@
 import React from 'react'
 import Button from '../../Button/Button'
 import { convertToHuman } from '../../../../hooks/useConvertToHuman'
-import { useTranslation } from 'react-i18next'
 import { LightQuestionHelper } from '../../QuestionHelpers/index'
 
 import {
@@ -41,11 +40,16 @@ interface ModalProps {
 }
 
 const MoreInfoModal = ({ pools, isOpen, currencyName, handleClose }: ModalProps) => {
-  const { t } = useTranslation()
   // Tooltip Text
   const TooltipContent = (
     <StakingTooltip>
-      <li>{t('nNFT.nNFTtoolTip.4')}</li>
+      <li>
+        With NFT, your assets get distributed between several financial 
+        instruments to maximize your rewards. This includes swaping some 
+        of your tokens. So once you redeem your NFT, you will receive some 
+        of your initial assets in NBU and GNBU (these tokens are used in 
+        Liquidity Providing).
+      </li>
     </StakingTooltip>
   )
 
@@ -56,71 +60,74 @@ const MoreInfoModal = ({ pools, isOpen, currencyName, handleClose }: ModalProps)
           <ModalPaddings>
             <ContentWrapper>
               <StyledPopupHr>
-                {t('nNFT.modal.myTotalBalance')}
+              My Total NFT Balance
                 <LightQuestionHelper text={TooltipContent} />
               </StyledPopupHr>
-              <StyledPopupTitle>{t('nNFT.modal.modalHeadingText')}</StyledPopupTitle>
+              <StyledPopupTitle>
+                Here is the total amount of the assets that back your NFT and 
+                how they are distributed between dApps.
+              </StyledPopupTitle>
               <ModalList>
                 <ModalListItemTotal>
-                  {t('nNFT.modal.myOriginalDeposit')}
+                  My original deposit:
                   <span>
                     {convertToHuman(pools.deposit, '18')} {currencyName}
                   </span>
                 </ModalListItemTotal>
                 <ModalListItemSwath></ModalListItemSwath>
-                <ModalListItemTotal>{t('nNFT.modal.depositRewards')}</ModalListItemTotal>
+                <ModalListItemTotal>Deposit with Rewards distribution</ModalListItemTotal>
                 <ModalListItem>
                   {currencyName === 'BUSD' ? (
                     <>
-                      {t('nNFT.modal.PoolBUSD')}
+                      Pool BUSD:
                       <span>{convertToHuman(pools.poolBUSD, '18').toFixed(5)} BUSD</span>
                     </>
                   ) : (
                     <>
-                      {t('nNFT.modal.PoolBNB')}
+                      Pool BNB:
                       <span>{convertToHuman(pools.poolBNB, '18').toFixed(5)} BNB</span>
                     </>
                   )}
                 </ModalListItem>
                 <ModalListItem>
                   <>
-                    {t('nNFT.modal.PoolNBU')}
+                    Pool NBU:
                     <span>{Number(pools.poolNBU).toFixed(5)} NBU</span>
                   </>
                 </ModalListItem>
                 <ModalListItem>
                   {currencyName === 'BUSD' ? (
                     <>
-                      {t('nNFT.modal.PoolBNB')}
+                      PoolBNB
                       <span>{convertToHuman(pools.poolBNB, '18').toFixed(5)} BNB</span>
                     </>
                   ) : (
                     <>
-                      {t('nNFT.modal.PoolGNBU')}
+                      Pool GNBU:
                       <span>{convertToHuman(pools.poolGNBU, '18').toFixed(5)} GNBU</span>
                     </>
                   )}
                 </ModalListItem>
                 <ModalListItem>
-                  {t('header.tabs.lpStaking')}:<span>{pools.lpStaking} NBU</span>
+                  LP Staking:<span>{pools.lpStaking} NBU</span>
                 </ModalListItem>
                 <ModalListItem>
-                  {t('lends.lendCard.lend')}:
+                  Lend:
                   <span>
                     {pools.lend} {currencyName}
                   </span>
                 </ModalListItem>
                 <ModalListItemSwath></ModalListItemSwath>
-                <ModalListItemTotal>{t('nNFT.modal.currentTotal')}</ModalListItemTotal>
+                <ModalListItemTotal>Current total balance</ModalListItemTotal>
                 <ModalListItemTotal>
                   {currencyName === 'BUSD' ? (
                     <>
-                      {t('nNFT.modal.totalBUSD')}
+                      Total BUSD:
                       <span>{pools.totalBUSD} BUSD</span>
                     </>
                   ) : (
                     <>
-                      {t('nNFT.modal.totalBNB')}
+                      Total BNB:
                       <span>
                         <span>{convertToHuman(pools.totalBNB, '18').toFixed(5)} BNB</span>
                       </span>
@@ -129,7 +136,7 @@ const MoreInfoModal = ({ pools, isOpen, currencyName, handleClose }: ModalProps)
                 </ModalListItemTotal>
                 <ModalListItemTotal>
                   <>
-                    {t('nNFT.modal.totalNBU')}
+                    Total NBU:
                     <span>
                       <span>{Number(pools.totalNBU).toFixed(5)} NBU</span>
                     </span>
@@ -138,14 +145,14 @@ const MoreInfoModal = ({ pools, isOpen, currencyName, handleClose }: ModalProps)
                 <ModalListItemTotal>
                   {currencyName === 'BUSD' ? (
                     <>
-                      {t('nNFT.modal.totalBNB')}
+                      Total BNB:
                       <span>
                         <span>{convertToHuman(pools.totalBNB, '18').toFixed(5)} BNB</span>
                       </span>
                     </>
                   ) : (
                     <>
-                      {t('nNFT.modal.totalGNBU')}
+                      Total GNBU:
                       <span>
                         <span>{convertToHuman(pools.poolGNBU, '18').toFixed(5)} GNBU</span>
                       </span>
@@ -159,7 +166,7 @@ const MoreInfoModal = ({ pools, isOpen, currencyName, handleClose }: ModalProps)
                   size={'100%'}
                   height={'44px'}
                   fontSize={'17px'}
-                  name={t('statusModals.successModal.buttonText')}
+                  name={'Close'}
                   fontWeight="500"
                   color={'#fe5001'}
                   clickHandler={handleClose}

@@ -3,7 +3,12 @@ declare module '*.svg' {
     export default content;
   };
 
+// declare module '*.png' {
+//     const content: React.FunctionComponent<React.PNGAttributes<PNGElement>>;
+//     export default content;
+// }
+
 declare module '*.png' {
-    const content: React.FunctionComponent<React.PNGAttributes<PNGElement>>;
-    export default content;
-}
+    const value: string;
+    export = value;
+ }

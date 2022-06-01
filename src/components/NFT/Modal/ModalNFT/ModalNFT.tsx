@@ -1,5 +1,4 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
 import iconCloses from '../../../../assets/images/banners/iconCloses.png'
 import Button from '../../Button/Button'
 import { useHistory } from 'react-router-dom'
@@ -27,7 +26,6 @@ interface ModalProps {
   handleClose?: () => void
 }
 export const ModalNFT = ({ isOpen, handleClose, currensyName }: ModalProps) => {
-  const { t } = useTranslation()
   const history = useHistory()
   // const { account } = useWeb3React()
   // const toggleWalletModal = useWalletModalToggle()
@@ -48,15 +46,20 @@ export const ModalNFT = ({ isOpen, handleClose, currensyName }: ModalProps) => {
           <StyledClosed src={iconCloses} width={32} onClick={handleClose} />
           <ContentWrapperNft>
             <TextContainerNft>
-              <HeadingNft>{t('nNFT.subTitle.smartLender')}</HeadingNft>
+              <HeadingNft>Smart LP</HeadingNft>
               <HeadingTitleNft>
-                <ListTitle>{t('nNFT.subTitle.heading')}</ListTitle>
+                <ListTitle>
+                  With Smart LP n-NFT, your assets get distributed 
+                  between the Nimbus Lend dApp (30% of assets) and Liquidity 
+                  Providing to Nimbus Swap (70% of assets). As a result, you 
+                  receive 3 types of rewards:
+                </ListTitle>
                 <List>
-                  <ListItem>{t('nNFT.subTitle.lend')}</ListItem>
-                  <ListItem>{t('nNFT.subTitle.BNB_NBUPool', { name: currensyName })}</ListItem>
-                  <ListItem>{t('nNFT.subTitle.BNB_GNBUPool')}</ListItem>
+                  <ListItem>Flexible APR for lending;</ListItem>
+                  <ListItem>{`Share of a fixed 0,3% swap fee on all trades in the BNB/NBU and BNB/${currensyName} pools;`}</ListItem>
+                  <ListItem>Fixed 100% APY for staking the received LP tokens.</ListItem>
                 </List>
-                <ListTitle>{t('nNFT.subTitle.getClick')}</ListTitle>
+                <ListTitle>Receive rewards in real-time, save on gas fees, and redeem your assets any time.</ListTitle>
               </HeadingTitleNft>
             </TextContainerNft>
           </ContentWrapperNft>

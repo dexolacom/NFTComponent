@@ -301,7 +301,8 @@ export function ButtonError({ error, ...rest }: { error?: boolean } & ButtonProp
   }
 }
 
-export function ButtonDropdown({ disabled = false, children, ...rest }: { disabled?: boolean } & ButtonProps) {
+export function ButtonDropdown({ disabled = false, children, ...rest }: 
+  { disabled?: boolean, children?: React.ReactNode } & ButtonProps) {
   return (
     <ButtonPrimary {...rest} disabled={disabled}>
       <RowBetween>
@@ -312,7 +313,8 @@ export function ButtonDropdown({ disabled = false, children, ...rest }: { disabl
   )
 }
 
-export function ButtonDropdownLight({ disabled = false, children, ...rest }: { disabled?: boolean } & ButtonProps) {
+export function ButtonDropdownLight({ disabled = false, children, ...rest }: 
+  { disabled?: boolean, children?: React.ReactNode } & ButtonProps) {
   return (
     <ButtonOutlined {...rest} disabled={disabled}>
       <RowBetween>

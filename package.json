@@ -65,6 +65,7 @@
     "husky": "^7.0.0",
     "nimbus-swap-mod": "1.0.19",
     "polished": "^4.2.2",
+    "react-device-detect": "1.6.2",
     "react-feather": "^2.0.9",
     "react-popper": "2.2.3",
     "react-redux": "7.2.0",

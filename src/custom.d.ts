@@ -1,7 +1,12 @@
+// declare module '*.svg' {
+//     const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+//     export default content;
+//   };
+
 declare module '*.svg' {
-    const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
-    export default content;
-  };
+    const value: string;
+    export = value;
+};
 
 // declare module '*.png' {
 //     const content: React.FunctionComponent<React.PNGAttributes<PNGElement>>;
@@ -11,4 +16,4 @@ declare module '*.svg' {
 declare module '*.png' {
     const value: string;
     export = value;
- }
+}

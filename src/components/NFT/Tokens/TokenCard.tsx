@@ -3,7 +3,6 @@ import { LightQuestionHelper } from '../QuestionHelpers/index'
 import Button from '../Button/Button'
 import { useHistory } from 'react-router-dom'
 import { convertToHuman } from '../../../hooks/useConvertToHuman'
-import { useTranslation } from 'react-i18next'
 import Frame_1 from '../../../assets/images/Nft-img/icon/Frame_1.svg'
 import Frame_2 from '../../../assets/images/Nft-img/icon/Frame_2.svg'
 import Frame_3 from '../../../assets/images/Nft-img/icon/Frame_3.svg'
@@ -81,7 +80,6 @@ export const TokenCard = ({
   imageNft
 }: iTokenProps) => {
   const history = useHistory()
-  const { t } = useTranslation()
   const { account } = useWeb3React()
   const toggleWalletModal = useWalletModalToggle()
 
@@ -107,7 +105,7 @@ export const TokenCard = ({
           </TokenDiv>
           <TokenAmountDiv>
             <img src={currencyLogo} alt="Currensy logo" /> &#160;
-            <TokenMinCost>{t('nNFT.tokenCard.minCost')} &#160;</TokenMinCost>
+            <TokenMinCost>Min cost: &#160;</TokenMinCost>
             <TokenAmount>
               &#160;{amount}&#160;{modalTitle}
             </TokenAmount>
@@ -122,7 +120,7 @@ export const TokenCard = ({
             <ListItemHelpers>
               <LightQuestionHelper text={lendTooltipContent} />
             </ListItemHelpers>
-            <ListItemTitle>{t('nNFT.getNFT.Lend_APR')}</ListItemTitle>
+            <ListItemTitle>Lend APR</ListItemTitle>
           </ListItemContainer>
         </ListItemLi>
         {/* border-bottom-lane */}
@@ -136,7 +134,7 @@ export const TokenCard = ({
             <ListItemHelpers>
               <LightQuestionHelper text={lPRewardsTooltipContent} />
             </ListItemHelpers>
-            <ListItemTitle>{t('nNFT.tokenCard.lpReward')}</ListItemTitle>
+            <ListItemTitle>LP Reward</ListItemTitle>
           </ListItemContainer>
         </ListItemLi>
         {/* border-bottom-lane */}
@@ -150,7 +148,7 @@ export const TokenCard = ({
             <ListItemHelpers>
               <LightQuestionHelper text={lPStakingTooltipContent} />
             </ListItemHelpers>
-            <ListItemTitle>{t('nNFT.tokenCard.lpStakingAPY')}</ListItemTitle>
+            <ListItemTitle>LP Staking APY</ListItemTitle>
           </ListItemContainer>
         </ListItemLi>
         {/* border-bottom-lane */}
@@ -209,7 +207,6 @@ export const TokenCard = ({
 }
 
 export const CloseTokenCard = ({ tokenName, tokenStatus, amount, currencyLogo, imageNft }: iCloseTokenProps) => {
-  const { t } = useTranslation()
   return (
     <CardContainer isClose={true}>
       <List>
@@ -226,7 +223,7 @@ export const CloseTokenCard = ({ tokenName, tokenStatus, amount, currencyLogo, i
           </TokenDiv>
           <TokenAmountDiv>
             <img src={currencyLogo} alt="Currensy logo" /> &#160;
-            <TokenMinCost>{t('nNFT.tokenCard.minCost')} &#160;</TokenMinCost>
+            <TokenMinCost>Min cost: &#160;</TokenMinCost>
             <TokenAmount>
               &#160;{amount}
               {/* &#160;{convertToHuman(String(amount), '18')} */}
@@ -257,7 +254,6 @@ export const SmollTokenCard = ({
   currency,
   imageNft
 }: iCloseTokenProps) => {
-  const { t } = useTranslation()
   return (
     <SmollCardContainer>
       <List>
@@ -277,7 +273,7 @@ export const SmollTokenCard = ({
           </TokenDiv>
           <TokenAmountDiv>
             <img src={currencyLogo} alt="Currensy logo" /> &#160;
-            <TokenMinCost>{t('nNFT.tokenCard.minCost')} &#160; </TokenMinCost>
+            <TokenMinCost>Min cost: &#160; </TokenMinCost>
             <TokenAmount>
               &#160;{amount}&#160;{modalTitle} {currency ? currency : null}
             </TokenAmount>

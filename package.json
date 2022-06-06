@@ -63,6 +63,7 @@
     "@types/styled-components": "^5.1.25",
     "@web3-react/core": "6.0.9",
     "husky": "^7.0.0",
+    "nimbus-swap-mod": "1.0.19",
     "polished": "^4.2.2",
     "react-feather": "^2.0.9",
     "react-popper": "2.2.3",

@@ -6852,6 +6852,11 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
+nimbus-swap-mod@1.0.19:
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/nimbus-swap-mod/-/nimbus-swap-mod-1.0.19.tgz#10f1e1e7e8720544579745062b617d5a8c287e9f"
+  integrity sha512-TDRe4Q1/zIymNIl4MKHhjLYaiEV7HqtU7WRozdv2jcf/Al7V7h8pOfhwB+xJwOkzOYDx/KNLWQTt1beZDCjDhg==
+
 no-case@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-3.0.4.tgz#d361fd5c9800f558551a8369fc0dcd4662b6124d"

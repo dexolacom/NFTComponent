@@ -12,7 +12,7 @@ if [ "$branch" = "develop" ]; then
   exit 0
 fi
 
-if ! grep -qE "$commitRegex" "$branch"; then
+if [! grep -qE "$commitRegex" "$branch"]; then
   echo "You can't commit directly to master branch, $branch"
   exit 1
 fi

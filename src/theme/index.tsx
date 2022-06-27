@@ -5,11 +5,11 @@ import styled, {
   css,
   DefaultTheme
 } from 'styled-components'
-import { useIsDarkMode } from '../state/user/hooks'
+//import { useIsDarkMode } from '../state/user/hooks'
 import { Text, TextProps } from 'rebass'
 import { Colors } from './styled'
 
-export * from './components'
+//export * from './components'
 
 const MEDIA_WIDTHS = {
   upToMobileSmall: 380,
@@ -140,13 +140,13 @@ export function theme(darkMode: boolean): DefaultTheme {
   }
 }
 
-export default function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const darkMode = useIsDarkMode()
+// export default function ThemeProvider({ children }: { children: React.ReactNode }) {
+//   const darkMode = useIsDarkMode()
 
-  const themeObject = useMemo(() => theme(darkMode), [darkMode])
+//   const themeObject = useMemo(() => theme(darkMode), [darkMode])
 
-  return <StyledComponentsThemeProvider theme={themeObject}>{children}</StyledComponentsThemeProvider>
-}
+//   return <StyledComponentsThemeProvider theme={themeObject}>{children}</StyledComponentsThemeProvider>
+// }
 
 const TextWrapper = styled(Text)<{ color: keyof Colors }>`
   color: ${({ color, theme }) => (theme as any)[color]};

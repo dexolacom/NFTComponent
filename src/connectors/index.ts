@@ -4,7 +4,7 @@ import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { WalletLinkConnector } from '@web3-react/walletlink-connector'
 import { PortisConnector } from '@web3-react/portis-connector'
 
-import { FortmaticConnector } from './Fortmatic'
+//import { FortmaticConnector } from './Fortmatic'
 import { NetworkConnector } from './NetworkConnector'
 //import { ChainId } from 'nimbus-swap-mod/sdk'
 
@@ -67,10 +67,10 @@ export const walletconnect = new WalletConnectConnector({
 })
 
 // mainnet only
-export const fortmatic = new FortmaticConnector({
-  apiKey: FORMATIC_KEY ?? '',
-  chainId: 1
-})
+// export const fortmatic = new FortmaticConnector({
+//   apiKey: FORMATIC_KEY ?? '',
+//   chainId: 1
+// })
 
 // mainnet only
 export const portis = new PortisConnector({

@@ -5,7 +5,7 @@ import Appp from './pages/App';
 function App() {
   return (
     <div className="App">
-      Appp
+      <Appp />
     </div>
   );
 }

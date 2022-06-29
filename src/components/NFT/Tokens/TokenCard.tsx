@@ -7,7 +7,7 @@ import Frame_1 from '../../../assets/images/Nft-img/icon/Frame_1.svg'
 import Frame_2 from '../../../assets/images/Nft-img/icon/Frame_2.svg'
 import Frame_3 from '../../../assets/images/Nft-img/icon/Frame_3.svg'
 import { useWeb3React } from '@web3-react/core'
-import { useWalletModalToggle } from '../../../state/application/hooks'
+//import { useWalletModalToggle } from '../../../state/application/hooks'
 // import DefaultLogo from '../../../assets/images/Nft-img/icon/defaultLogo.svg'
 import {
   // Container,
@@ -81,7 +81,7 @@ export const TokenCard = ({
 }: iTokenProps) => {
   const history = useHistory()
   const { account } = useWeb3React()
-  const toggleWalletModal = useWalletModalToggle()
+  //const toggleWalletModal = useWalletModalToggle()
 
   // <TokenImg
   //         style={{
@@ -163,7 +163,7 @@ export const TokenCard = ({
                 fontSize={'17px'}
                 name={orangeBtnName}
                 color={'#fe5001'}
-                clickHandler={toggleWalletModal}
+                //clickHandler={toggleWalletModal}
               />
               <Button
                 className={'at-click at-nft-btn-how-it-works'}
@@ -172,7 +172,7 @@ export const TokenCard = ({
                 fontSize={'17px'}
                 name={grayBtnName}
                 color={'#c6d5dc51'}
-                clickHandler={toggleWalletModal}
+                //clickHandler={toggleWalletModal}
               />
             </>
           ) : (

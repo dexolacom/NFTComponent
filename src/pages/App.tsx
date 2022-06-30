@@ -2,11 +2,11 @@
 import React, { Suspense, useState, useEffect } from 'react'
 import { Route, Switch, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
-import StakeContext from '../context/StakeContext'
+//import StakeContext from '../context/StakeContext'
 //import GoogleAnalyticsReporter from '../components/analytics/GoogleAnalyticsReporter'
-import AddressClaimModal from '../components/claim/AddressClaimModal'
+//import AddressClaimModal from '../components/claim/AddressClaimModal'
 import Header from '../components/Header'
-import Popups from '../components/Popups'
+//import Popups from '../components/Popups'
 import Web3ReactManager from '../components/Web3ReactManager'
 import { ApplicationModal } from '../state/application/actions'
 import { useAddPopup, useModalOpen, useToggleModal } from '../state/application/hooks'
@@ -42,10 +42,10 @@ import Lends from '../components/Lends/Lends'
 import BorrowPage from '../pages/BorrowPage/index'
 import TopRated from './dApps'
 import SideBar from '../components/SideBar'
-import Footer from '../components/Footer'
+//import Footer from '../components/Footer'
 import Wrap from '../components/Wrap'
 // @ts-ignore
-import TagManager from 'react-gtm-module'
+//import TagManager from 'react-gtm-module'
 import { useActiveWeb3React } from '../hooks'
 import Modal from '../components/Modal'
 import { TYPE } from '../theme'
@@ -160,11 +160,11 @@ const StyledClosed = styled.img`
   cursor: pointer;
 `
 
-function TopLevelModals() {
-  const open = useModalOpen(ApplicationModal.ADDRESS_CLAIM)
-  const toggle = useToggleModal(ApplicationModal.ADDRESS_CLAIM)
-  return <AddressClaimModal isOpen={open} onDismiss={toggle} />
-}
+// function TopLevelModals() {
+//   const open = useModalOpen(ApplicationModal.ADDRESS_CLAIM)
+//   const toggle = useToggleModal(ApplicationModal.ADDRESS_CLAIM)
+//   return <AddressClaimModal isOpen={open} onDismiss={toggle} />
+// }
 
 export default function App() {
   const [openedMenu, setOpenedMenu] = useState(window.innerWidth < 721 ? false : true)
@@ -249,7 +249,7 @@ export default function App() {
     <Suspense fallback={null}>
       <Route component={GoogleAnalyticsReporter} />
       <Route component={DarkModeQueryParamReader} />
-      <StakeContext.Provider value={{ stakeValue, setStakeValue }}>
+      {/* <StakeContext.Provider value={{ stakeValue, setStakeValue }}> */}
         <AppWrapper>
           <MobileBoxShadow openedMenu={openedMenu} showTitle={showTitle} />
           {/* <SideBar
@@ -299,8 +299,8 @@ export default function App() {
                   </ActionButton>
                 </Banner>
               </Modal>
-              <Popups />
-              <TopLevelModals />
+              {/* <Popups /> */}
+              {/* <TopLevelModals /> */}
               <Web3ReactManager>
                 <Switch>
                   {/* <Route exact strict path="/swap" component={Swap} />
@@ -363,10 +363,10 @@ export default function App() {
               </Web3ReactManager>
               <Marginer />
             </BodyWrapper>
-            <Footer />
+            {/* <Footer /> */}
           </HeaderWrapper>
         </AppWrapper>
-      </StakeContext.Provider>
+      {/* </StakeContext.Provider> */}
     </Suspense>
   )
 }

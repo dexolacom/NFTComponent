@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { FlexDivBase_v_1,Base_UL_v_1 } from '../../helpers'
-import { colors } from '../../../../theme/index'
 
 interface Props {
   isOpen?: boolean
@@ -22,7 +21,7 @@ export const ModalBackdrop = styled.div<Props>`
   position: fixed;
   top: 0;
   left: 0;
-  background: ${colors(false).bg8};
+  background: rgba(40, 40, 40, 0.8);
   z-index: 2;
   overflow: auto;
 `
@@ -38,7 +37,7 @@ export const ModalPaddings = styled.div`
 export const ContentWrapper = styled.div`
   width: 357px;
   padding: 20px;
-  background: ${colors(false).grey3};
+  background: #343434;
   border: 1px solid #2d2d2d;
   box-sizing: border-box;
   border-radius: 16px;
@@ -59,7 +58,7 @@ export const StyledPopupHr = styled.h3`
   line-height: 28px;
   font-weight: 400;
   margin: 0 0 16px 0;
-  color: ${colors(false).text1};
+  color: #FFFFFF;
   display: flex;
   justify-content: space-between;
 `
@@ -67,7 +66,7 @@ export const StyledPopupHr = styled.h3`
 export const StyledPopupTitle = styled.div`
   font-size: 17px;
   line-height: 24px;
-  color: ${colors(false).text2};
+  color: #bbbbbb;
   margin: 0 0 16px 0;
 `
 
@@ -87,15 +86,15 @@ export const ModalList = styled(Base_UL_v_1)`
 export const ModalListItemSwath = styled.li`
   height: 1px;
   width: 100%;
-  background-color: ${colors(false).bg9};
+  background-color: #c4c9d247;
 `
 
 export const ModalListItem = styled(CustomLi)`
-  color: ${colors(false).text2};
+  color: #bbbbbb;
 `
 
 export const ModalListItemTotal = styled(CustomLi)`
-  color: ${colors(false).text1};
+  color: #FFFFFF;
   &:last-child {
     margin-bottom: 28px;
   }

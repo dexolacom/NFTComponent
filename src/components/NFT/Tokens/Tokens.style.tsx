@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { colors } from '../../../theme/index'
 import closeToken from '../../../assets/images/Nft-img/icon/closeToken.svg'
 import {
   FlexDivBase_v_1,
@@ -43,7 +42,7 @@ export const CardContainer = styled.div<Props>`
   height: ${props => (props.isClose ? '520px' : '577px')};
   border-radius: 16px;
   border: 1px solid #2d2d2d;
-  background: ${colors(false).bg13};
+  background: #212121;
   padding: 20px;
   display: flex;
   margin-top: 22px;
@@ -56,7 +55,7 @@ export const SmollCardContainer = styled.div`
   width: 372px;
   border-radius: 16px;
   border: 1px solid #2d2d2d;
-  background: ${colors(false).bg13};
+  background: #212121;
   padding: 20px;
   display: flex;
   margin-top: 22px;
@@ -101,10 +100,10 @@ export const TokenName = styled.span`
   letter-spacing: 0.03em;
 `
 export const TokenStatus = styled(Base_FontSizeSpan_v_1)`
-  color: ${colors(false).text10};
+  color: #18e77f;
 `
 export const TokenClosetatus = styled(Base_FontSizeSpan_v_1)`
-  color: ${colors(false).text8};
+  color: #ffcc48;
 `
 
 export const TokenAmountDiv = styled.div`
@@ -113,10 +112,10 @@ export const TokenAmountDiv = styled.div`
 export const TokenIcon = styled.span``
 
 export const TokenMinCost = styled(Base_FontSizeSpan_v_2)`
-  color: ${colors(false).text2};
+  color: #bbbbbb;
 `
 export const TokenAmount = styled(Base_FontSizeSpan_v_2)`
-  color: ${colors(false).text11};
+  color: #3dd598;
 `
 
 export const ListItemContainer = styled.div`
@@ -130,14 +129,14 @@ export const ListItemAmount = styled.span`
   font-size: 24px;
   line-height: 31px;
   letter-spacing: 0.03em;
-  color: ${colors(false).text1};
+  color: #FFFFFF;
 `
 export const ListItemTitle = styled.p`
   margin: 0;
   font-size: 14px;
   line-height: 18px;
   letter-spacing: 0.03em;
-  color: ${colors(false).text6};
+  color: #8e8e8e;
 `
 export const ListItemHelpers = styled.span`
   position: absolute;
@@ -152,7 +151,7 @@ export const BtnContainer = styled(FlexDivBase_v_1)`
 export const Lane = styled.div`
   width: 100%;
   height: 1px;
-  background-color: ${colors(false).bg10};
+  background-color: #2D2D2D;
 `
 export const CloseToken = styled.div`
   width: 100%;

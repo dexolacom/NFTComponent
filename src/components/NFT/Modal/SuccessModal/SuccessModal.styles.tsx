@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import { DialogOverlay } from '@reach/dialog'
 import { ButtonPrimary } from '../../../Button'
 import { FlexDivBase_v_3, FlexDivBase_v_1 } from '../../helpers'
-import { colors } from '../../../../theme/index'
 
 interface Props {
   isVisible?: boolean
@@ -28,23 +27,23 @@ const CustomText = styled.div`
 export const Heading = styled.div`
   font-size: 20px;
   line-height: 24px;
-  color: ${colors(false).text1};
+  color: #FFFFFF;
   margin-bottom: 12px;
 `
 export const Title = styled(CustomText)`
-  color: ${colors(false).text2};
+  color: #bbbbbb;
 `
 export const SubTitle = styled(CustomText)`
-  color: ${colors(false).text2};
+  color: #bbbbbb;
 `
 export const Hash = styled(CustomText)`
-  color: ${colors(false).primary1};
+  color: #E44B05;
   margin-bottom: 25px;
   text-align: center;
 `
 export const HashLink = styled.a`
   text-decoration: none;
-  color: ${colors(false).primary1};
+  color: #E44B05;
   margin-bottom: 25px;
   text-align: center;
   font-size: 14px;
@@ -71,7 +70,7 @@ export const ContentWrapper = styled(FlexDivBase_v_1)`
   min-height: 332px;
   position: relative;
   padding: 24px;
-  background: ${colors(false).grey3};
+  background: #343434;
   border: 1px solid #2d2d2d;
   box-sizing: border-box;
   border-radius: 24px;

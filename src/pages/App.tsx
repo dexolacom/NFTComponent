@@ -1,68 +1,72 @@
-// @ts-nocheck
+
 import React, { Suspense, useState, useEffect } from 'react'
-import { Route, Switch, useLocation } from 'react-router-dom'
+import { 
+  Route, 
+  Switch, 
+  //useLocation 
+} from 'react-router-dom'
 import styled from 'styled-components'
 //import StakeContext from '../context/StakeContext'
 //import GoogleAnalyticsReporter from '../components/analytics/GoogleAnalyticsReporter'
 //import AddressClaimModal from '../components/claim/AddressClaimModal'
-import Header from '../components/Header'
+//import Header from '../components/Header'
 //import Popups from '../components/Popups'
 import Web3ReactManager from '../components/Web3ReactManager'
-import { ApplicationModal } from '../state/application/actions'
-import { useAddPopup, useModalOpen, useToggleModal } from '../state/application/hooks'
-import DarkModeQueryParamReader from '../theme/DarkModeQueryParamReader'
-import AddLiquidity from './AddLiquidity'
-import {
-  RedirectDuplicateTokenIds,
-  RedirectOldAddLiquidityPathStructure,
-  RedirectToAddLiquidity,
-  RedirectVotingPathStructure,
-  RedirectVotingInfoPathStructure
-} from './AddLiquidity/redirects'
-import Earn from './Earn'
-import Manage from './Earn/Manage'
-import MigrateV1 from './MigrateV1'
-import MigrateV1Exchange from './MigrateV1/MigrateV1Exchange'
-import RemoveV1Exchange from './MigrateV1/RemoveV1Exchange'
-import Pool from './Pool'
-import PoolFinder from './PoolFinder'
-import RemoveLiquidity from './RemoveLiquidity'
-import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redirects'
-import Swap from './Swap'
-import { OpenClaimAddressModalAndRedirectToSwap, RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
-import Staking from './Staking'
-import LpStaking from './LpStaking'
-import Referral from './Referral'
-import Voting from './Voting'
-import Dapps from './dApps'
-import Vote from './Vote'
-import VotePage from './Vote/VotePage'
-import ProposalDetails from './Voting/ProposalDetails'
-import Lends from '../components/Lends/Lends'
-import BorrowPage from '../pages/BorrowPage/index'
-import TopRated from './dApps'
-import SideBar from '../components/SideBar'
+//import { ApplicationModal } from '../state/application/actions'
+//import { useAddPopup, useModalOpen, useToggleModal } from '../state/application/hooks'
+//import DarkModeQueryParamReader from '../theme/DarkModeQueryParamReader'
+//import AddLiquidity from './AddLiquidity'
+// import {
+//   RedirectDuplicateTokenIds,
+//   RedirectOldAddLiquidityPathStructure,
+//   RedirectToAddLiquidity,
+//   RedirectVotingPathStructure,
+//   RedirectVotingInfoPathStructure
+// } from './AddLiquidity/redirects'
+// import Earn from './Earn'
+// import Manage from './Earn/Manage'
+// import MigrateV1 from './MigrateV1'
+// import MigrateV1Exchange from './MigrateV1/MigrateV1Exchange'
+// import RemoveV1Exchange from './MigrateV1/RemoveV1Exchange'
+// import Pool from './Pool'
+// import PoolFinder from './PoolFinder'
+// import RemoveLiquidity from './RemoveLiquidity'
+// import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redirects'
+// import Swap from './Swap'
+// import { OpenClaimAddressModalAndRedirectToSwap, RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
+// import Staking from './Staking'
+// import LpStaking from './LpStaking'
+// import Referral from './Referral'
+// import Voting from './Voting'
+// import Dapps from './dApps'
+// import Vote from './Vote'
+// import VotePage from './Vote/VotePage'
+// import ProposalDetails from './Voting/ProposalDetails'
+// import Lends from '../components/Lends/Lends'
+// import BorrowPage from '../pages/BorrowPage/index'
+// import TopRated from './dApps'
+// import SideBar from '../components/SideBar'
 //import Footer from '../components/Footer'
-import Wrap from '../components/Wrap'
-// @ts-ignore
+//import Wrap from '../components/Wrap'
+
 //import TagManager from 'react-gtm-module'
 import { useActiveWeb3React } from '../hooks'
-import Modal from '../components/Modal'
-import { TYPE } from '../theme'
+//import Modal from '../components/Modal'
+//import { TYPE } from '../theme'
 import { ButtonPrimary } from '../components/Button'
-import coins from '../assets/images/banners/coins.png'
-import closeIcon from '../assets/images/banners/close.png'
+//import coins from '../assets/images/banners/coins.png'
+//import closeIcon from '../assets/images/banners/close.png'
 
-import P2P from './P2P'
-import MyAdverts from '../components/P2P/MyAdverts/Table'
-import MyTrades from '../components/P2P/MyTrades/Table'
-import MyChats from '../components/P2P/MyChats/Table'
-import CreateAdvert from '../components/P2P/Forms/CreateAdvert'
-import EditAdvert from '../components/P2P/Forms/EditAdvert'
-import CreateTrade from '../components/P2P/Forms/CreateTrade'
-import Chat from '../components/P2P/Chat/Chat'
-import { RedirectToMyAdverts } from '../components/P2P/TableRow/redirects'
-import NFT from './NFT/index'
+// import P2P from './P2P'
+// import MyAdverts from '../components/P2P/MyAdverts/Table'
+// import MyTrades from '../components/P2P/MyTrades/Table'
+// import MyChats from '../components/P2P/MyChats/Table'
+// import CreateAdvert from '../components/P2P/Forms/CreateAdvert'
+// import EditAdvert from '../components/P2P/Forms/EditAdvert'
+// import CreateTrade from '../components/P2P/Forms/CreateTrade'
+// import Chat from '../components/P2P/Chat/Chat'
+// import { RedirectToMyAdverts } from '../components/P2P/TableRow/redirects'
+// import NFT from './NFT/index'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -183,44 +187,44 @@ export default function App() {
   //   setOpenedMenu(!openedMenu)
   // }
 
-  const location = useLocation()
+  //const location = useLocation()
 
-  useEffect(() => {
-    const timer = setTimeout(() => setShowTitle(openedMenu), !openedMenu ? 300 : 0)
-    const date = Date.now()
-    const showBannerTime = localStorage.getItem('bannerСlosed')
+  // useEffect(() => {
+  //   const timer = setTimeout(() => setShowTitle(openedMenu), !openedMenu ? 300 : 0)
+  //   const date = Date.now()
+  //   const showBannerTime = localStorage.getItem('bannerСlosed')
 
-    if (chainId !== 56 && chainId !== 97 && chainId !== undefined && date > showBannerTime) {
-      setShowBanner(true)
-    }
+  //   if (chainId !== 56 && chainId !== 97 && chainId !== undefined && date > showBannerTime) {
+  //     setShowBanner(true)
+  //   }
 
-    if (!TagManager) {
-      return () => {
-        clearTimeout(timer)
-      }
-    }
+  //   if (!TagManager) {
+  //     return () => {
+  //       clearTimeout(timer)
+  //     }
+  //   }
 
-    TagManager.dataLayer({
-      dataLayer: {
-        event: 'Pageview',
-        pagePath: `/#${location.pathname + location.search}`,
-        pageTitle: location.pathname.slice(1)
-      }
-    })
+  //   TagManager.dataLayer({
+  //     dataLayer: {
+  //       event: 'Pageview',
+  //       pagePath: `/#${location.pathname + location.search}`,
+  //       pageTitle: location.pathname.slice(1)
+  //     }
+  //   })
 
-    if (account) {
-      TagManager?.dataLayer({
-        dataLayer: {
-          user_id: account
-        }
-      })
-      ;(window.dataLayer = window.dataLayer || []).push({ user_id: account, net_id: chainId })
-    }
+  //   if (account) {
+  //     TagManager?.dataLayer({
+  //       dataLayer: {
+  //         user_id: account
+  //       }
+  //     })
+  //     ;(window.dataLayer = window.dataLayer || []).push({ user_id: account, net_id: chainId })
+  //   }
 
-    return () => {
-      clearTimeout(timer)
-    }
-  }, [openedMenu, location, account, chainId])
+  //   return () => {
+  //     clearTimeout(timer)
+  //   }
+  // }, [openedMenu, location, account, chainId])
 
   const [oldChainId, setChainId] = useState([])
 
@@ -230,13 +234,13 @@ export default function App() {
     setChainId(prevState => {
       return [...prevState, chainId]
     })
-    if (account && oldChainId[oldChainId.length - 1]) {
-      window.dataLayer.push({
-        event: 'net_select',
-        net_from: oldChainId[oldChainId.length - 1],
-        net_to: chainId
-      })
-    }
+    // if (account && oldChainId[oldChainId.length - 1]) {
+    //   window.dataLayer.push({
+    //     event: 'net_select',
+    //     net_from: oldChainId[oldChainId.length - 1],
+    //     net_to: chainId
+    //   })
+    // }
   }, [chainId])
   /*for banner*/
   const closeBanner = () => {
@@ -247,8 +251,8 @@ export default function App() {
 
   return (
     <Suspense fallback={null}>
-      <Route component={GoogleAnalyticsReporter} />
-      <Route component={DarkModeQueryParamReader} />
+      {/* <Route component={GoogleAnalyticsReporter} /> */}
+      {/* <Route component={DarkModeQueryParamReader} /> */}
       {/* <StakeContext.Provider value={{ stakeValue, setStakeValue }}> */}
         <AppWrapper>
           <MobileBoxShadow openedMenu={openedMenu} showTitle={showTitle} />
@@ -261,7 +265,7 @@ export default function App() {
           <HeaderWrapper>
             {/* <Header menuHandler={menuHandler} openedMenu={openedMenu} /> */}
             <BodyWrapper>
-              <Modal isOpen={showBanner} onDismiss={closeBanner} maxWidth={335}>
+              {/* <Modal isOpen={showBanner} onDismiss={closeBanner} maxWidth={335}>
                 <Banner>
                   <StyledClosed
                     className={'at-click at-pp-crazy-gas-orange-close'}
@@ -298,7 +302,7 @@ export default function App() {
                     How it works?
                   </ActionButton>
                 </Banner>
-              </Modal>
+              </Modal> */}
               {/* <Popups /> */}
               {/* <TopLevelModals /> */}
               <Web3ReactManager>

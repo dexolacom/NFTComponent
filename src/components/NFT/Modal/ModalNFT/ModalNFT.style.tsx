@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { DialogOverlay } from '@reach/dialog'
 import { FlexDivBase_v_1 } from '../../helpers'
-import { colors } from '../../../../theme/index'
 
 export const ModalBackdrop = styled(DialogOverlay)`
   display: flex;
@@ -12,7 +11,7 @@ export const ModalBackdrop = styled(DialogOverlay)`
   position: fixed;
   top: 0;
   left: 0;
-  background: ${colors(false).bg8};
+  background: rgba(40, 40, 40, 0.8);
   z-index: 3;
 `
 
@@ -25,7 +24,7 @@ export const Container = styled(FlexDivBase_v_1)`
   height: 430px;
   position: relative;
   padding: 32px;
-  background: ${colors(false).grey3};
+  background: #343434;
   border: 1px solid #2d2d2d;
   box-sizing: border-box;
   border-radius: 16px;
@@ -54,7 +53,7 @@ export const HeadingNft = styled.h3`
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 24px;
   line-height: 32px;
-  color: ${colors(false).text1};
+  color: #FFFFFF;
   margin: 0 0 20px 0;
 `
 
@@ -63,7 +62,7 @@ export const HeadingTitleNft = styled.span`
   font-size: 17px;
   line-height: 32px;
   font-weight: 400;
-  color: ${colors(false).text1};
+  color: #FFFFFF;
 `
 
 export const List = styled.ul`
@@ -72,7 +71,7 @@ export const List = styled.ul`
 `
 
 const BaseText = styled.p`
-  color: ${colors(false).text2};
+  color: #bbbbbb;
   font-size: 17px;
   line-height: 28px;
   padding: 0;
@@ -83,7 +82,7 @@ export const ListItem = styled.li`
   /* list-style-position: inside; */
 `
 export const ListTitle = styled(BaseText)`
-  color: ${colors(false).text1};
+  color: #FFFFFF;
 `
 export const ButtonPlug = styled.button`
   position: absolute;

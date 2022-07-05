@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "@ailibs/feather-react-ts": "^3.0.3",
+    "@ethersproject/experimental": "^5.6.3",
     "@ethersproject/providers": "^5.6.8",
     "@metamask/providers": "^9.0.0",
     "@popperjs/core": "^2.11.5",
@@ -69,7 +70,10 @@
     "@web3-react/portis-connector": "^6.2.11",
     "@web3-react/walletconnect-connector": "^6.2.13",
     "@web3-react/walletlink-connector": "^6.2.14",
+    "decimal.js-light": "^2.5.1",
+    "fortmatic": "^2.4.0",
     "husky": "^7.0.0",
+    "jsbi": "^4.3.0",
     "nimbus-swap-mod": "^1.0.19",
     "polished": "^4.2.2",
     "react-device-detect": "^2.2.2",
@@ -79,6 +83,7 @@
     "react-router-dom": "5.0.0",
     "rebass": "^4.0.7",
     "redux-localstorage-simple": "^2.5.1",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "toformat": "^2.0.0"
   }
 }

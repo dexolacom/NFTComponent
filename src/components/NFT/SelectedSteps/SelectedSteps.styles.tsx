@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { colors } from '../../../theme/index'
 import { FlexDivBase_v_1, Base_Flex_UL_v_3, Base_Flex_LI_v_3 } from '../helpers'
 
 interface Props {
@@ -14,7 +13,7 @@ const BaseSpan = styled.span`
 export const SelectedStepsTitle = styled.p`
   font-size: 24px;
   line-height: 28px;
-  color: ${colors(false).text1};
+  color: #FFFFFF;
   margin: 39px 0 28px 0;
   @media (max-width: 500px) {
     margin: 40px 0 24px 0;
@@ -37,12 +36,12 @@ export const Container = styled.div`
 `
 
 export const SelectedListTitle = styled(BaseSpan)`
-  color: ${colors(false).text2};
+  color: #bbbbbb;
 `
 export const SelectedListNFTcode = styled.div`
   font-size: 24px;
   line-height: 28px;
-  color: ${colors(false).text1};
+  color: #FFFFFF;
 
   padding: 20px 0;
 `
@@ -52,7 +51,7 @@ export const BtnContainer = styled(FlexDivBase_v_1)`
 `
 
 export const ConnectWallet = styled(BaseSpan)`
-  color: ${colors(false).text9};
+  color: #00d870;
 `
 const BaseList = styled(Base_Flex_UL_v_3)`
   padding: 0;
@@ -65,7 +64,7 @@ export const CardContainer = styled(FlexDivBase_v_1)<Props>`
   height: ${props => (props.isActive ? '100%' : '407px')};
   transition: 0.1s;
   padding: 20px;
-  background: ${colors(false).bg13};
+  background: #212121;
   border-radius: 10px;
   @media (max-width: 915px) {
     padding: 16px;
@@ -110,33 +109,33 @@ export const ListItemAmount = styled.span`
   font-size: 24px;
   line-height: 31px;
   letter-spacing: 0.03em;
-  color: ${colors(false).text1};
+  color: #FFFFFF;
 `
 export const ListItemTitle = styled.p`
   margin: 0;
   font-size: 14px;
   line-height: 18px;
   letter-spacing: 0.03em;
-  color: ${colors(false).text6};
+  color: #8e8e8e;
 `
 export const ListItemAmountRewards = styled.p`
   margin: 0;
   font-size: 24px;
   line-height: 31px;
   letter-spacing: 0.03em;
-  color: ${colors(false).text12};
+  color: #00B35D;
 `
 export const ListItemTitleRewards = styled.span`
   font-size: 14px;
   line-height: 18px;
   letter-spacing: 0.03em;
-  color: ${colors(false).text12};
+  color: #00B35D;
 `
 export const Lane = styled.div`
   width: 100%;
   height: 1px;
   margin: 12px 0;
-  background-color: ${colors(false).bg12};
+  background-color: #1e1e1e;
 `
 export const SpanFlex = styled.span`
   display: flex;

@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { FlexDivBase_v_1, FlexDivBase_v_2, Base_UL_v_1, Base_Flex_LI_v_1 } from '../helpers'
-import { colors } from '../../../theme/index'
 
 interface Props {
   warning: boolean
@@ -14,7 +13,7 @@ const BaseFontSize = styled.span`
   line-height: 20px;
 `
 const BaseAmount = styled.div`
-  color: ${colors(false).text6};
+  color: #8e8e8e;
   line-height: 20px;
   font-size: 14px;
 `
@@ -78,13 +77,13 @@ export const LiAmount = styled(Base_Flex_LI_v_1)`
 export const SpanTextHead = styled.span`
   font-size: 24px;
   line-height: 28px;
-  color: ${colors(false).text1};
+  color:#FFFFFF;
 `
 export const SpanText = styled(BaseSpan)`
-  color: ${colors(false).text2};
+  color: #bbbbbb;
 `
 export const SpanAmount = styled(BaseSpan)`
-  color: ${colors(false).text1};
+  color: #FFFFFF;
 `
 
 export const InputWrapper = styled(FlexDivBase_v_1)`
@@ -93,7 +92,7 @@ export const InputWrapper = styled(FlexDivBase_v_1)`
   border: 0.5px solid #888888;
   border-radius: 4px;
   padding: 15px;
-  background: ${colors(false).bg7};
+  background: #3e3e3e;
 `
 export const AmountContainer = styled(FlexDivBase_v_2)``
 export const GetTokenDiv = styled(FlexDivBase_v_2)`
@@ -109,7 +108,7 @@ export const InputNft = styled.input`
   font-weight: 600;
   font-size: 20px;
   line-height: 26px;
-  color: ${colors(false).text1};
+  color: #FFFFFF;
   background: transparent;
   outline: none;
   border: none;
@@ -130,7 +129,7 @@ export const InputNft = styled.input`
   }
 
   ::placeholder {
-    color: ${colors(false).text6};
+    color: #8e8e8e;
     font-weight: 600;
     font-size: 20px;
     line-height: 26px;
@@ -142,7 +141,7 @@ export const Сurrency = styled.span`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background: ${colors(false).bg6};
+  background: #616161;
   border-radius: 4px;
 `
 export const СurrencyIcon = styled.span`
@@ -154,7 +153,7 @@ export const СurrencyName = styled.span``
 export const MaxBtn = styled.button`
   height: 40px;
   font-weight: 600;
-  background: ${colors(false).grey2};
+  background: #E3E6EC;
   font-size: 14px;
   line-height: 20px;
   color: black;
@@ -165,14 +164,14 @@ export const MaxBtn = styled.button`
 `
 
 export const BalanceAmount = styled(BaseFontSize)<Props>`
-  color: ${props => (props.warning ? colors(false).text7 : colors(false).text1)};
+  color: ${props => (props.warning ? '#f5434c' : '#FFFFFF')};
 `
 
 export const ErrorBalance = styled.p`
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
-  color: ${colors(false).text7};
+  color: #f5434c;
   letter-spacing: 0.2px;
 `
 
@@ -192,7 +191,7 @@ export const WarningBanner = styled(BaseFontSize)`
   align-items: center;
   margin: 0 0 25px 0;
   font-weight: 500;
-  color: ${colors(false).text8};
+  color: '#ffcc48';
 
   img {
     margin-right: 10px;

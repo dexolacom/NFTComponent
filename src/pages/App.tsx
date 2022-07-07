@@ -91,7 +91,12 @@ const HeaderWrapper = styled.div`
   overflow-x: hidden;
 `
 
-const MobileBoxShadow = styled.div`
+interface MobileBoxShadowProps {
+  showTitle: boolean;
+  openedMenu: boolean;
+}
+
+const MobileBoxShadow = styled.div<MobileBoxShadowProps>`
   display: none;
   position: absolute;
   top: 0;
@@ -102,7 +107,7 @@ const MobileBoxShadow = styled.div`
   background: #282828;
   opacity: ${props => (props.showTitle ? '0.8' : '0')};
   ${({ theme }) => theme.mediaWidth.upToSmall`
-    display:${props => (props.openedMenu ? 'block' : 'none')};
+    display:${(props: MobileBoxShadowProps) => (props.openedMenu ? 'block' : 'none')};
   `};
 `
 
@@ -132,14 +137,14 @@ const Marginer = styled.div`
   margin-top: 5rem;
 `
 
-const Banner = styled.div`
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  width: 100%;
-  padding: 28px 28px 128px;
-  background: url(${coins}) right 0 bottom 0 no-repeat, #e44b05;
-`
+// const Banner = styled.div`
+//   display: flex;
+//   position: relative;
+//   flex-direction: column;
+//   width: 100%;
+//   padding: 28px 28px 128px;
+//   background: url(${coins}) right 0 bottom 0 no-repeat, #e44b05;
+// `
 
 const ActionButton = styled(ButtonPrimary)`
   width: 132px;
@@ -177,11 +182,11 @@ export default function App() {
   const [stakeValue, setStakeValue] = useState(null)
   const { account, chainId } = useActiveWeb3React()
 
-  Number.prototype.toFixedDown = function(digits) {
-    const re = new RegExp('(\\d+\\.\\d{' + digits + '})(\\d)'),
-      m = this.toString().match(re)
-    return m ? parseFloat(m[1]) : this.valueOf()
-  }
+  // Number.prototype.toFixedDown = function(digits) {
+  //   const re = new RegExp('(\\d+\\.\\d{' + digits + '})(\\d)'),
+  //     m = this.toString().match(re)
+  //   return m ? parseFloat(m[1]) : this.valueOf()
+  // }
 
   // const menuHandler = () => {
   //   setOpenedMenu(!openedMenu)
@@ -229,11 +234,12 @@ export default function App() {
   const [oldChainId, setChainId] = useState([])
 
   useEffect(() => {
-    setChainId([chainId])
+    //setChainId([chainId])
 
-    setChainId(prevState => {
-      return [...prevState, chainId]
-    })
+    // setChainId(prevState => {
+    //   return [...prevState, chainId]
+    // })
+    
     // if (account && oldChainId[oldChainId.length - 1]) {
     //   window.dataLayer.push({
     //     event: 'net_select',

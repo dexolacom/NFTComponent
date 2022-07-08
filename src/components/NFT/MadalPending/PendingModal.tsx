@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { DialogOverlay } from '@reach/dialog'
-import { TYPE } from '../../../theme'
+//import { TYPE } from '../../../theme'
 import { AutoColumn } from '../../Column'
 import { ButtonPrimary } from '../../Button'
 //

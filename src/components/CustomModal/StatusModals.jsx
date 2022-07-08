@@ -10,7 +10,6 @@ import success from '../../assets/images/success.svg'
 import warning from '../../assets/images/warning.svg'
 import error from '../../assets/images/error.svg'
 import { BackButton } from './index'
-import { useTranslation } from 'react-i18next'
 
 const ModalBackdrop = styled(DialogOverlay)`
   ${props => (props.visible ? `display: flex;` : `display: none`)};
@@ -49,8 +48,11 @@ const Button = styled(ButtonPrimary)`
   justify-content: center;
 `
 
+const TextWrapper = styled(Text)<{ color: keyof Colors }>`
+  color: ${({ color, theme }) => (theme as any)[color]};
+`
+
 export const ErrorModal = ({ visible, handleClose, setIsErrorModal, setIsModalOpen }) => {
-  const { t } = useTranslation()
   const setModal = () => {
     setIsErrorModal(false)
     setIsModalOpen(true)
@@ -64,10 +66,10 @@ export const ErrorModal = ({ visible, handleClose, setIsErrorModal, setIsModalOp
             <AutoColumn gap="24px" justify="center">
               <img src={warning} alt="Error" />
               <AutoColumn gap="12px" justify="center">
-                <TYPE.mediumHeader>{t('statusModals.errorModal.modalTitle')}</TYPE.mediumHeader>
-                <TYPE.subHeader color="#BBBBBB" fontSize="13px">
-                  {t('statusModals.errorModal.modalText')}
-                </TYPE.subHeader>
+                <TextWrapper fontWeight={500} fontSize={20}>{'Confirmation Error'}</TextWrapper>
+                <TextWrapper fontWeight={400} fontSize={14} color="#BBBBBB" fontSize="13px">
+                  {'You didn’t confirm in MetaMask. Please try again.'}
+                </TextWrapper>
               </AutoColumn>
               <Button onClick={setModal}>Try again</Button>
             </AutoColumn>
@@ -79,7 +81,6 @@ export const ErrorModal = ({ visible, handleClose, setIsErrorModal, setIsModalOp
 }
 
 export const SuccessModal = ({ visible, handleClose, text, title, buttonText }) => {
-  const { t } = useTranslation()
   return (
     <ModalBackdrop visible={visible}>
       <ScrollFix>
@@ -88,13 +89,13 @@ export const SuccessModal = ({ visible, handleClose, text, title, buttonText }) 
             <AutoColumn gap="24px" justify="center">
               <img src={success} alt="Error" />
               <AutoColumn gap="12px" justify="center">
-                <TYPE.mediumHeader>{title ? title : t('statusModals.successModal.modalTitle')}</TYPE.mediumHeader>
+                <TYPE.mediumHeader>{title ? title : 'Successfully'}</TYPE.mediumHeader>
                 <TYPE.subHeader color="#BBBBBB" fontSize="13px">
-                  {text ? text : t('statusModals.successModal.modalText')}
+                  {text ? text : 'Transaction completed'}
                 </TYPE.subHeader>
               </AutoColumn>
               <Button onClick={handleClose}>
-                {buttonText ? buttonText : t('statusModals.successModal.buttonText')}
+                {buttonText ? buttonText : 'Close'}
               </Button>
             </AutoColumn>
           </ContentWrapper>
@@ -105,7 +106,6 @@ export const SuccessModal = ({ visible, handleClose, text, title, buttonText }) 
 }
 
 export const RedErrorModal = ({ visible, handleClose, setIsErrorModal, setIsModalOpen }) => {
-  const { t } = useTranslation()
   const setModal = () => {
     setIsErrorModal(false)
     setIsModalOpen(true)
@@ -119,12 +119,12 @@ export const RedErrorModal = ({ visible, handleClose, setIsErrorModal, setIsModa
             <AutoColumn gap="24px" justify="center">
               <img src={error} alt="Error" />
               <AutoColumn gap="12px" justify="center">
-                <TYPE.mediumHeader>{t('statusModals.redErrorModal.modalTitle')}</TYPE.mediumHeader>
+                <TYPE.mediumHeader>{'Feedback sending error'}</TYPE.mediumHeader>
                 <TYPE.subHeader color="#BBBBBB" fontSize="13px">
-                  {t('statusModals.redErrorModal.modalText')}
+                  {'Please try again later'}
                 </TYPE.subHeader>
               </AutoColumn>
-              <Button onClick={setModal}>{t('tryAgain')}</Button>
+              <Button onClick={setModal}>{'Try again'}</Button>
             </AutoColumn>
           </ContentWrapper>
         </ModalPaddings>

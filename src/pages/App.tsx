@@ -11,7 +11,7 @@ import styled from 'styled-components'
 //import AddressClaimModal from '../components/claim/AddressClaimModal'
 //import Header from '../components/Header'
 //import Popups from '../components/Popups'
-import Web3ReactManager from '../components/Web3ReactManager'
+//import Web3ReactManager from '../components/Web3ReactManager'
 //import { ApplicationModal } from '../state/application/actions'
 //import { useAddPopup, useModalOpen, useToggleModal } from '../state/application/hooks'
 //import DarkModeQueryParamReader from '../theme/DarkModeQueryParamReader'
@@ -66,7 +66,7 @@ import { ButtonPrimary } from '../components/Button'
 // import CreateTrade from '../components/P2P/Forms/CreateTrade'
 // import Chat from '../components/P2P/Chat/Chat'
 // import { RedirectToMyAdverts } from '../components/P2P/TableRow/redirects'
-// import NFT from './NFT/index'
+import NFT from './NFT/index'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -106,9 +106,7 @@ const MobileBoxShadow = styled.div<MobileBoxShadowProps>`
   z-index: 2;
   background: #282828;
   opacity: ${props => (props.showTitle ? '0.8' : '0')};
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    display:${(props: MobileBoxShadowProps) => (props.openedMenu ? 'block' : 'none')};
-  `};
+  display:${(props: MobileBoxShadowProps) => (props.openedMenu ? 'block' : 'none')};
 `
 
 const BodyWrapper = styled.div`
@@ -120,13 +118,7 @@ const BodyWrapper = styled.div`
   z-index: 1;
   flex: 1;
   padding: 50px 20px;
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    padding:16px;
-  `};
-
-  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-    padding:8px;
-  `};
+  padding:8px;
   /*fix for kiwi browser*/
   @media screen and (max-width: 720px) {
     padding: 78px 8px 8px 8px;
@@ -175,12 +167,12 @@ const StyledClosed = styled.img`
 //   return <AddressClaimModal isOpen={open} onDismiss={toggle} />
 // }
 
-export default function App() {
+function App() {
   const [openedMenu, setOpenedMenu] = useState(window.innerWidth < 721 ? false : true)
   const [showTitle, setShowTitle] = useState(true)
   const [showBanner, setShowBanner] = useState(false)
   const [stakeValue, setStakeValue] = useState(null)
-  const { account, chainId } = useActiveWeb3React()
+  // const { account, chainId } = useActiveWeb3React()
 
   // Number.prototype.toFixedDown = function(digits) {
   //   const re = new RegExp('(\\d+\\.\\d{' + digits + '})(\\d)'),
@@ -231,29 +223,29 @@ export default function App() {
   //   }
   // }, [openedMenu, location, account, chainId])
 
-  const [oldChainId, setChainId] = useState([])
+  //const [oldChainId, setChainId] = useState([])
 
-  useEffect(() => {
-    //setChainId([chainId])
+  // useEffect(() => {
+  //   setChainId([chainId])
 
-    // setChainId(prevState => {
-    //   return [...prevState, chainId]
-    // })
-    
-    // if (account && oldChainId[oldChainId.length - 1]) {
-    //   window.dataLayer.push({
-    //     event: 'net_select',
-    //     net_from: oldChainId[oldChainId.length - 1],
-    //     net_to: chainId
-    //   })
-    // }
-  }, [chainId])
+  //   setChainId(prevState => {
+  //     return [...prevState, chainId]
+  //   })
+
+  //   if (account && oldChainId[oldChainId.length - 1]) {
+  //     window.dataLayer.push({
+  //       event: 'net_select',
+  //       net_from: oldChainId[oldChainId.length - 1],
+  //       net_to: chainId
+  //     })
+  //   }
+  // }, [chainId])
   /*for banner*/
-  const closeBanner = () => {
-    const date = Date.now()
-    localStorage.setItem(`bannerСlosed`, JSON.stringify(date + 86400000))
-    setShowBanner(false)
-  }
+  // const closeBanner = () => {
+  //   const date = Date.now()
+  //   localStorage.setItem(`bannerСlosed`, JSON.stringify(date + 86400000))
+  //   setShowBanner(false)
+  // }
 
   return (
     <Suspense fallback={null}>
@@ -261,7 +253,10 @@ export default function App() {
       {/* <Route component={DarkModeQueryParamReader} /> */}
       {/* <StakeContext.Provider value={{ stakeValue, setStakeValue }}> */}
         <AppWrapper>
-          <MobileBoxShadow openedMenu={openedMenu} showTitle={showTitle} />
+          <div>
+            <h1>HELLO!</h1>  
+          </div>
+          {/* <MobileBoxShadow openedMenu={openedMenu} showTitle={showTitle} /> */}
           {/* <SideBar
             openedMenu={openedMenu}
             showTitle={showTitle}
@@ -311,7 +306,7 @@ export default function App() {
               </Modal> */}
               {/* <Popups /> */}
               {/* <TopLevelModals /> */}
-              <Web3ReactManager>
+              {/* <Web3ReactManager> */}
                 <Switch>
                   {/* <Route exact strict path="/swap" component={Swap} />
                   <Route exact strict path="/claim" component={OpenClaimAddressModalAndRedirectToSwap} />
@@ -369,8 +364,14 @@ export default function App() {
                     component={NFT}
                   />
                   <Route component={RedirectPathToSwapOnly} /> */}
+                  <Route
+                    exact
+                    strict
+                    path={['/n-NFT', '/getNFT-BNB', '/getNFT-BUSD', '/n-NFT-info']}
+                    component={NFT}
+                  />
                 </Switch>
-              </Web3ReactManager>
+              {/* </Web3ReactManager> */}
               <Marginer />
             </BodyWrapper>
             {/* <Footer /> */}
@@ -378,5 +379,7 @@ export default function App() {
         </AppWrapper>
       {/* </StakeContext.Provider> */}
     </Suspense>
-  )
+  );
 }
+
+export default App;

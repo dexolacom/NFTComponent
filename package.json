@@ -26,12 +26,12 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject",
     "lint": "eslint --ext .ts --ext .tsx .",
     "lint-warn": "eslint --ext .ts --ext .tsx . -c .eslintrc.warn.json",
-    "eject": "react-scripts eject",
     "prepare": "husky install"
   },
   "eslintConfig": {
@@ -70,12 +70,20 @@
     "@web3-react/portis-connector": "^6.2.11",
     "@web3-react/walletconnect-connector": "^6.2.13",
     "@web3-react/walletlink-connector": "^6.2.14",
+    "assert": "^2.0.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
     "decimal.js-light": "^2.5.1",
     "fortmatic": "^2.4.0",
+    "https-browserify": "^1.0.0",
     "husky": "^7.0.0",
     "jsbi": "^4.3.0",
     "nimbus-swap-mod": "^1.0.19",
+    "node-polyfill-webpack-plugin": "^2.0.0",
+    "os-browserify": "^0.3.0",
     "polished": "^4.2.2",
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.2.1",
     "react-device-detect": "^2.2.2",
     "react-feather": "^2.0.9",
     "react-popper": "^2.3.0",
@@ -83,8 +91,11 @@
     "react-router-dom": "5.0.0",
     "rebass": "^4.0.7",
     "redux-localstorage-simple": "^2.5.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
     "styled-components": "^5.3.5",
     "tech-web3-connector": "^1.3.4",
-    "toformat": "^2.0.0"
+    "toformat": "^2.0.0",
+    "url": "^0.11.0"
   }
 }

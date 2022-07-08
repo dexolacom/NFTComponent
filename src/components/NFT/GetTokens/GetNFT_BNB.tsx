@@ -5,18 +5,17 @@ import { escapeRegExp } from '../../../utils'
 import Button from '../Button/Button'
 import { useHistory } from 'react-router-dom'
 import { convertToHuman } from '../../../hooks/useConvertToHuman'
-import { useTranslation } from 'react-i18next'
 import { SuccessNFTModal } from '../Modal/SuccessModal/SuccessModal'
 import { ErrorModal } from '../Modal/ErrorModal'
 import GetHeadingText from '../ContentNft/GetHedingText/GetHeadingText'
 import { PendingModal } from '../MadalPending/PendingModal'
-import changeProvider from '../../../utils/currentNetworkChanger'
+//import changeProvider from '../../../utils/currentNetworkChanger'
 import dAppsBinance from '../../../assets/svg/dAppsBinance.svg'
 import Web3 from 'web3'
 import { useWeb3React } from '@web3-react/core'
 import { ADDRESSES_FACTORY } from '../../../constants/borrow-lends/constants'
 import Abi_borrow_lends from '../../../constants/borrow-lends/logicAbi.json'
-import { useWalletModalToggle } from '../../../state/application/hooks'
+//import { useWalletModalToggle } from '../../../state/application/hooks'
 // 
 import Abi from '../abi_nft.json'
 import { AbiItem } from 'web3-utils'
@@ -51,10 +50,9 @@ import {
 } from './GetNFT_BNB.styles'
 
 const GetNFT_BNB = () => {
-  const { t } = useTranslation()
   const { account, chainId } = useWeb3React()
   const history = useHistory()
-  const toggleWalletModal = useWalletModalToggle()
+  //const toggleWalletModal = useWalletModalToggle()
   //
   const web3 = new Web3(Web3.givenProvider || process.env.REACT_APP_NETWORK_URL)
   const NFT_CONTRACT = new web3.eth.Contract(Abi as AbiItem, process.env.REACT_APP_NFT_TOKEN_CONTRACT_BNB)
@@ -216,8 +214,8 @@ const GetNFT_BNB = () => {
   // Tooltip Text
   const TooltipContent = (
     <StakingTooltip>
-      <li>{t('nNFT.nNFTtoolTip.1')}</li>
-      <li>{t('nNFT.nNFTtoolTip.2')}</li>
+      <li>Note that APR is constantly changing due to fluctuations on the market.</li>
+      <li>The indicated rate reflects the current market conditions but it is not guaranteed for the future.</li>
     </StakingTooltip>
   )
 
@@ -228,8 +226,8 @@ const GetNFT_BNB = () => {
         <SuccessNFTModal
           isVisible={isSuccessModal}
           handleClose={e => handleClose(e)}
-          buttonText={t('nNFT.btnNFT.goToMyNFTs')}
-          title={t('nNFT.nNFTtext.yourNFTsuccessfully')}
+          buttonText={'Go to My NFTs'}
+          title={'Your NFT successfully issued'}
           hashToken={hashTokens}
         />
       )}
@@ -240,31 +238,31 @@ const GetNFT_BNB = () => {
           <FormContainer>
             <Ul>
               <LiHeading>
-                <SpanTextHead>{t('nNFT.getNFT.getNftTitle')}</SpanTextHead>
+                <SpanTextHead>{'Select amount'}</SpanTextHead>
                 <LightQuestionHelper text={TooltipContent} />
               </LiHeading>
               <LiAmount>
-                <SpanText>{t('p2p.listingModal.minAmount')}</SpanText>
+                <SpanText>{'Min amount'}</SpanText>
                 <SpanAmount>{convertToHuman(String(minPurchaseToken), 18)} BNB</SpanAmount>
               </LiAmount>
               <LiAmount>
-                <SpanText>{t('nNFT.getNFT.LP_Tokens_NBU_BNB_APR')}</SpanText>
+                <SpanText>{'LP Staking APY (BNB/NBU pair):'}</SpanText>
                 <SpanAmount>100%</SpanAmount>
               </LiAmount>
               <LiAmount>
-                <SpanText>{t('nNFT.getNFT.LP_Tokens_GNBU_BNB_APR')}</SpanText>
+                <SpanText>{'LP Staking APY (BNB/GNBU pair):'}</SpanText>
                 <SpanAmount>100%</SpanAmount>
               </LiAmount>
               <LiAmount>
-                <SpanText>{t('nNFT.getNFT.Lend_APR')}</SpanText>
+                <SpanText>{'Lend APR'}</SpanText>
                 <SpanAmount>{(+apr).toFixed(2)}%</SpanAmount>
               </LiAmount>
             </Ul>
             <InputWrapper>
               <AmountContainer>
-                <AmountDiv>{t('nNFT.getNFT.amount')}</AmountDiv>
+                <AmountDiv>{'Amount:'}</AmountDiv>
                 <BalanceDiv>
-                  {t('wrapMachine.balance')}&#160;
+                  {'Balance:'}&#160;
                   <BalanceAmount warning={isErrorBalance}>
                     BNB &#160;{convertToHuman(String(curentBalance), 18).toFixed(4)}
                   </BalanceAmount>
@@ -311,13 +309,13 @@ const GetNFT_BNB = () => {
               <>
                 {isInSufficientErrorText ? (
                   <ErrorBalance>
-                    {t('nNFT.getNFT.warningInsufficient')}
+                    {'Insufficient account balance. Min amount'}
                     {convertToHuman(+minPurchaseToken, 18).toFixed(2)} BNB
                   </ErrorBalance>
                 ) : null}
                 {isMissingAmountErrorText ? (
                   <ErrorBalance>
-                    {t('nNFT.getNFT.warningBalance')}
+                    {'The balance is less than the entered amount. \n Available amount'}
                     &#160;{convertToHuman(String(missingAmount), 18).toFixed(9)}
                   </ErrorBalance>
                 ) : null}
@@ -326,7 +324,7 @@ const GetNFT_BNB = () => {
               <>
                 <WarningBanner style={{ margin: '20px 0px  0px' }}>
                   <img src={dAppsBinance} alt="" />
-                  {t('dApps.warningBanner')}
+                  {'This dApp works on binance network'}
                 </WarningBanner>
               </>
             )}
@@ -335,17 +333,17 @@ const GetNFT_BNB = () => {
                 <Button
                   className={'at-click at-nft-btn-conecct-wallet'}
                   size={'100%'}
-                  name={t('nNFT.btnNFT.getNFT')}
+                  name={'Get NFT'}
                   color={'#fe5001'}
-                  clickHandler={toggleWalletModal}
+                  //clickHandler={toggleWalletModal}
                 />
               ) : chainId === 56 || chainId === 97 ? (
                 <Button
                   className={'at-click at-nft-btn-get-nft'}
                   size={'100%'}
-                  name={t('nNFT.btnNFT.getNFT')}
+                  name={'Get NFT'}
                   isDisabled={isDisabled}
-                  disabledName={t('nNFT.btnNFT.enterAnotherAmount')}
+                  disabledName={'Enter the amount'}
                   color={'#fe5001'}
                   clickHandler={getNFTToken}
                 />
@@ -353,8 +351,8 @@ const GetNFT_BNB = () => {
                 <>
                   <Button
                     className={'at-click at-btn-switchButton'}
-                    clickHandler={() => changeProvider()}
-                    name={t('dApps.switchButton')}
+                    //clickHandler={() => changeProvider()}
+                    name={'Switch the network to Binance'}
                     size={'100%'}
                     color={'#fe5001'}
                   />
@@ -363,7 +361,7 @@ const GetNFT_BNB = () => {
               <Button
                 className={'at-click at-nft-btn-back-to-info'}
                 size={'100%'}
-                name={t('nNFT.btnNFT.backToinfo')}
+                name={'Back to info'}
                 color={'#616161'}
                 clickHandler={() => history.push('/dapps/n-NFT')}
               />

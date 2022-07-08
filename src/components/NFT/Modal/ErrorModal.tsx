@@ -9,10 +9,12 @@ import { ButtonPrimary } from '../../Button'
 import '@reach/dialog/styles.css'
 import warning from '../../../assets/images/warning.svg'
 import { BackButton } from '../../CustomModal/index'
-import { useTranslation } from 'react-i18next'
+
+const TextWrapper = styled(Text)<{ color: keyof Colors }>`
+  color: ${({ color, theme }) => (theme as any)[color]};
+`
 
 export const ErrorModal = ({ isVisible, handleClose }) => {
-  const { t } = useTranslation()
 
   return (
     <ModalBackdrop isVisible={isVisible}>
@@ -23,13 +25,13 @@ export const ErrorModal = ({ isVisible, handleClose }) => {
             <AutoColumn gap="24px" justify="center">
               <img src={warning} alt="Error" />
               <AutoColumn gap="12px" justify="center">
-                <TYPE.mediumHeader>{t('statusModals.errorModal.modalTitle')}</TYPE.mediumHeader>
-                <TYPE.subHeader color="#BBBBBB" fontSize="13px" style={{ textAlign: 'center' }}>
-                  {t('nNFT.modal.errorModalText')}
-                </TYPE.subHeader>
+                <TextWrapper fontWeight={500} fontSize={20}>{'Confirmation Error'}</TextWrapper>
+                <TextWrapper fontWeight={400} fontSize={14} color="#BBBBBB" fontSize="13px" style={{ textAlign: 'center' }}>
+                  {'Some mistake ! Or you have not verified in MetaMask. Please try again'}
+                </TextWrapper>
               </AutoColumn>
               <Button onClick={handleClose} className={'at-click at-nft-btn-tryAgain'}>
-                {t('tryAgain')}
+                {'Try again'}
               </Button>
             </AutoColumn>
           </ContentWrapper>

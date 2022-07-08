@@ -9,16 +9,18 @@ import { ButtonPrimary } from '../../Button'
 import Loaders from '../Loader/Loaders'
 //
 import '@reach/dialog/styles.css'
-import { BackButton } from './index'
-import { useTranslation } from 'react-i18next'
+//import { BackButton } from './index'
 
 interface IProps {
   isVisible?: boolean
   title?: string
 }
 
+const TextWrapper = styled(Text)<{ color: keyof Colors }>`
+  color: ${({ color, theme }) => (theme as any)[color]};
+`
+
 export const PendingModal = ({ isVisible, title }: IProps) => {
-  const { t } = useTranslation()
   return (
     <ModalBackdrop isVisible={isVisible}>
       <ScrollFix>
@@ -27,10 +29,10 @@ export const PendingModal = ({ isVisible, title }: IProps) => {
             <AutoColumn gap="24px" justify="center">
               <Loaders />
               <AutoColumn gap="12px" justify="center">
-                <TYPE.mediumHeader>{t('nNFT.modal.processing')}</TYPE.mediumHeader>
-                <TYPE.subHeader color="#BBBBBB" fontSize="13px" lineHeight="24px">
-                  {title ? title : t('nNFT.modal.modalText')}
-                </TYPE.subHeader>
+                <TextWrapper fontWeight={500} fontSize={20}>{'Processing...'}</TextWrapper>
+                <TextWrapper fontWeight={400} fontSize={14} color="#BBBBBB" fontSize="13px" lineHeight="24px">
+                  {title ? title : 'Please wait, your transaction is being processed on the blockchain... Soon your NFT will be issued and available in your wallet right away.'}
+                </TextWrapper>
               </AutoColumn>
             </AutoColumn>
           </ContentWrapper>

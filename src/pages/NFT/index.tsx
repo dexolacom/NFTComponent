@@ -1,4 +1,4 @@
-// @ts-nocheck
+//@ts-nocheck
 import React, { useState, useEffect } from 'react'
 import { Route } from 'react-router-dom'
 import HeadingText from '../../components/NFT/ContentNft/HedingText/HeadingText'
@@ -9,10 +9,9 @@ import SelectedSteps from '../../components/NFT/SelectedSteps/SelectedSteps'
 import Button from '../../components/NFT/Button/Button'
 import dAppsBinance from '../../assets/svg/dAppsBinance.svg'
 import { useHistory } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
 import { useWeb3React } from '@web3-react/core'
-import { useWalletModalToggle } from '../../state/application/hooks'
-import changeProvider from '../../utils/currentNetworkChanger'
+//import { useWalletModalToggle } from '../../state/application/hooks'
+//import changeProvider from '../../utils/currentNetworkChanger'
 import Web3 from 'web3'
 // abi
 import Abi from '../../components/NFT/abi_nft.json'
@@ -37,9 +36,8 @@ import {
 
 const NFT: React.FC = () => {
   const history = useHistory()
-  const { t } = useTranslation()
   const { account, chainId } = useWeb3React()
-  const toggleWalletModal = useWalletModalToggle()
+  //const toggleWalletModal = useWalletModalToggle()
   // 
   const web3 = new Web3(Web3.givenProvider || process.env.REACT_APP_NETWORK_URL)
   const NFT_CONTRACT = new web3.eth.Contract(Abi as AbiItem, process.env.REACT_APP_NFT_TOKEN_CONTRACT_BNB)
@@ -96,11 +94,11 @@ const NFT: React.FC = () => {
       <Container>
         <Content>
           <Route
-            path={'/dapps/n-NFT-info'}
+            path={'/n-NFT-info'}
             render={() => (
               <>
                 <ContainerSelected>
-                  <SelectedStepsTitle>{t('nNFT.nNFTtext.getMoreNft')}</SelectedStepsTitle>
+                  <SelectedStepsTitle>{'Get more NTFs'}</SelectedStepsTitle>
                   {chainId === 56 || chainId === 97 ? (
                     <>
                       <TokensSmollList />
@@ -109,17 +107,17 @@ const NFT: React.FC = () => {
                           <Button
                             className={'at-click at-nft-btn-get-smart-lender-info'}
                             size={'209px'}
-                            name={t('nNFT.btnNFT.getSmartLenderNFT')}
+                            name={'Get more NFT'}
                             color={'#fe5001'}
                             height={'44px'}
-                            clickHandler={toggleWalletModal}
+                            //clickHandler={toggleWalletModal}
                           />
                         ) : (
                           <Button
                             className={'at-click at-nft-btn-get-smart-lender-info'}
                             size={'209px'}
                             height={'44px'}
-                            name={t('nNFT.btnNFT.getSmartLenderNFT')}
+                            name={'Get more NFT'}
                             color={'#fe5001'}
                             clickHandler={() => history.push('/dapps/n-NFT')}
                           />
@@ -132,13 +130,13 @@ const NFT: React.FC = () => {
                       {!account ? null : (
                         <WarningBanner>
                           <img src={dAppsBinance} alt="ibnance Logo" />
-                          {t('dApps.warningBanner')}
+                          {'This dApp works on binance network'}
                         </WarningBanner>
                       )}
                       <Button
                         className={'at-click at-nft-btn-switchButton'}
-                        clickHandler={() => changeProvider()}
-                        name={t('dApps.switchButton')}
+                        //clickHandler={() => changeProvider()}
+                        name={'Switch the network to Binance'}
                         size={'274px'}
                         height={'44px'}
                         color={'#fe5001'}
@@ -152,7 +150,7 @@ const NFT: React.FC = () => {
           />
 
           <Route
-            path={'/dapps/n-NFT'}
+            path={'/n-NFT'}
             render={() => (
               <>
                 <TextContainer>
@@ -163,7 +161,7 @@ const NFT: React.FC = () => {
                     <Button
                       className={'at-click at-nft-btn-back-to-my-nft'}
                       clickHandler={() => history.push('/dapps/n-NFT-info')}
-                      name={t('nNFT.btnNFT.backToMyNFT')}
+                      name={'Back to my NFT'}
                       size={'160px'}
                       height={'44px'}
                       color={'#EDEDED'}
@@ -176,13 +174,13 @@ const NFT: React.FC = () => {
                     {!account ? null : (
                       <WarningBanner>
                         <img src={dAppsBinance} alt="ibnance Logo" />
-                        {t('dApps.warningBanner')}
+                        {'This dApp works on binance network'}
                       </WarningBanner>
                     )}
                     <Button
                       className={'at-click at-nft-btn-switchButton'}
-                      clickHandler={() => changeProvider()}
-                      name={t('dApps.switchButton')}
+                      //clickHandler={() => changeProvider()}
+                      name={'Switch the network to Binance'}
                       size={'274px'}
                       height={'44px'}
                       color={'#fe5001'}
@@ -195,8 +193,8 @@ const NFT: React.FC = () => {
             exact
           />
 
-          <Route path={'/dapps/getNFT-BNB'} render={() => <GetNFT_BNB />} exact />
-          <Route path={'/dapps/getNFT-BUSD'} render={() => <GetNFT_BUSD />} exact />
+          <Route path={'/getNFT-BNB'} render={() => <GetNFT_BNB />} exact />
+          <Route path={'/getNFT-BUSD'} render={() => <GetNFT_BUSD />} exact />
         </Content>
       </Container>
     </>

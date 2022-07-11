@@ -16,10 +16,6 @@ interface IProps {
   title?: string
 }
 
-const TextWrapper = styled(Text)<{ color: keyof Colors }>`
-  color: ${({ color, theme }) => (theme as any)[color]};
-`
-
 export const PendingModal = ({ isVisible, title }: IProps) => {
   return (
     <ModalBackdrop isVisible={isVisible}>
@@ -29,10 +25,10 @@ export const PendingModal = ({ isVisible, title }: IProps) => {
             <AutoColumn gap="24px" justify="center">
               <Loaders />
               <AutoColumn gap="12px" justify="center">
-                <TextWrapper fontWeight={500} fontSize={20}>{'Processing...'}</TextWrapper>
-                <TextWrapper fontWeight={400} fontSize={14} color="#BBBBBB" fontSize="13px" lineHeight="24px">
+                <div style={{ fontWeight: '500', fontSize: '20', color: '#000000'}}>{'Processing...'}</div>
+                <div style={{ fontWeight: '400', fontSize: '13', color: '#BBBBBB', lineHeight: '24px'}}>
                   {title ? title : 'Please wait, your transaction is being processed on the blockchain... Soon your NFT will be issued and available in your wallet right away.'}
-                </TextWrapper>
+                </div>
               </AutoColumn>
             </AutoColumn>
           </ContentWrapper>

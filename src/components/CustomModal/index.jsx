@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
-import { TYPE } from '../../theme'
-import { LightQuestionHelper } from '../QuestionHelper'
+import { LightQuestionHelper } from '../NFT/QuestionHelpers'
 import { RowBetween } from '../Row'
 import { AutoColumn } from '../Column'
 
@@ -115,7 +114,7 @@ const CustomModal = ({ isOpen, title, tipText, closeAction, children }) => {
                     {/*  <TokenIcon contractAddress={''} currency={formattedCurrency} chainId={chainId}/>*/}
                     {/*</MiniLogo>*/}
                   </ShowCondition>
-                  {title && <TYPE.mediumHeader>{title}</TYPE.mediumHeader>}
+                  {title && <div style={{ fontWeight: '500', fontSize: '20', color: '#000000'}}>{title}</div>}
                 </div>
                 {tipText && (
                   <HideCondition>

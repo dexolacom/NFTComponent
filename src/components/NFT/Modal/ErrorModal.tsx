@@ -10,10 +10,6 @@ import '@reach/dialog/styles.css'
 import warning from '../../../assets/images/warning.svg'
 import { BackButton } from '../../CustomModal/index'
 
-const TextWrapper = styled(Text)<{ color: keyof Colors }>`
-  color: ${({ color, theme }) => (theme as any)[color]};
-`
-
 export const ErrorModal = ({ isVisible, handleClose }) => {
 
   return (
@@ -25,10 +21,10 @@ export const ErrorModal = ({ isVisible, handleClose }) => {
             <AutoColumn gap="24px" justify="center">
               <img src={warning} alt="Error" />
               <AutoColumn gap="12px" justify="center">
-                <TextWrapper fontWeight={500} fontSize={20}>{'Confirmation Error'}</TextWrapper>
-                <TextWrapper fontWeight={400} fontSize={14} color="#BBBBBB" fontSize="13px" style={{ textAlign: 'center' }}>
+                <div style={{ fontWeight: '500', fontSize: '20', color: '#000000'}}>{'Confirmation Error'}</div>
+                <div style={{ fontWeight: '400', fontSize: '13', color: '#BBBBBB', textAlign: 'center'}}>
                   {'Some mistake ! Or you have not verified in MetaMask. Please try again'}
-                </TextWrapper>
+                </div>
               </AutoColumn>
               <Button onClick={handleClose} className={'at-click at-nft-btn-tryAgain'}>
                 {'Try again'}

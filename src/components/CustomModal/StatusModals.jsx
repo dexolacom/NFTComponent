@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { DialogOverlay } from '@reach/dialog'
-import { TYPE } from '../../theme'
 import { AutoColumn } from '../../components/Column'
 import { ButtonPrimary } from '../Button'
 
@@ -48,10 +47,6 @@ const Button = styled(ButtonPrimary)`
   justify-content: center;
 `
 
-const TextWrapper = styled(Text)<{ color: keyof Colors }>`
-  color: ${({ color, theme }) => (theme as any)[color]};
-`
-
 export const ErrorModal = ({ visible, handleClose, setIsErrorModal, setIsModalOpen }) => {
   const setModal = () => {
     setIsErrorModal(false)
@@ -63,13 +58,15 @@ export const ErrorModal = ({ visible, handleClose, setIsErrorModal, setIsModalOp
         <ModalPaddings>
           <ContentWrapper>
             <BackButton onClick={handleClose} />
-            <AutoColumn gap="24px" justify="center">
-              <img src={warning} alt="Error" />
-              <AutoColumn gap="12px" justify="center">
-                <TextWrapper fontWeight={500} fontSize={20}>{'Confirmation Error'}</TextWrapper>
-                <TextWrapper fontWeight={400} fontSize={14} color="#BBBBBB" fontSize="13px">
+            <AutoColumn gap='24px' justify='center'>
+              <img src={warning} alt='Error' />
+              <AutoColumn gap='12px' justify='center'>
+                <div style={{ fontWeight: '500', fontSize: '20', color: '#000000'}}>
+                  {'Confirmation Error'}
+                </div>
+                <div style={{ fontWeight: '400', fontSize: '13', color: '#BBBBBB'}}>
                   {'You didn’t confirm in MetaMask. Please try again.'}
-                </TextWrapper>
+                </div>
               </AutoColumn>
               <Button onClick={setModal}>Try again</Button>
             </AutoColumn>
@@ -89,10 +86,12 @@ export const SuccessModal = ({ visible, handleClose, text, title, buttonText }) 
             <AutoColumn gap="24px" justify="center">
               <img src={success} alt="Error" />
               <AutoColumn gap="12px" justify="center">
-                <TYPE.mediumHeader>{title ? title : 'Successfully'}</TYPE.mediumHeader>
-                <TYPE.subHeader color="#BBBBBB" fontSize="13px">
+                <div style={{ fontWeight: '500', fontSize: '20', color: '#000000'}}>
+                  {title ? title : 'Successfully'}
+                </div>
+                <div style={{ fontWeight: '400', fontSize: '13', color: '#BBBBBB'}}>
                   {text ? text : 'Transaction completed'}
-                </TYPE.subHeader>
+                </div>
               </AutoColumn>
               <Button onClick={handleClose}>
                 {buttonText ? buttonText : 'Close'}
@@ -119,10 +118,12 @@ export const RedErrorModal = ({ visible, handleClose, setIsErrorModal, setIsModa
             <AutoColumn gap="24px" justify="center">
               <img src={error} alt="Error" />
               <AutoColumn gap="12px" justify="center">
-                <TYPE.mediumHeader>{'Feedback sending error'}</TYPE.mediumHeader>
-                <TYPE.subHeader color="#BBBBBB" fontSize="13px">
+                <div style={{ fontWeight: '500', fontSize: '20', color: '#000000'}}>
+                  {'Feedback sending error'}
+                </div>
+                <div style={{ fontWeight: '400', fontSize: '13', color: '#BBBBBB'}}>
                   {'Please try again later'}
-                </TYPE.subHeader>
+                </div>
               </AutoColumn>
               <Button onClick={setModal}>{'Try again'}</Button>
             </AutoColumn>

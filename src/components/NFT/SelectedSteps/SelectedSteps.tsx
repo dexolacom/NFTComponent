@@ -20,7 +20,6 @@ import Frame_1 from '../../../assets/images/Nft-img/icon/Frame_1.svg'
 import Frame_2 from '../../../assets/images/Nft-img/icon/Frame_2.svg'
 import Frame_4 from '../../../assets/images/Nft-img/icon/Frame_4.svg'
 
-import { useTranslation } from 'react-i18next'
 import BurnModal from '../Modal/BurnModal/BurnModal'
 import MoreInfoModal from '../Modal/MoreInfoModal/MoreInfoModal'
 import Web3 from 'web3'
@@ -29,7 +28,7 @@ import Abi from '../abi_nft.json'
 import { convertToHuman } from '../../../hooks/useConvertToHuman'
 import { ErrorModal, SuccessModal } from '../../CustomModal/StatusModals'
 import { PendingModal } from '../MadalPending/PendingModal'
-import { useWalletModalToggle } from '../../../state/application/hooks'
+//import { useWalletModalToggle } from '../../../state/application/hooks'
 //
 import Abi_nbu_pair from '../abi_nbu-pair.json'
 import Abi_Token from '../abi_token_busd.json'
@@ -61,8 +60,7 @@ import {
 } from './SelectedSteps.styles'
 
 const SelectedSteps = () => {
-  const { t } = useTranslation()
-  const toggleWalletModal = useWalletModalToggle()
+  //const toggleWalletModal = useWalletModalToggle()
   const { account, chainId } = useWeb3React()
   // bnb
   const web3 = new Web3(Web3.givenProvider || process.env.REACT_APP_NETWORK_URL)
@@ -463,7 +461,7 @@ const SelectedSteps = () => {
 
   return (
     <>
-      {isPendingModal && <PendingModal isVisible={isPendingModal} title={t('nNFT.modal.littleModalText')} />}
+      {isPendingModal && <PendingModal isVisible={isPendingModal} title={'Please wait, your transaction is being processed on the blockchain...'} />}
       {isSuccessModal && <SuccessModal visible={isSuccessModal} handleClose={e => handleClose(e)} />}
       {isErrorModal && (
         <ErrorModal
@@ -473,19 +471,19 @@ const SelectedSteps = () => {
           setIsModalOpen={setIsModalOpen}
         />
       )}
-      <SelectedStepsTitle>{t('nNFT.selectedSteps.yourNft')} </SelectedStepsTitle>
+      <ConnectWallet>{'Connect your wallet to see the list of NFT'}</ConnectWallet>
+      <SelectedStepsTitle>{'My NFTs'} </SelectedStepsTitle>
       {!account ? (
         <>
-          <ConnectWallet>{t('nNFT.selectedSteps.connectYourWalletListNFT')}</ConnectWallet>
           <div style={{ marginTop: '20px' }}>
             <Button
               className={'at-click at-connect-to-wallet-nft'}
               size={'185px'}
               height="44px"
               fontSize="14px"
-              name={t('dApps.connectTowallet')}
+              name={'Connect to a wallet'}
               color={'#fe5001'}
-              clickHandler={toggleWalletModal}
+              //clickHandler={toggleWalletModal}
             />
           </div>
         </>
@@ -521,7 +519,7 @@ const SelectedSteps = () => {
                       <ListItem>
                         <TokenDiv>
                           <SelectedListNFTcode>
-                            {t('nNFT.tokenCard.smartLP')} - {TokenId}
+                            {'Smart LP'} - {TokenId}
                           </SelectedListNFTcode>
                         </TokenDiv>
                       </ListItem>
@@ -539,7 +537,7 @@ const SelectedSteps = () => {
                             </ListItemAmount>
                             <ListItemTitle>{currency}</ListItemTitle>
                           </SpanFlex>
-                          <ListItemTitle>{t('nNFT.selectedSteps.initiallySuppliedAssets')}</ListItemTitle>
+                          <ListItemTitle>{'Initially supplied assets'}</ListItemTitle>
                         </ListItemContainer>
                       </ListItemLi>
                       <Lane></Lane>
@@ -558,7 +556,7 @@ const SelectedSteps = () => {
 
                                 <ListItemTitle>LP_NBU</ListItemTitle>
                               </SpanFlex>
-                              <ListItemTitle>{t('header.tabs.lpStaking')}</ListItemTitle>
+                              <ListItemTitle>{'LP Staking'}</ListItemTitle>
                             </ListItemContainer>
                           </ListItemLi>
                           <Lane></Lane>
@@ -576,7 +574,7 @@ const SelectedSteps = () => {
                                 </ListItemAmount>
                                 <ListItemTitle>{currency === 'BUSD' ? 'LP_BUSD' : 'LP_GNBU'}</ListItemTitle>
                               </SpanFlex>
-                              <ListItemTitle>{t('header.tabs.lpStaking')}</ListItemTitle>
+                              <ListItemTitle>{'lpStaking'}</ListItemTitle>
                             </ListItemContainer>
                           </ListItemLi>
                           <Lane></Lane>
@@ -594,7 +592,7 @@ const SelectedSteps = () => {
                                 </ListItemAmount>
                                 <ListItemTitle>{currency}</ListItemTitle>
                               </SpanFlex>
-                              <ListItemTitle>{t('nNFT.selectedSteps.LendPool')}</ListItemTitle>
+                              <ListItemTitle>{'Lend Pool'}</ListItemTitle>
                             </ListItemContainer>
                           </ListItemLi>
                           <Lane></Lane>
@@ -609,7 +607,7 @@ const SelectedSteps = () => {
                             <ListItemAmountRewards>{getRewardAmount(TokenId)}&#160;</ListItemAmountRewards>
                             <ListItemTitle>NBU</ListItemTitle>
                           </SpanFlex>
-                          <ListItemTitleRewards>{t('nNFT.selectedSteps.rewardsWithdrawal')}</ListItemTitleRewards>
+                          <ListItemTitleRewards>{'Rewards ready for withdrawal'}</ListItemTitleRewards>
                         </ListItemContainer>
                       </ListItemLi>
                       {!isOpen ? (
@@ -619,7 +617,7 @@ const SelectedSteps = () => {
                             size={'100%'}
                             height={'44px'}
                             fontSize={'17px'}
-                            name={t('nNFT.btnNFT.moreInfo')}
+                            name={'More info'}
                             color={'#c6d5dc51'}
                             clickHandler={() => isOpenMoreInfo(TokenId)}
                           />
@@ -633,7 +631,7 @@ const SelectedSteps = () => {
                               size={'100%'}
                               height={'44px'}
                               fontSize={'17px'}
-                              name={t('nNFT.btnNFT.getRewards')}
+                              name={'Get Rewards'}
                               color={'#fe5001'}
                               clickHandler={() => aproveRewardsUser(TokenId)}
                             />
@@ -642,7 +640,7 @@ const SelectedSteps = () => {
                               size={'100%'}
                               height={'44px'}
                               fontSize={'17px'}
-                              name={t('nNFT.btnNFT.showBalanceInfo')}
+                              name={'Show Balance Info'}
                               color={'#c6d5dc51'}
                               clickHandler={() => {
                                 setIsOpenInfo(true)
@@ -654,7 +652,7 @@ const SelectedSteps = () => {
                               size={'100%'}
                               height={'44px'}
                               fontSize={'17px'}
-                              name={t('nNFT.btnNFT.redeemNFT')}
+                              name={'Redeem NFT'}
                               color={'#c6d5dc51'}
                               clickHandler={() => {
                                 setIsOpen(true)

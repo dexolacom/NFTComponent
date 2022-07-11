@@ -167,7 +167,7 @@ const StyledClosed = styled.img`
 //   return <AddressClaimModal isOpen={open} onDismiss={toggle} />
 // }
 
-function App() {
+function Appp() {
   const [openedMenu, setOpenedMenu] = useState(window.innerWidth < 721 ? false : true)
   const [showTitle, setShowTitle] = useState(true)
   const [showBanner, setShowBanner] = useState(false)
@@ -253,9 +253,9 @@ function App() {
       {/* <Route component={DarkModeQueryParamReader} /> */}
       {/* <StakeContext.Provider value={{ stakeValue, setStakeValue }}> */}
         <AppWrapper>
-          <div>
+          {/* <div>
             <h1>HELLO!</h1>  
-          </div>
+          </div> */}
           {/* <MobileBoxShadow openedMenu={openedMenu} showTitle={showTitle} /> */}
           {/* <SideBar
             openedMenu={openedMenu}
@@ -307,7 +307,7 @@ function App() {
               {/* <Popups /> */}
               {/* <TopLevelModals /> */}
               {/* <Web3ReactManager> */}
-                <Switch>
+              <Switch>
                   {/* <Route exact strict path="/swap" component={Swap} />
                   <Route exact strict path="/claim" component={OpenClaimAddressModalAndRedirectToSwap} />
                   <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
@@ -367,12 +367,13 @@ function App() {
                   <Route
                     exact
                     strict
-                    path={['/n-NFT', '/getNFT-BNB', '/getNFT-BUSD', '/n-NFT-info']}
+                    path={['/dapps/n-NFT', '/dapps/getNFT-BNB', '/dapps/getNFT-BUSD', '/dapps/n-NFT-info']}
                     component={NFT}
                   />
+                  <Route path={'/'} component={NFT}/>
                 </Switch>
               {/* </Web3ReactManager> */}
-              <Marginer />
+              {/* <Marginer /> */}
             </BodyWrapper>
             {/* <Footer /> */}
           </HeaderWrapper>
@@ -382,4 +383,4 @@ function App() {
   );
 }
 
-export default App;
+export default Appp;

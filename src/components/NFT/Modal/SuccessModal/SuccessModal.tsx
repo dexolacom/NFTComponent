@@ -20,11 +20,9 @@ import {
 } from './SuccessModal.styles'
 
 import '@reach/dialog/styles.css'
-import { useTranslation } from 'react-i18next'
 import success from '../../../../assets/images/success.svg'
 
 export const SuccessNFTModal = ({ isVisible, handleClose, buttonText, hashToken }) => {
-  const { t } = useTranslation()
   const { chainId } = useWeb3React()
   return (
     <ModalBackdrop isVisible={isVisible}>
@@ -33,9 +31,9 @@ export const SuccessNFTModal = ({ isVisible, handleClose, buttonText, hashToken 
           <ContentWrapper>
             <Container>
               <img src={success} alt="success" />
-              <Heading>{t('nNFT.nNFTtext.yourNFTsuccessfully')}</Heading>
-              <Title>{t('nNFT.modal.mayUsingYourNFT')}</Title>
-              <SubTitle>{t('nNFT.modal.tokenAddress')}</SubTitle>
+              <Heading>{'Your NFT successfully issued'}</Heading>
+              <Title>{'You may be using your NFT now'}</Title>
+              <SubTitle>{'NFT Token Address:'}</SubTitle>
             </Container>
             <HashLink
               href={

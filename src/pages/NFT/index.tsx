@@ -94,7 +94,7 @@ const NFT: React.FC = () => {
       <Container>
         <Content>
           <Route
-            path={'/n-NFT-info'}
+            path={'/dapps/n-NFT-info'}
             render={() => (
               <>
                 <ContainerSelected>
@@ -150,7 +150,7 @@ const NFT: React.FC = () => {
           />
 
           <Route
-            path={'/n-NFT'}
+            path={'/dapps/n-NFT'}
             render={() => (
               <>
                 <TextContainer>
@@ -193,8 +193,8 @@ const NFT: React.FC = () => {
             exact
           />
 
-          <Route path={'/getNFT-BNB'} render={() => <GetNFT_BNB />} exact />
-          <Route path={'/getNFT-BUSD'} render={() => <GetNFT_BUSD />} exact />
+          <Route path={'/dapps/getNFT-BNB'} render={() => <GetNFT_BNB />} exact />
+          <Route path={'/dapps/getNFT-BUSD'} render={() => <GetNFT_BUSD />} exact />
         </Content>
       </Container>
     </>

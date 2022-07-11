@@ -12,9 +12,8 @@ import nftOne96 from '../../../assets/images/Nft-img/nft-one-96.png'
 //
 import { ModalNFT } from '../Modal/ModalNFT/ModalNFT'
 import { TokenCard, CloseTokenCard, SmollTokenCard } from './TokenCard'
-import { useTranslation } from 'react-i18next'
 import { useWeb3React } from '@web3-react/core'
-import { useWalletModalToggle } from '../../../state/application/hooks'
+//import { useWalletModalToggle } from '../../../state/application/hooks'
 //
 import { Container, TokenTooltip } from './Tokens.style'
 //
@@ -24,9 +23,8 @@ import AbiBorrowLends from '../../../constants/borrow-lends/logicAbi.json'
 import { AbiItem } from 'web3-utils'
 
 export const Tokens = () => {
-  const { t } = useTranslation()
   const { account } = useWeb3React()
-  const toggleWalletModal = useWalletModalToggle()
+  //const toggleWalletModal = useWalletModalToggle()
   const [isOpenModal, setIsOpenModal] = useState(false)
   const [currensyName, setCurrensyName] = useState('')
   const [minAmountBNBToken, setMinAmountBNBToken] = useState('0.00')
@@ -90,27 +88,27 @@ export const Tokens = () => {
   // Tooltip Text Smart LP BNB
   const LendTooltipContentBNB = (
     <TokenTooltip>
-      <li>{t('nNFT.nNFTtoolTip.5')}</li>
-      <li>{t('nNFT.nNFTtoolTip.6')}</li>
+      <li>{' – 30% of your BNB go to Lend dApp as loans. The APR there is flexible. The APR there is based on the market conditions so your rewards will vary'}</li>
+      <li>{' - The rewards accrue in BNB, and can be withdrawn when burning the NFT.'}</li>
     </TokenTooltip>
   )
   const LPRewardsTooltipContentBNB = (
     <TokenTooltip>
-      <li>{t('nNFT.nNFTtoolTip.7')}</li>
-      <li>{t('nNFT.nNFTtoolTip.8')}</li>
+      <li>{' – 70% of your assets are provided as liquidity to BNB/NBU and BNB/GNBU pairs at Nimbus Swap. You receive 0,3% swap fees from all transactions made in these pairs. But while the swap fee level is fixed, your actual rewards depend on your pool share and the trade volume;'}</li>
+      <li>{' – The rewards accrue in BNB, NBU, and GNBU, and can be withdrawn when burning the NFT.'}</li>
     </TokenTooltip>
   )
   const LPStakingTooltipContentBNB = (
     <TokenTooltip>
-      <li>{t('nNFT.nNFTtoolTip.9')}</li>
-      <li>{t('nNFT.nNFTtoolTip.10')}</li>
+      <li>{' – When providing liquidity to the Nimbus Swap, LP tokens are received as a representation of your liquidity. They then get staked at a fixed rate of 100% APY. But since they represent your pool share, which fluctuates, your actual rewards also fluctuate over time;'}</li>
+      <li>{'– The rewards accrue in NBU, and can be withdrawn any time.'}</li>
     </TokenTooltip>
   )
   //   Tooltip Text Smart LP BUSD
   const LPRewardsTooltipContentBUSD = (
     <TokenTooltip>
-      <li>{t('nNFT.nNFTtoolTip.11')}</li>
-      <li>{t('nNFT.nNFTtoolTip.12')}</li>
+      <li>{'– 70% of your assets are provided as liquidity to BNB/NBU and NBU/BUSD pairs at Nimbus Swap. You receive 0,3% swap fees from all transactions made in these pairs. But while the swap fee level is fixed, your actual rewards depend on your pool share and the trade volume;'}</li>
+      <li>{' – The rewards accrue in BNB, NBU, and BUSD, and can be withdrawn when burning the NFT'}</li>
     </TokenTooltip>
   )
   const getRoute = () => {}
@@ -124,12 +122,12 @@ export const Tokens = () => {
           currencyLogo={BNBcurrency}
           imageNft={nftOne96}
           historyRoute={'/dapps/getNFT-BNB'}
-          tokenName={t('nNFT.tokenCard.smartLP')}
-          tokenStatus={t('nNFT.tokenCard.live')}
+          tokenName={'Smart LP'}
+          tokenStatus={'Live'}
           amount={convertToHuman(minAmountBNBToken, '18')}
           lendAPR={aprBNB}
-          orangeBtnName={t('nNFT.btnNFT.getSmartLP')}
-          grayBtnName={t('nNFT.btnNFT.howItWorks')}
+          orangeBtnName={'Get Smart LP'}
+          grayBtnName={'How it works'}
           modalTitle="BNB"
           openModal={setIsOpenModal}
           currentModal={openCurrentModal}
@@ -141,13 +139,13 @@ export const Tokens = () => {
           currencyLogo={BUSDcurrency}
           imageNft={nftOne98}
           historyRoute="/dapps/getNFT-BUSD"
-          tokenName={t('nNFT.tokenCard.smartLP')}
-          tokenStatus={t('nNFT.tokenCard.live')}
+          tokenName={'Smart LP'}
+          tokenStatus={'Live'}
           amount="500"
           amount={convertToHuman(String(minAmountBUSDToken), '18')}
           lendAPR={aprBUSD}
-          orangeBtnName={t('nNFT.btnNFT.getSmartLP')}
-          grayBtnName={t('nNFT.btnNFT.howItWorks')}
+          orangeBtnName={'Get Smart LP'}
+          grayBtnName={'How it works'}
           modalTitle="BUSD"
           openModal={setIsOpenModal}
           currentModal={openCurrentModal}
@@ -155,8 +153,8 @@ export const Tokens = () => {
         <CloseTokenCard
           currencyLogo={DefaultLogo}
           imageNft={nftOne95}
-          tokenName={t('nNFT.tokenCard.smartStaker')}
-          tokenStatus={t('nNFT.tokenCard.inDevelopment')}
+          tokenName={'Smart Staker'}
+          tokenStatus={'In development'}
           amount={'--'}
         />
       </Container>
@@ -166,7 +164,6 @@ export const Tokens = () => {
 }
 
 export const TokensSmollList = () => {
-  const { t } = useTranslation()
 
   const [minAmountBNBToken, setMinAmountBNBToken] = useState('0.00')
   const [minAmountBUSDToken, setMinAmountBUSDToken] = useState('0.00')
@@ -194,16 +191,16 @@ export const TokensSmollList = () => {
     <Container>
       <SmollTokenCard
         currencyLogo={BNBcurrency}
-        tokenName={t('nNFT.tokenCard.smartLP')}
-        tokenStatus={t('nNFT.tokenCard.live')}
+        tokenName={'Smart LP'}
+        tokenStatus={'Live'}
         currency="BNB"
         imageNft={nftOne96}
         amount={convertToHuman(minAmountBNBToken, '18')}
       />
       {/* <SmollTokenCard
         currencyLogo={BUSDcurrency}
-        tokenName={t('nNFT.tokenCard.smartLP')}
-        tokenStatus={t('nNFT.tokenCard.live')}
+        tokenName={'Smart LP'}
+        tokenStatus={'Live'}
         currency="BUSD"
         imageNft={nftOne98}
         amount={convertToHuman(String(minAmountBUSDToken), '18')}
@@ -212,8 +209,8 @@ export const TokensSmollList = () => {
         isClose={true}
         currencyLogo={DefaultLogo}
         imageNft={nftOne95}
-        tokenName={t('nNFT.tokenCard.smartStaker')}
-        tokenStatus={t('nNFT.tokenCard.inDevelopment')}
+        tokenName={'Smart Staker'}
+        tokenStatus={'In development'}
         amount="--"
       />
     </Container>

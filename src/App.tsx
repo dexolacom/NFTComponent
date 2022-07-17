@@ -4,7 +4,7 @@ import Appp from './pages/App';
 
 function App() {
   return (
-    <div className='App'>
+    <div className='App' style={{background: 'rgba(37,37,37,1)'}}>
       <Appp />
     </div>
   );

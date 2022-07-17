@@ -1,6 +1,6 @@
 //@ts-nocheck
-import React, { useState, useEffect } from 'react'
-import { Route } from 'react-router-dom'
+import React, { useState, useEffect, Redirect } from 'react'
+import { Route, Switch } from 'react-router-dom'
 import HeadingText from '../../components/NFT/ContentNft/HedingText/HeadingText'
 import SubTitle from '../../components/NFT/ContentNft/SubTitleText/SubTitle'
 import GetNFT_BNB from '../../components/NFT/GetTokens/GetNFT_BNB'
@@ -93,6 +93,16 @@ const NFT: React.FC = () => {
     <>
       <Container>
         <Content>
+          {/* <Route
+            path={'/dapps/n-NFT-info'}
+            render={() => (
+              <>
+                <h1>Hello, world!</h1>
+              </>
+            )}
+            exact
+          /> */}
+
           <Route
             path={'/dapps/n-NFT-info'}
             render={() => (
@@ -123,7 +133,7 @@ const NFT: React.FC = () => {
                           />
                         )}
                       </SelectedBtn>
-                      <SelectedSteps />
+                      {/* <SelectedSteps /> */}
                     </>
                   ) : (
                     <div style={{ marginTop: '15px' }}>
@@ -193,8 +203,8 @@ const NFT: React.FC = () => {
             exact
           />
 
-          <Route path={'/dapps/getNFT-BNB'} render={() => <GetNFT_BNB />} exact />
-          <Route path={'/dapps/getNFT-BUSD'} render={() => <GetNFT_BUSD />} exact />
+          {/* <Route path={'/dapps/getNFT-BNB'} render={() => <GetNFT_BNB />} exact />
+          <Route path={'/dapps/getNFT-BUSD'} render={() => <GetNFT_BUSD />} exact /> */}
         </Content>
       </Container>
     </>

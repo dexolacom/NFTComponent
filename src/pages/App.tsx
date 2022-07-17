@@ -2,10 +2,12 @@
 import React, { Suspense, useState, useEffect } from 'react'
 import { 
   Route, 
-  Switch, 
+  Switch,
+  Redirect, 
   //useLocation 
 } from 'react-router-dom'
 import styled from 'styled-components'
+import "@reach/dialog/styles.css";
 //import StakeContext from '../context/StakeContext'
 //import GoogleAnalyticsReporter from '../components/analytics/GoogleAnalyticsReporter'
 //import AddressClaimModal from '../components/claim/AddressClaimModal'
@@ -370,7 +372,8 @@ function Appp() {
                     path={['/dapps/n-NFT', '/dapps/getNFT-BNB', '/dapps/getNFT-BUSD', '/dapps/n-NFT-info']}
                     component={NFT}
                   />
-                  <Route path={'/'} component={NFT}/>
+                  <Redirect from='/' to='/dapps/n-NFT'/>
+                  {/* <Route path={'/dapps/n-NFT'} component={NFT}/> */}
                 </Switch>
               {/* </Web3ReactManager> */}
               {/* <Marginer /> */}

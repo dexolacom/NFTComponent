@@ -37,7 +37,8 @@ export const Container = styled(FlexDivBase_v_4)`
 `
 
 export const CardContainer = styled.div<Props>`
-  width: 372px;
+  /* width: 372px; */
+  width: 332px;
   /* height: 577px; */
   height: ${props => (props.isClose ? '520px' : '577px')};
   border-radius: 16px;
@@ -98,6 +99,7 @@ export const TokenName = styled.span`
   font-size: 24px;
   line-height: 31px;
   letter-spacing: 0.03em;
+  color: #ffffff;
 `
 export const TokenStatus = styled(Base_FontSizeSpan_v_1)`
   color: #18e77f;

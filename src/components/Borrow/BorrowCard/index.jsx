@@ -1,7 +1,6 @@
 import React from 'react'
 import { AutoColumn } from '../../Column'
 import Row, { RowBetween } from '../../Row'
-import { TYPE } from '../../../theme'
 import { AprStatus, Card, CurrencyName, Divider, Logo } from './styles'
 import { getCurrencyNameForIncognito } from '../../../pages/dApps/service'
 import styled from 'styled-components'

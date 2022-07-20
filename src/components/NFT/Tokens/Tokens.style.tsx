@@ -53,7 +53,8 @@ export const CardContainer = styled.div<Props>`
   }
 `
 export const SmollCardContainer = styled.div`
-  width: 372px;
+  // width: 372px;
+  width: 332px;
   border-radius: 16px;
   border: 1px solid #2d2d2d;
   background: #212121;

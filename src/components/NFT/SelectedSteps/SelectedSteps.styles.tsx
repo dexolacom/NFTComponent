@@ -60,7 +60,8 @@ const BaseList = styled(Base_Flex_UL_v_3)`
   align-content: space-between;
 `
 export const CardContainer = styled(FlexDivBase_v_1)<Props>`
-  width: 372px;
+  // width: 372px;
+  width: 332px;
   height: ${props => (props.isActive ? '100%' : '407px')};
   transition: 0.1s;
   padding: 20px;

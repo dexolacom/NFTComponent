@@ -10,18 +10,18 @@ import TokenIcon from '../TokenIcon/TokenIcon'
 import { useActiveWeb3React } from '../../../hooks'
 
 const HideCondition = styled.div`
-  ${({ theme }) => theme.mediaWidth.upToLarge`
+  ${1280`
     display: none;
   `};
 `
 
 const CustomLogo = styled(Logo)`
-  ${({ theme }) => theme.mediaWidth.upToLarge`
+  @media (max-width: 1280px) {
     img {
       height: 24px;
       width: 24px;
     }
-  `};
+  }
 `
 
 const CustomTYPEbody = styled.p`
@@ -30,9 +30,9 @@ const CustomTYPEbody = styled.p`
   font-size: 16px;
   color: #8e8e8e;
 
-  ${({ theme }) => theme.mediaWidth.upToMedium`
+  @media (max-width: 1280px) {
     color: #FFFFFF;
-  `};
+  }
 `
 
 const BorrowCard = ({ cardProps, onLoanControlHandle }) => {
@@ -49,13 +49,13 @@ const BorrowCard = ({ cardProps, onLoanControlHandle }) => {
             <TokenIcon contractAddress={contractAddress} currency={formattedCurrency} chainId={chainId}/>
           </CustomLogo>
           <CurrencyName>
-            <TYPE.white fontSize={18} style={{ display: 'block' }}>
+            <div style={{ display: 'block', color: 'white', fontWeight: '500', fontSize: '18px' }}>
               {formattedCurrency ? formattedCurrency : getCurrencyNameForIncognito(contractAddress, chainId)}
-            </TYPE.white>
+            </div>
             <HideCondition>
-              <TYPE.main fontSize={14} fontWeight={600} color="#8E8E8E" style={{ display: 'block' }}>
+              <div style={{ display: 'block', color: '#8E8E8E', fontWeight: '600', fontSize: '14px' }}>
                 {formattedCurrency ? formattedCurrency : getCurrencyNameForIncognito(contractAddress, chainId)}
-              </TYPE.main>
+              </div>
             </HideCondition>
           </CurrencyName>
         </Row>

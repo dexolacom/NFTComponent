@@ -42,9 +42,9 @@ export const ContentWrapper = styled.div`
   box-sizing: border-box;
   border-radius: 16px;
 
-  ${({ theme }) => theme.mediaWidth.upToLarge`
+  @media (max-width: 1280px) {
     min-width: 370px;
-  `};
+  };
 `
 export const StakingTooltip = styled.ul`
   padding-left: 0;

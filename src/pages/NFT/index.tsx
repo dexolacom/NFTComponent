@@ -19,6 +19,7 @@ import AbiContract from '../../components/NFT/abi_contract_busd.json'
 import { AbiItem } from 'web3-utils'
 //
 import { Tokens, TokensSmollList } from '../../components/NFT/Tokens/Tokens'
+import { useBtnConnect } from "tech-web3-connector";
 //
 
 import {
@@ -65,7 +66,8 @@ const NFT: React.FC = () => {
     if (account) {
       getUserTokenId()
     }
-  }, [])
+  }, [account])
+
 
   useEffect(() => {
     // select only active
@@ -88,6 +90,13 @@ const NFT: React.FC = () => {
       .call()
       .then((data: any) => setUserTokens(prev => [...prev, data]))
   }
+
+  useEffect(()=> {
+    console.log('chainId: ' + chainId);
+    console.log('account: ' + account);
+    console.log('userTokens.length: ' + userTokens.length);
+    userTokens.length
+  },[account, chainId, userTokens.length])
 
   return (
     <>
@@ -133,7 +142,7 @@ const NFT: React.FC = () => {
                           />
                         )}
                       </SelectedBtn>
-                      {/* <SelectedSteps /> */}
+                      <SelectedSteps />
                     </>
                   ) : (
                     <div style={{ marginTop: '15px' }}>
@@ -203,8 +212,8 @@ const NFT: React.FC = () => {
             exact
           />
 
-          {/* <Route path={'/dapps/getNFT-BNB'} render={() => <GetNFT_BNB />} exact />
-          <Route path={'/dapps/getNFT-BUSD'} render={() => <GetNFT_BUSD />} exact /> */}
+          <Route path={'/dapps/getNFT-BNB'} render={() => <GetNFT_BNB />} exact />
+          <Route path={'/dapps/getNFT-BUSD'} render={() => <GetNFT_BUSD />} exact />
         </Content>
       </Container>
     </>

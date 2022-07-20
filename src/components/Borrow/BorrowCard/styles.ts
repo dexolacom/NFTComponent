@@ -8,16 +8,16 @@ export const Card = styled.div`
   padding: 24px 24px 28px;
   cursor: pointer;
 
-  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+  @media (max-width: 500px) {
     max-width: 375px;
     min-width: 320px;
-  `};
+  }
 
-  ${({ theme }) => theme.mediaWidth.upToMobileSmall`
+  @media (max-width: 380px) {
     width: 350px;
     max-width: 350px;
     min-width: 320px;
-  `};
+  }  
 `
 
 export const CurrencyName = styled.div`
@@ -57,7 +57,7 @@ export const Divider = styled.div`
   margin: 24px -24px 14px -24px;
   background: rgba(228, 228, 228, 0.1);
 
-  ${({ theme }) => theme.mediaWidth.upToLarge`
+  @media (max-width: 1280px) {
     margin: 24px -16px 14px -16px;
-  `};
+  }
 `

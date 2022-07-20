@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom'
 import styled from 'styled-components'
 import "@reach/dialog/styles.css";
+import { ConnectButton, setStyles , useSignMessage } from "tech-web3-connector";
 //import StakeContext from '../context/StakeContext'
 //import GoogleAnalyticsReporter from '../components/analytics/GoogleAnalyticsReporter'
 //import AddressClaimModal from '../components/claim/AddressClaimModal'
@@ -69,6 +70,51 @@ import { ButtonPrimary } from '../components/Button'
 // import Chat from '../components/P2P/Chat/Chat'
 // import { RedirectToMyAdverts } from '../components/P2P/TableRow/redirects'
 import NFT from './NFT/index'
+
+const customStyles = {
+  // styled modal
+  modalBackdrop: {},
+  modalContainer: {},
+  modalBtnClose: {},
+  modalConnectorsContainer: { "background-color": "color" }, // example code
+  modalConnectorsItem: {},
+  modalBtnProvider: {},
+  modalNameWallet: {color: "color"}, // example code
+
+  // styled Button
+  BtnBase:{},
+  BtnContainer:{},
+  BtnAddress:{},
+  SpanBalance:{},
+  BtnLogout:{},
+
+  // hover Button
+  "BtnBase:hover": {
+    "background-color": "color", // example code
+  },
+};
+
+// required  RPC
+
+const RPC = {
+  1: "https://mainnet.infura.io/v3/7d9d43def2584f2a9f01f2a4719327bc",
+  3: "https://ropsten.infura.io/v3/8ca77c4631f14dccb88318200cfca61d",
+  4: "https://rinkeby.infura.io/v3/8ca77c4631f14dccb88318200cfca61d",
+  5: "https://goerly.infura.io/v3/8ca77c4631f14dccb88318200cfca61d",
+  42: "https://kovan.infura.io/v3/8ca77c4631f14dccb88318200cfca61d",
+  56: "https://bsc-dataseed.binance.org/",
+  97: "https://data-seed-prebsc-2-s3.binance.org:8545",
+  250: "https://rpc.ftm.tools",
+};
+
+const supportedConnectors =
+[
+    "metamask",
+    "walletonnect",
+    "coinbase",
+    "formatic",
+    "portis",
+]
 
 const AppWrapper = styled.div`
   display: flex;
@@ -176,6 +222,10 @@ function Appp() {
   const [stakeValue, setStakeValue] = useState(null)
   // const { account, chainId } = useActiveWeb3React()
 
+  setStyles(customStyles);
+
+  const { signMessage, isVerify } = useSignMessage();
+
   // Number.prototype.toFixedDown = function(digits) {
   //   const re = new RegExp('(\\d+\\.\\d{' + digits + '})(\\d)'),
   //     m = this.toString().match(re)
@@ -268,6 +318,13 @@ function Appp() {
           <HeaderWrapper>
             {/* <Header menuHandler={menuHandler} openedMenu={openedMenu} /> */}
             <BodyWrapper>
+              <div style={{'margin': '25px'}}>
+                <ConnectButton
+                  RPC={RPC}
+                  portisId={"portisId-key-project"}
+                  supportedConnectors={supportedConnectors}
+                />
+              </div>
               {/* <Modal isOpen={showBanner} onDismiss={closeBanner} maxWidth={335}>
                 <Banner>
                   <StyledClosed

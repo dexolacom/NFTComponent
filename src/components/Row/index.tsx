@@ -21,14 +21,14 @@ export const RowBetween = styled(Row)`
   justify-content: space-between;
   margin-bottom: 0
 
-  ${({ theme }) => theme.mediaWidth.upToMedium`
+  @media (max-width: 960px) {
     margin-bottom: 0;
-  `};
+  };
 
-  ${({ theme }) => theme.mediaWidth.upToSmall`
+  @media (max-width: 720px) {
     flex-direction: row;
     align-items: flex-start;
-  `};
+  };
 `
 
 export const RowFlat = styled.div`

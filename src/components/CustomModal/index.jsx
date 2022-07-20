@@ -43,9 +43,9 @@ const ContentWrapper = styled.div`
   box-sizing: border-box;
   border-radius: 24px;
 
-  ${({ theme }) => theme.mediaWidth.upToLarge`
+  @media (max-width: 1280px) {
     min-width: 370px;
-  `};
+  }
 `
 
 export const BackButton = styled.div`
@@ -64,16 +64,16 @@ export const BackButton = styled.div`
 `
 
 const HideCondition = styled.div`
-  ${({ theme }) => theme.mediaWidth.upToLarge`
+  @media (max-width: 1280px) {
     display: none;
-  `};
+  };
 `
 
 const ShowCondition = styled.div`
   display: none;
-  ${({ theme }) => theme.mediaWidth.upToLarge`
+  @media (max-width: 1280px) {
     display: flex;
-  `};
+  };
 `
 
 const CloseButton = styled.span`

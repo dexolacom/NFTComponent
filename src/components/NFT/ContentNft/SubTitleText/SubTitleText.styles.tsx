@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-//import { colors } from '../../../../theme/index'
 
 const BaseText = styled.p`
   color: #bbbbbb;

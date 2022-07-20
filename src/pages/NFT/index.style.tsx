@@ -7,10 +7,12 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   padding: 0;
+  justify-content: center;
   @media (max-width: 900px) {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
+    justify-content: center;
   }
 `
 export const ContainerSelected = styled.div`
@@ -30,12 +32,13 @@ export const Content = styled.div`
   padding: 0 0 0 35px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: center;
   /* ssss */
   @media (max-width: 550px) {
     width: 335px;
     padding: 0;
-    margin: -45px auto;
+    /* margin: -45px auto; */
   }
 `
 export const GetNFTContainer = styled.div`

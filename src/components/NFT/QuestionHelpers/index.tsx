@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import Tooltip from '../../Tooltip/index'
 
@@ -29,7 +29,7 @@ const LightQuestionWrapper = styled.div`
   width: 20px;
   height: 20px;
   background-color: #616161;
-  color: ${({ theme }) => theme.white};
+  color: #FFFFFF;
 
   :hover,
   :focus {

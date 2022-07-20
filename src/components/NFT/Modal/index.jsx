@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
-import { TYPE } from '../../../theme'
 import { LightQuestionHelper } from '../../QuestionHelper'
 import { RowBetween } from '../../Row'
 import { AutoColumn } from '../../Column'
@@ -34,7 +33,7 @@ const CustomModal = ({ isOpen, title, tipText, closeAction, formattedCurrency, c
                       <img src={renderIco('', formattedCurrency, chainId)} alt="Currency icon" />
                     </MiniLogo>
                   </ShowCondition>
-                  {title && <TYPE.mediumHeader>{title}</TYPE.mediumHeader>}
+                  {title && <div style={{ fontWeight: '500', fontSize: '20px' }}>{title}</div>}
                 </div>
                 {tipText && (
                   <HideCondition>
@@ -90,9 +89,9 @@ const ContentWrapper = styled.div`
   box-sizing: border-box;
   border-radius: 24px;
 
-  ${({ theme }) => theme.mediaWidth.upToLarge`
+  @media (max-width: 1280px) {
     min-width: 370px;
-  `};
+  };
 `
 
 export const BackButton = styled.div`
@@ -111,16 +110,17 @@ export const BackButton = styled.div`
 `
 
 const HideCondition = styled.div`
-  ${({ theme }) => theme.mediaWidth.upToLarge`
+  @media (max-width: 1280px) {
     display: none;
-  `};
+  };
 `
 
 const ShowCondition = styled.div`
   display: none;
-  ${({ theme }) => theme.mediaWidth.upToLarge`
+
+  @media (max-width: 1280px) {
     display: flex;
-  `};
+  };
 `
 
 const CloseButton = styled.span`

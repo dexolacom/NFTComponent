@@ -1,6 +1,5 @@
 // @ts-nocheck
 import React from 'react'
-import { TYPE } from '../../../../theme'
 import { AutoColumn } from '../../../../components/Column'
 import { useWeb3React } from '@web3-react/core'
 

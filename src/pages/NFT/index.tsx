@@ -91,13 +91,6 @@ const NFT: React.FC = () => {
       .then((data: any) => setUserTokens(prev => [...prev, data]))
   }
 
-  useEffect(()=> {
-    console.log('chainId: ' + chainId);
-    console.log('account: ' + account);
-    console.log('userTokens.length: ' + userTokens.length);
-    userTokens.length
-  },[account, chainId, userTokens.length])
-
   return (
     <>
       <Container>

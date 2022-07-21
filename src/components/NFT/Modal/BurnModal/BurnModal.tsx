@@ -1,6 +1,6 @@
-import React from 'react'
+//import React from 'react'
 import Button from '../../Button/Button'
-import { convertToHuman } from '../../../../hooks/useConvertToHuman'
+//import { convertToHuman } from '../../../../hooks/useConvertToHuman'
 import {
   BtnContainer,
   StyledPopupHr,
@@ -14,11 +14,16 @@ import {
 } from './BurnModal.style'
 
 interface ModalProps {
-  totals: {
+  // totals: {
+  //   totalBNB: string
+  //   totalNBU: string
+  //   totalGNBU: string
+  //   totalBUSD: string
+  // }
+  totalsWithTBT: {
     totalBNB: string
-    totalNBU: string
-    totalGNBU: string
     totalBUSD: string
+    totalTBT: string
   }
   isOpen?: boolean
   currencyName?: string
@@ -27,7 +32,15 @@ interface ModalProps {
   handleAprove(id: number | undefined): Function
 }
 
-const BurnModal = ({ totals, isOpen, tokenId, currencyName, handleClose, handleAprove }: ModalProps) => {
+const BurnModal = ({ 
+  //totals, 
+  totalsWithTBT,
+  isOpen, 
+  tokenId, 
+  currencyName, 
+  handleClose, 
+  handleAprove 
+}: ModalProps) => {
 
   return (
     <>
@@ -47,31 +60,35 @@ const BurnModal = ({ totals, isOpen, tokenId, currencyName, handleClose, handleA
                   {currencyName === 'BUSD' ? (
                     <>
                       Total BUSD:
-                      <span>{totals.totalBUSD} BUSD</span>
+                      {/* <span>{totals.totalBUSD} BUSD</span> */}
                     </>
                   ) : (
                     <>
                       Total BNB:
-                      <span> {convertToHuman(totals.totalBNB, '18').toFixed(5)} BNB</span>
+                      {/* <span> {convertToHuman(totals.totalBNB, '18').toFixed(5)} BNB</span> */}
+                      <span> {totalsWithTBT.totalBNB} BNB</span>
                     </>
                   )}
                 </ModalListItem>
                 <ModalListItem>
                   <>
-                    Total NBU:
-                    <span>{Number(totals.totalNBU).toFixed(5)} NBU</span>
+                    {/* Total NBU: */}
+                    {/* <span>{Number(totals.totalNBU).toFixed(5)} NBU</span> */}
+                    Total BUSD:
+                    <span>{totalsWithTBT.totalBUSD} BUSD</span>
                   </>
                 </ModalListItem>
                 <ModalListItem>
                   {currencyName === 'BUSD' ? (
                     <>
                       Total BNB:
-                      <span> {convertToHuman(totals.totalBNB, '18').toFixed(5)} BNB</span>
+                      {/* <span> {convertToHuman(totals.totalBNB, '18').toFixed(5)} BNB</span> */}
                     </>
                   ) : (
                     <>
-                      Total GNBU:
-                      <span>{convertToHuman(totals.totalGNBU, '18').toFixed(5)} GNBU</span>
+                      Total TBT:
+                      {/* <span>{convertToHuman(totals.totalGNBU, '18').toFixed(5)} GNBU</span> */}
+                      <span>{totalsWithTBT.totalTBT} TBT</span>
                     </>
                   )}
                 </ModalListItem>

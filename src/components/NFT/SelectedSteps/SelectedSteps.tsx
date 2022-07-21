@@ -58,6 +58,7 @@ import {
   ListItemAmountRewards,
   ListItemTitleRewards
 } from './SelectedSteps.styles'
+import { findAllByAltText } from '@testing-library/react'
 
 const SelectedSteps = () => {
   //const toggleWalletModal = useWalletModalToggle()
@@ -107,7 +108,8 @@ const SelectedSteps = () => {
   // Total Amounts Of Rewards of all tokens
   const [totalAmountsOfRewards, setTotalAmountsOfRewards] = useState([])
 
-  const [totals, setTotals] = useState({ totalBNB: '0.000', totalNBU: '0.000', totalGNBU: '0.000', totalBUSD: '0.000' })
+  //const [totals, setTotals] = useState({ totalBNB: '0.000', totalNBU: '0.000', totalGNBU: '0.000', totalBUSD: '0.000' })
+  const [totalsWithTBT, setTotalsWithTBT] = useState({ totalBNB: '0.000', totalBUSD: '0.000', totalTBT: '0.000' })
   // все токены купленые юзером
   const [userAllTokens, setUserAllTokens] = useState([])
   // получаем буквы для отображения валюты BNB && BUSD ...
@@ -360,6 +362,8 @@ const SelectedSteps = () => {
       .getTokenRewardsAmounts(id)
       .call()
       .then(data => setBurnAmount(data))
+
+    getTotalsOfToken(id)
   }
   // получение обьекта  с ценой токена
   const getAmount = (id: string) => {
@@ -415,17 +419,17 @@ const SelectedSteps = () => {
         totalGNBU: String(poolNBU)
       }))
 
-      setTotals(prev => ({
-        ...prev,
-        totalNBU: getSumResult(currentToken?.PoolNbuAmount, b, c),
-        totalBNB: getResultBNB(
-          currentToken?.LendedBNBAmount,
-          burnAmount?.lendedUserRewards,
-          String(poolNBU),
-          String(poolGNBU)
-        ),
-        totalGNBU: currentToken?.PoolGnbuAmount
-      }))
+      // setTotals(prev => ({
+      //   ...prev,
+      //   totalNBU: getSumResult(currentToken?.PoolNbuAmount, b, c),
+      //   totalBNB: getResultBNB(
+      //     currentToken?.LendedBNBAmount,
+      //     burnAmount?.lendedUserRewards,
+      //     String(poolNBU),
+      //     String(poolGNBU)
+      //   ),
+      //   totalGNBU: currentToken?.PoolGnbuAmount
+      // }))
     }
   }
 
@@ -457,20 +461,20 @@ const SelectedSteps = () => {
         )
       }))
 
-      setTotals(prev => ({
-        ...prev,
-        totalBNB: currentToken?.PoolBnbAmount,
-        totalNBU: getResult(
-          currentToken?.PoolNbuAmount,
-          burnAmount?.lpBnbNbuUserRewards,
-          burnAmount?.lpNbuBusdUserRewards
-        ),
-        totalBUSD: getResult(
-          currentToken?.PoolBusdAmount,
-          currentToken?.LendedBusdAmount,
-          burnAmount?.lendedUserRewards
-        )
-      }))
+      // setTotals(prev => ({
+      //   ...prev,
+      //   totalBNB: currentToken?.PoolBnbAmount,
+      //   totalNBU: getResult(
+      //     currentToken?.PoolNbuAmount,
+      //     burnAmount?.lpBnbNbuUserRewards,
+      //     burnAmount?.lpNbuBusdUserRewards
+      //   ),
+      //   totalBUSD: getResult(
+      //     currentToken?.PoolBusdAmount,
+      //     currentToken?.LendedBusdAmount,
+      //     burnAmount?.lendedUserRewards
+      //   )
+      // }))
     }
 
     if (currentToken.currency === 'BNB') {
@@ -484,8 +488,22 @@ const SelectedSteps = () => {
       }))
     }
   }, [currentToken, burnAmount, allRewardsToken])
+  
+  const getTotalsOfToken = (id: string) => {
+    const tikSupplies = userAllTokens?.find(el => el.TokenId === id)
+    const tbtReward = totalAmountsOfRewards?.find(el => el.tokenID === id).tbtReward;
+    if (tikSupplies) {
+      const totalsWithTBT = {
+        totalBNB: convertToHuman(String(tikSupplies.ProvidedBnb / 2), 18).toFixed(5),
+        totalBUSD: convertToHuman(String(tikSupplies.PoolBusdAmount), 18).toFixed(5),
+        totalTBT: convertToHuman(String(Number(tikSupplies.PoolTbtAmount) + Number(tbtReward)), 18).toFixed(5)
+      }
 
-  useEffect(() => {}, [totals, burnAmount, pools])
+      setTotalsWithTBT(totalsWithTBT);
+    }
+  }
+
+  //useEffect(() => {}, [totals, burnAmount, pools])
 
   // fn more info logik
   const isOpenMoreInfo = (TokenId: string) => {
@@ -507,12 +525,6 @@ const SelectedSteps = () => {
   const arrImage95 = [nftOne95, nftTwo95, nftHree95]
   const arrImage96 = [nftOne96, nftTwo96, nftHree96]
   const arrImage98 = [nftOne98, nftTwo98, nftHree98]
-
-  useEffect(() => {
-    // console.log(userAllTokens); 
-    // console.log(tokenRewardsAmounts);
-    console.log(totalAmountsOfRewards);
-  }, [userAllTokens, tokenRewardsAmounts, totalAmountsOfRewards ])
 
   return (
     <>
@@ -752,7 +764,8 @@ const SelectedSteps = () => {
         currencyName={tokenCurrency}
         isOpen={isOpen}
         tokenId={modalTokenId}
-        totals={totals}
+        //totals={totals}
+        totalsWithTBT={totalsWithTBT}
         handleAprove={redeemToken}
         handleClose={e => handleClose(e)}
       />

@@ -104,6 +104,8 @@ const SelectedSteps = () => {
   })
   // lpBnbTbtUserRewards and lpBnbBusdUserRewards of all tokens
   const [tokenRewardsAmounts, setTokenRewardsAmounts] = useState([])
+  // Total Amounts Of Rewards of all tokens
+  const [totalAmountsOfRewards, setTotalAmountsOfRewards] = useState([])
 
   const [totals, setTotals] = useState({ totalBNB: '0.000', totalNBU: '0.000', totalGNBU: '0.000', totalBUSD: '0.000' })
   // все токены купленые юзером
@@ -131,6 +133,7 @@ const SelectedSteps = () => {
     const getTokenId = await NFT_CONTRACT.methods.getUserTokens(account).call()
     const transferIdToken = getTokenId?.map((id: string) => getBNBTokens(id))
     const tokenRewardsAmounts = getTokenId?.map((id: string) => getTokenRewardsAmounts(id))
+    const totalRewardsAmounts = getTokenId?.map((id: string) => getTotalAmountsOfRewards(id))
   }
   // получение обькта nft по id TokenId
   const getBNBTokens = async (id: string) => {
@@ -150,6 +153,16 @@ const SelectedSteps = () => {
       .then((data: any) => {
         const newData = [...tokenRewardsAmounts, data].map(el => ({ ...el, tokenID: id }))
         setTokenRewardsAmounts(prev => [...prev, ...newData])
+      })
+  }
+  // receiving total amount of Rewards
+  const getTotalAmountsOfRewards = async (id: string) => {
+    const tokenTotalRewards = await NFT_CONTRACT.methods
+      .getTotalAmountsOfRewards(id)
+      .call()
+      .then((data: any) => {
+        const newData = [...totalAmountsOfRewards, {tbtReward: data}].map(el => ({ ...el, tokenID: id }))
+        setTotalAmountsOfRewards(prev => [...prev, ...newData])
       })
   }
 
@@ -248,6 +261,13 @@ const SelectedSteps = () => {
     const tokenReward = tokenRewardsAmounts?.find(el => el.tokenID === id)
     if (tokenReward) {
       return convertToHuman(String(tokenReward?.lpBnbTbtUserRewards), 18).toFixed(5)
+    } else return '0.0000'
+  }
+  // getting the totalAmountsOfRewardsTBT amount to display 
+  const getTotalAmountsOfRewardsTBT = (id: string) => {
+    const tokenReward = totalAmountsOfRewards?.find(el => el.tokenID === id)
+    if (tokenReward) {
+      return convertToHuman(String(tokenReward?.tbtReward), 18).toFixed(5)
     } else return '0.0000'
   }
   // определение по какому контракту действовать
@@ -489,9 +509,10 @@ const SelectedSteps = () => {
   const arrImage98 = [nftOne98, nftTwo98, nftHree98]
 
   useEffect(() => {
-    console.log(userAllTokens); 
-    console.log(tokenRewardsAmounts);
-  }, [userAllTokens, tokenRewardsAmounts ])
+    // console.log(userAllTokens); 
+    // console.log(tokenRewardsAmounts);
+    console.log(totalAmountsOfRewards);
+  }, [userAllTokens, tokenRewardsAmounts, totalAmountsOfRewards ])
 
   return (
     <>
@@ -650,9 +671,13 @@ const SelectedSteps = () => {
                           <img src={Frame_4} alt="Frame_4" />
                         </ListItemIcon>
                         <ListItemContainer>
-                          <SpanFlex>
+                          {/* <SpanFlex>
                             <ListItemAmountRewards>{getRewardAmount(TokenId)}&#160;</ListItemAmountRewards>
                             <ListItemTitle>NBU</ListItemTitle>
+                          </SpanFlex> */}
+                          <SpanFlex>
+                            <ListItemAmountRewards>{getTotalAmountsOfRewardsTBT(TokenId)}&#160;</ListItemAmountRewards>
+                            <ListItemTitle>TBT</ListItemTitle>
                           </SpanFlex>
                           <ListItemTitleRewards>{'Rewards ready for withdrawal'}</ListItemTitleRewards>
                         </ListItemContainer>

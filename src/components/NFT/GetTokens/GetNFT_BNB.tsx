@@ -131,7 +131,8 @@ const GetNFT_BNB = () => {
   // получение газа от суммы value
   const getEstimatedGas = async (contract, value) => {
     if (value !== 0) {
-      const estimateGas = await contract.methods.buySmartLP().estimateGas({ from: account, value: value })
+      // const estimateGas = await contract.methods.buySmartLP().estimateGas({ from: account, value: value })
+      const estimateGas = await contract.methods.buySmartStaker().estimateGas({ from: account, value: value })
       const gasPrice = await web3.eth.getGasPrice()
       const gas = estimateGas * gasPrice * 1.6
       const val = value - gas
@@ -178,7 +179,8 @@ const GetNFT_BNB = () => {
     const transformationInputValue = +inputSense * 10 ** 18
 
     return await NFT_CONTRACT.methods
-      .buySmartLP()
+      //.buySmartLP()
+      .buySmartStaker()
       .send({
         from: account,
         value: transformationInputValue

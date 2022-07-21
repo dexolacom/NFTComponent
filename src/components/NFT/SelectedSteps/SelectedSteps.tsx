@@ -102,6 +102,9 @@ const SelectedSteps = () => {
     totalGNBU: '0.000',
     totalBUSD: '0.000'
   })
+  // lpBnbTbtUserRewards and lpBnbBusdUserRewards of all tokens
+  const [tokenRewardsAmounts, setTokenRewardsAmounts] = useState([])
+
   const [totals, setTotals] = useState({ totalBNB: '0.000', totalNBU: '0.000', totalGNBU: '0.000', totalBUSD: '0.000' })
   // все токены купленые юзером
   const [userAllTokens, setUserAllTokens] = useState([])
@@ -127,6 +130,7 @@ const SelectedSteps = () => {
   const getUserTokenIdBNB = async () => {
     const getTokenId = await NFT_CONTRACT.methods.getUserTokens(account).call()
     const transferIdToken = getTokenId?.map((id: string) => getBNBTokens(id))
+    const tokenRewardsAmounts = getTokenId?.map((id: string) => getTokenRewardsAmounts(id))
   }
   // получение обькта nft по id TokenId
   const getBNBTokens = async (id: string) => {
@@ -136,6 +140,16 @@ const SelectedSteps = () => {
       .then((data: any) => {
         const newData = [...userAllTokens, data].map(el => ({ ...el, isOpen: false, currency: 'BNB' }))
         setUserAllTokens(prev => [...prev, ...newData])
+      })
+  }
+  // receiving token rewards
+  const getTokenRewardsAmounts = async (id: string) => {
+    const tokenRewards = await NFT_CONTRACT.methods
+      .getTokenRewardsAmounts(id)
+      .call()
+      .then((data: any) => {
+        const newData = [...tokenRewardsAmounts, data].map(el => ({ ...el, tokenID: id }))
+        setTokenRewardsAmounts(prev => [...prev, ...newData])
       })
   }
 
@@ -222,6 +236,20 @@ const SelectedSteps = () => {
       return convertToHuman(String(tokenReward?.userRewards), 18).toFixed(5)
     } else return '0.0000'
   }
+  // getting the lpBnbBusdUserRewards amount to display
+  const getLPBUSD = (id: string) => {
+    const tokenReward = tokenRewardsAmounts?.find(el => el.tokenID === id)
+    if (tokenReward) {
+      return convertToHuman(String(tokenReward?.lpBnbBusdUserRewards), 18).toFixed(5)
+    } else return '0.0000'
+  }
+  // getting the lpBnbTbtUserRewards amount to display 
+  const getLPTBT = (id: string) => {
+    const tokenReward = tokenRewardsAmounts?.find(el => el.tokenID === id)
+    if (tokenReward) {
+      return convertToHuman(String(tokenReward?.lpBnbTbtUserRewards), 18).toFixed(5)
+    } else return '0.0000'
+  }
   // определение по какому контракту действовать
   const getCurrentContract = (id: string) => {
     const currentToken = userAllTokens.find(el => el.TokenId === id)
@@ -258,7 +286,8 @@ const SelectedSteps = () => {
     const currentToken = userAllTokens.find(el => el.TokenId === id)
     let currentСontract = ''
     if (currentToken.currency === 'BNB') {
-      currentСontract = NFT_CONTRACT.methods.burnSmartLP(id)
+      //currentСontract = NFT_CONTRACT.methods.burnSmartLP(id)
+      currentСontract = NFT_CONTRACT.methods.burnSmartStaker(id)
     }
     if (currentToken.currency === 'BUSD') {
       currentСontract = NFT_ADDRESS_CONTRACT_BUSD.methods.burnSmartLender(id)
@@ -459,6 +488,11 @@ const SelectedSteps = () => {
   const arrImage96 = [nftOne96, nftTwo96, nftHree96]
   const arrImage98 = [nftOne98, nftTwo98, nftHree98]
 
+  useEffect(() => {
+    console.log(userAllTokens); 
+    console.log(tokenRewardsAmounts);
+  }, [userAllTokens, tokenRewardsAmounts ])
+
   return (
     <>
       {isPendingModal && <PendingModal isVisible={isPendingModal} title={'Please wait, your transaction is being processed on the blockchain...'} />}
@@ -548,13 +582,19 @@ const SelectedSteps = () => {
                               <img src={Frame_2} alt="Frame_2" />
                             </ListItemIcon>
                             <ListItemContainer>
-                              <SpanFlex>
+                              {/* <SpanFlex>
                                 <ListItemAmount>
                                   {convertToHuman(NbuBnbLpAmount, 18).toFixed(4)}
                                   &#160;
                                 </ListItemAmount>
-
                                 <ListItemTitle>LP_NBU</ListItemTitle>
+                              </SpanFlex> */}
+                              <SpanFlex>
+                                <ListItemAmount>
+                                  {getLPBUSD(TokenId)}
+                                  &#160;
+                                </ListItemAmount>
+                                <ListItemTitle>LP_BUSD</ListItemTitle>
                               </SpanFlex>
                               <ListItemTitle>{'LP Staking'}</ListItemTitle>
                             </ListItemContainer>
@@ -565,7 +605,7 @@ const SelectedSteps = () => {
                               <img src={Frame_2} alt="Frame_2" />
                             </ListItemIcon>
                             <ListItemContainer>
-                              <SpanFlex>
+                              {/* <SpanFlex>
                                 <ListItemAmount>
                                   {currency === 'BNB'
                                     ? convertToHuman(GnbuBnbLpAmount, 18).toFixed(4)
@@ -573,12 +613,19 @@ const SelectedSteps = () => {
                                   &#160;
                                 </ListItemAmount>
                                 <ListItemTitle>{currency === 'BUSD' ? 'LP_BUSD' : 'LP_GNBU'}</ListItemTitle>
+                              </SpanFlex> */}
+                              <SpanFlex>
+                                <ListItemAmount>
+                                  {getLPTBT(TokenId)}
+                                  &#160;
+                                </ListItemAmount>
+                                <ListItemTitle>{'LP_TBT'}</ListItemTitle>
                               </SpanFlex>
-                              <ListItemTitle>{'lpStaking'}</ListItemTitle>
+                              <ListItemTitle>{'Lp Staking'}</ListItemTitle>
                             </ListItemContainer>
                           </ListItemLi>
                           <Lane></Lane>
-                          <ListItemLi>
+                          {/* <ListItemLi>
                             <ListItemIcon>
                               <img src={Frame_1} alt="Frame_1" />
                             </ListItemIcon>
@@ -594,8 +641,8 @@ const SelectedSteps = () => {
                               </SpanFlex>
                               <ListItemTitle>{'Lend Pool'}</ListItemTitle>
                             </ListItemContainer>
-                          </ListItemLi>
-                          <Lane></Lane>
+                          </ListItemLi> 
+                          <Lane></Lane> */}
                         </>
                       ) : null}
                       <ListItemLi>

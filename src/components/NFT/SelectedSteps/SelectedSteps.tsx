@@ -758,6 +758,7 @@ const SelectedSteps = () => {
         isOpen={isOpenInfo}
         tokenId={modalTokenId}
         pools={pools}
+        totalsWithTBT={totalsWithTBT}
         handleClose={e => handleClose(e)}
       />
       <BurnModal

@@ -61,7 +61,7 @@ export const ErrorModal = ({ visible, handleClose, setIsErrorModal, setIsModalOp
             <AutoColumn gap='24px' justify='center'>
               <img src={warning} alt='Error' />
               <AutoColumn gap='12px' justify='center'>
-                <div style={{ fontWeight: '500', fontSize: '20', color: '#000000'}}>
+                <div style={{ fontWeight: '500', fontSize: '20', color: '#FFFFFF'}}>
                   {'Confirmation Error'}
                 </div>
                 <div style={{ fontWeight: '400', fontSize: '13', color: '#BBBBBB'}}>
@@ -86,7 +86,7 @@ export const SuccessModal = ({ visible, handleClose, text, title, buttonText }) 
             <AutoColumn gap="24px" justify="center">
               <img src={success} alt="Error" />
               <AutoColumn gap="12px" justify="center">
-                <div style={{ fontWeight: '500', fontSize: '20', color: '#000000'}}>
+                <div style={{ fontWeight: '500', fontSize: '20', color: '#FFFFFF'}}>
                   {title ? title : 'Successfully'}
                 </div>
                 <div style={{ fontWeight: '400', fontSize: '13', color: '#BBBBBB'}}>

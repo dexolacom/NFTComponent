@@ -33,13 +33,19 @@ interface ModalProps {
     totalBUSD: string
   }
 
+  totalsWithTBT: {
+    totalBNB: string
+    totalBUSD: string
+    totalTBT: string
+  }
+
   isOpen?: boolean
   currencyName?: string
   currentBalance?: string
   handleClose?: () => void
 }
 
-const MoreInfoModal = ({ pools, isOpen, currencyName, handleClose }: ModalProps) => {
+const MoreInfoModal = ({ pools, totalsWithTBT, isOpen, currencyName, handleClose }: ModalProps) => {
   // Tooltip Text
   const TooltipContent = (
     <StakingTooltip>
@@ -129,16 +135,19 @@ const MoreInfoModal = ({ pools, isOpen, currencyName, handleClose }: ModalProps)
                     <>
                       Total BNB:
                       <span>
-                        <span>{convertToHuman(pools.totalBNB, '18').toFixed(5)} BNB</span>
+                        {/* <span>{convertToHuman(pools.totalBNB, '18').toFixed(5)} BNB</span> */}
+                        <span>{totalsWithTBT.totalBNB} BNB</span>
                       </span>
                     </>
                   )}
                 </ModalListItemTotal>
                 <ModalListItemTotal>
                   <>
-                    Total NBU:
+                    {/* Total NBU: */}
+                    Total BUSD:
                     <span>
-                      <span>{Number(pools.totalNBU).toFixed(5)} NBU</span>
+                      {/* <span>{Number(pools.totalNBU).toFixed(5)} NBU</span> */}
+                      <span>{totalsWithTBT.totalBUSD} BUSD</span>
                     </span>
                   </>
                 </ModalListItemTotal>
@@ -152,9 +161,11 @@ const MoreInfoModal = ({ pools, isOpen, currencyName, handleClose }: ModalProps)
                     </>
                   ) : (
                     <>
-                      Total GNBU:
+                      {/* Total GNBU: */}
+                      Total TBT
                       <span>
-                        <span>{convertToHuman(pools.poolGNBU, '18').toFixed(5)} GNBU</span>
+                        {/* <span>{convertToHuman(pools.poolGNBU, '18').toFixed(5)} GNBU</span> */}
+                        <span>{Number(totalsWithTBT.totalTBT).toFixed(5)} TBT</span>
                       </span>
                     </>
                   )}

@@ -33,6 +33,14 @@ interface ModalProps {
     totalBUSD: string
   }
 
+  poolsWithTBT: {
+    poolBNB: string
+    poolBUSD: string
+    poolTBT: string
+    LPStakingBNBBUSD: string
+    LPStakingBNBTBT: string
+  }
+
   totalsWithTBT: {
     totalBNB: string
     totalBUSD: string
@@ -45,7 +53,7 @@ interface ModalProps {
   handleClose?: () => void
 }
 
-const MoreInfoModal = ({ pools, totalsWithTBT, isOpen, currencyName, handleClose }: ModalProps) => {
+const MoreInfoModal = ({ pools, poolsWithTBT, totalsWithTBT, isOpen, currencyName, handleClose }: ModalProps) => {
   // Tooltip Text
   const TooltipContent = (
     <StakingTooltip>
@@ -91,14 +99,17 @@ const MoreInfoModal = ({ pools, totalsWithTBT, isOpen, currencyName, handleClose
                   ) : (
                     <>
                       Pool BNB:
-                      <span>{convertToHuman(pools.poolBNB, '18').toFixed(5)} BNB</span>
+                      {/* <span>{convertToHuman(pools.poolBNB, '18').toFixed(5)} BNB</span> */}
+                      <span>{poolsWithTBT.poolBNB} BNB</span>
                     </>
                   )}
                 </ModalListItem>
                 <ModalListItem>
                   <>
-                    Pool NBU:
-                    <span>{Number(pools.poolNBU).toFixed(5)} NBU</span>
+                    {/* Pool NBU:
+                    <span>{Number(pools.poolNBU).toFixed(5)} NBU</span> */}
+                    Pool BUSD:
+                    <span>{poolsWithTBT.poolBUSD} BUSD</span>
                   </>
                 </ModalListItem>
                 <ModalListItem>
@@ -109,19 +120,23 @@ const MoreInfoModal = ({ pools, totalsWithTBT, isOpen, currencyName, handleClose
                     </>
                   ) : (
                     <>
-                      Pool GNBU:
-                      <span>{convertToHuman(pools.poolGNBU, '18').toFixed(5)} GNBU</span>
+                      {/* Pool GNBU:
+                      <span>{convertToHuman(pools.poolGNBU, '18').toFixed(5)} GNBU</span> */}
+                      Pool TBT:
+                      <span>{poolsWithTBT.poolTBT} TBT</span>
                     </>
                   )}
                 </ModalListItem>
                 <ModalListItem>
-                  LP Staking:<span>{pools.lpStaking} NBU</span>
+                  {/* LP Staking:<span>{pools.lpStaking} NBU</span> */}
+                  LP Staking: <span>{poolsWithTBT.LPStakingBNBBUSD} BNB_BUSD</span>
                 </ModalListItem>
                 <ModalListItem>
-                  Lend:
+                  {/* Lend:
                   <span>
                     {pools.lend} {currencyName}
-                  </span>
+                  </span> */}
+                  LP Staking: <span>{poolsWithTBT.LPStakingBNBTBT} BNB_TBT</span>
                 </ModalListItem>
                 <ModalListItemSwath></ModalListItemSwath>
                 <ModalListItemTotal>Current total balance</ModalListItemTotal>

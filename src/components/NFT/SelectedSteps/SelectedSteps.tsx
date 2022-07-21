@@ -109,7 +109,10 @@ const SelectedSteps = () => {
   const [totalAmountsOfRewards, setTotalAmountsOfRewards] = useState([])
 
   //const [totals, setTotals] = useState({ totalBNB: '0.000', totalNBU: '0.000', totalGNBU: '0.000', totalBUSD: '0.000' })
-  const [totalsWithTBT, setTotalsWithTBT] = useState({ totalBNB: '0.000', totalBUSD: '0.000', totalTBT: '0.000' })
+  const [totalsWithTBT, setTotalsWithTBT] = 
+    useState({ totalBNB: '0.000', totalBUSD: '0.000', totalTBT: '0.000' })
+  const [poolsWithTBT, setPoolsWithTBT] = 
+    useState({poolBNB: '0.00000', poolBUSD: '0.00000', poolTBT: '0.00000', LPStakingBNBBUSD: '0.00000', LPStakingBNBTBT: '0.00000'})
   // все токены купленые юзером
   const [userAllTokens, setUserAllTokens] = useState([])
   // получаем буквы для отображения валюты BNB && BUSD ...
@@ -363,7 +366,7 @@ const SelectedSteps = () => {
       .call()
       .then(data => setBurnAmount(data))
 
-    getTotalsOfToken(id)
+    getTotalsAndPoolsOfToken(id)
   }
   // получение обьекта  с ценой токена
   const getAmount = (id: string) => {
@@ -489,7 +492,7 @@ const SelectedSteps = () => {
     }
   }, [currentToken, burnAmount, allRewardsToken])
   
-  const getTotalsOfToken = (id: string) => {
+  const getTotalsAndPoolsOfToken = (id: string) => {
     const tikSupplies = userAllTokens?.find(el => el.TokenId === id)
     const tbtReward = totalAmountsOfRewards?.find(el => el.tokenID === id).tbtReward;
     if (tikSupplies) {
@@ -498,8 +501,16 @@ const SelectedSteps = () => {
         totalBUSD: convertToHuman(String(tikSupplies.PoolBusdAmount), 18).toFixed(5),
         totalTBT: convertToHuman(String(Number(tikSupplies.PoolTbtAmount) + Number(tbtReward)), 18).toFixed(5)
       }
-
       setTotalsWithTBT(totalsWithTBT);
+
+      const poolsWithTBT = {
+        poolBNB: convertToHuman(String(tikSupplies.ProvidedBnb / 2), 18).toFixed(5),
+        poolBUSD: convertToHuman(String(tikSupplies.PoolBusdAmount), 18).toFixed(5), 
+        poolTBT: convertToHuman(String(tikSupplies.PoolTbtAmount), 18).toFixed(5),
+        LPStakingBNBBUSD: convertToHuman(String(tikSupplies.BusdBnbLpAmount), 18).toFixed(5),
+        LPStakingBNBTBT: convertToHuman(String(tikSupplies.TbtBnbLpAmount), 18).toFixed(5)
+      }
+      setPoolsWithTBT(poolsWithTBT);
     }
   }
 
@@ -758,6 +769,7 @@ const SelectedSteps = () => {
         isOpen={isOpenInfo}
         tokenId={modalTokenId}
         pools={pools}
+        poolsWithTBT={poolsWithTBT}
         totalsWithTBT={totalsWithTBT}
         handleClose={e => handleClose(e)}
       />

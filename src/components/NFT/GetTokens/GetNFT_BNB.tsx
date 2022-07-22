@@ -311,8 +311,8 @@ const GetNFT_BNB = () => {
               <>
                 {isInSufficientErrorText ? (
                   <ErrorBalance>
-                    {'Insufficient account balance. Min amount'}
-                    {convertToHuman(+minPurchaseToken, 18).toFixed(2)} BNB
+                    {'Insufficient account balance. Min amount'}&nbsp;
+                    {convertToHuman(+minPurchaseToken, 18).toFixed(1)} BNB
                   </ErrorBalance>
                 ) : null}
                 {isMissingAmountErrorText ? (

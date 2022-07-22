@@ -29,6 +29,7 @@ export const StakingTooltip = styled.ul`
 export const GetNFTContainer = styled.div`
   width: 100%;
   display: flex;
+  justify-content: center;
   @media (max-width: 900px) {
     margin: 0 auto;
     flex-direction: column;

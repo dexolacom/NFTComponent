@@ -19,7 +19,7 @@ import AbiContract from '../../components/NFT/abi_contract_busd.json'
 import { AbiItem } from 'web3-utils'
 //
 import { Tokens, TokensSmollList } from '../../components/NFT/Tokens/Tokens'
-import { useBtnConnect } from "tech-web3-connector";
+//import { useBtnConnect } from "tech-web3-connector"
 //
 
 import {
@@ -110,7 +110,7 @@ const NFT: React.FC = () => {
             render={() => (
               <>
                 <ContainerSelected>
-                  <SelectedStepsTitle>{'Get more NTFs'}</SelectedStepsTitle>
+                  <SelectedStepsTitle>{'Get more NFTs'}</SelectedStepsTitle>
                   {chainId === 56 || chainId === 97 ? (
                     <>
                       <TokensSmollList />

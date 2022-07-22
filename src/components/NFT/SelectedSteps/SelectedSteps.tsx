@@ -638,9 +638,9 @@ const SelectedSteps = () => {
                                   {getLPBUSD(TokenId)}
                                   &#160;
                                 </ListItemAmount>
-                                <ListItemTitle>LP_BUSD</ListItemTitle>
+                                <ListItemTitle>{'TBT'}</ListItemTitle>
                               </SpanFlex>
-                              <ListItemTitle>{'LP Staking'}</ListItemTitle>
+                              <ListItemTitle>{'LP Staking BNB_BUSD'}</ListItemTitle>
                             </ListItemContainer>
                           </ListItemLi>
                           <Lane></Lane>
@@ -663,9 +663,9 @@ const SelectedSteps = () => {
                                   {getLPTBT(TokenId)}
                                   &#160;
                                 </ListItemAmount>
-                                <ListItemTitle>{'LP_TBT'}</ListItemTitle>
+                                <ListItemTitle>{'TBT'}</ListItemTitle>
                               </SpanFlex>
-                              <ListItemTitle>{'Lp Staking'}</ListItemTitle>
+                              <ListItemTitle>{'Lp Staking BNB_TBT'}</ListItemTitle>
                             </ListItemContainer>
                           </ListItemLi>
                           <Lane></Lane>

@@ -118,7 +118,7 @@ export const RedErrorModal = ({ visible, handleClose, setIsErrorModal, setIsModa
             <AutoColumn gap="24px" justify="center">
               <img src={error} alt="Error" />
               <AutoColumn gap="12px" justify="center">
-                <div style={{ fontWeight: '500', fontSize: '20', color: '#000000'}}>
+                <div style={{ fontWeight: '500', fontSize: '20', color: '#FFFFFF'}}>
                   {'Feedback sending error'}
                 </div>
                 <div style={{ fontWeight: '400', fontSize: '13', color: '#BBBBBB'}}>

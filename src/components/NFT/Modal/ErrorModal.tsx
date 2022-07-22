@@ -20,7 +20,7 @@ export const ErrorModal = ({ isVisible, handleClose }) => {
             <AutoColumn gap="24px" justify="center">
               <img src={warning} alt="Error" />
               <AutoColumn gap="12px" justify="center">
-                <div style={{ fontWeight: '500', fontSize: '20', color: '#000000'}}>{'Confirmation Error'}</div>
+                <div style={{ fontWeight: '500', fontSize: '20', color: '#FFFFFF'}}>{'Confirmation Error'}</div>
                 <div style={{ fontWeight: '400', fontSize: '13', color: '#BBBBBB', textAlign: 'center'}}>
                   {'Some mistake ! Or you have not verified in MetaMask. Please try again'}
                 </div>

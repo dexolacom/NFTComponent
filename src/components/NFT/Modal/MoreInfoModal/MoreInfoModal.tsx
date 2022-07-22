@@ -129,14 +129,14 @@ const MoreInfoModal = ({ pools, poolsWithTBT, totalsWithTBT, isOpen, currencyNam
                 </ModalListItem>
                 <ModalListItem>
                   {/* LP Staking:<span>{pools.lpStaking} NBU</span> */}
-                  LP Staking: <span>{poolsWithTBT.LPStakingBNBBUSD} BNB_BUSD</span>
+                  LP: <span>{poolsWithTBT.LPStakingBNBBUSD} BNB_BUSD</span>
                 </ModalListItem>
                 <ModalListItem>
                   {/* Lend:
                   <span>
                     {pools.lend} {currencyName}
                   </span> */}
-                  LP Staking: <span>{poolsWithTBT.LPStakingBNBTBT} BNB_TBT</span>
+                  LP: <span>{poolsWithTBT.LPStakingBNBTBT} BNB_TBT</span>
                 </ModalListItem>
                 <ModalListItemSwath></ModalListItemSwath>
                 <ModalListItemTotal>Current total balance</ModalListItemTotal>

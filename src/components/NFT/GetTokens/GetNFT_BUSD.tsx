@@ -279,11 +279,11 @@ const GetNFT_BUSD = () => {
                 <SpanAmount>{convertToHuman(String(minPurchaseToken), 18)} BUSD</SpanAmount>
               </LiAmount>
               <LiAmount>
-                <SpanText>{'LP Staking APY (BNB/NBU pair):'}</SpanText>
+                <SpanText>{'LP Staking APY (BNB/TBT pair):'}</SpanText>
                 <SpanAmount>100%</SpanAmount>
               </LiAmount>
               <LiAmount>
-                <SpanText>{'LP Staking APY (BNB/GNBU pair):'}</SpanText>
+                <SpanText>{'LP Staking APY (BNB/BUSD pair):'}</SpanText>
                 <SpanAmount>100%</SpanAmount>
               </LiAmount>
               <LiAmount>
@@ -354,7 +354,7 @@ const GetNFT_BUSD = () => {
               </>
             ) : !account ? null : (
               <>
-                <WarningBanner style={{ margin: '20px 0px  0px' }}>
+                <WarningBanner style={{ margin: '20px 0px  0px', color: 'red' }}>
                   <img src={dAppsBinance} alt="binance Logo" />
                   {'This dApp works on binance network'}
                 </WarningBanner>

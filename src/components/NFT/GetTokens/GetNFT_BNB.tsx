@@ -90,7 +90,7 @@ const GetNFT_BNB = () => {
     if (account) {
       const balance = web3.eth.getBalance(account).then(value => setCurentBalance(value))
     }
-  }, [curentBalance])
+  }, [curentBalance, account])
 
   // получение баланса NFT сонтракта
   const getUserBalance = async () => {
@@ -248,11 +248,11 @@ const GetNFT_BNB = () => {
                 <SpanAmount>{convertToHuman(String(minPurchaseToken), 18)} BNB</SpanAmount>
               </LiAmount>
               <LiAmount>
-                <SpanText>{'LP Staking APY (BNB/NBU pair):'}</SpanText>
+                <SpanText>{'LP Staking APY (BNB/BUSD pair):'}</SpanText>
                 <SpanAmount>100%</SpanAmount>
               </LiAmount>
               <LiAmount>
-                <SpanText>{'LP Staking APY (BNB/GNBU pair):'}</SpanText>
+                <SpanText>{'LP Staking APY (BNB/TBT pair):'}</SpanText>
                 <SpanAmount>100%</SpanAmount>
               </LiAmount>
               <LiAmount>
@@ -324,7 +324,7 @@ const GetNFT_BNB = () => {
               </>
             ) : !account ? null : (
               <>
-                <WarningBanner style={{ margin: '20px 0px  0px' }}>
+                <WarningBanner style={{ margin: '20px 0px  0px', color: 'red' }}>
                   <img src={dAppsBinance} alt="" />
                   {'This dApp works on binance network'}
                 </WarningBanner>

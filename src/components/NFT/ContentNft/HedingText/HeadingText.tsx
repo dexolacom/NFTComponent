@@ -6,7 +6,7 @@ const HeadingText: React.FC = () => {
     <>
       <ContentWrapperNft>
         <TextContainerNft>
-          <HeadingNft>Nimbus Non-Fungible Tokens (n-NFT)</HeadingNft>
+          <HeadingNft>Non-Fungible Tokens (n-NFT)</HeadingNft>
           <HeadingTitleNft>
             Benefit from n-NFT - the first yield-generating NFT of its kind. 
             When you acquire it, the assets you supply get automatically 

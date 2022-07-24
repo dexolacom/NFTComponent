@@ -47,7 +47,7 @@ export const ModalNFT = ({ isOpen, handleClose, currensyName }: ModalProps) => {
           <ContentWrapperNft>
             <TextContainerNft>
               <HeadingNft>Smart LP</HeadingNft>
-              <HeadingTitleNft>
+              {/* <HeadingTitleNft>
                 <ListTitle>
                   With Smart LP n-NFT, your assets get distributed 
                   between the Nimbus Lend dApp (30% of assets) and Liquidity 
@@ -60,7 +60,7 @@ export const ModalNFT = ({ isOpen, handleClose, currensyName }: ModalProps) => {
                   <ListItem>Fixed 100% APY for staking the received LP tokens.</ListItem>
                 </List>
                 <ListTitle>Receive rewards in real-time, save on gas fees, and redeem your assets any time.</ListTitle>
-              </HeadingTitleNft>
+              </HeadingTitleNft> */}
             </TextContainerNft>
           </ContentWrapperNft>
           <BtnContainer>

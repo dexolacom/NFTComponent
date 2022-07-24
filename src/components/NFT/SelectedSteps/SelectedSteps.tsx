@@ -549,7 +549,7 @@ const SelectedSteps = () => {
           setIsModalOpen={setIsModalOpen}
         />
       )}
-      <ConnectWallet>{'Connect your wallet to see the list of NFT'}</ConnectWallet>
+      
       <SelectedStepsTitle>{'My NFTs'} </SelectedStepsTitle>
       {!account ? (
         <>

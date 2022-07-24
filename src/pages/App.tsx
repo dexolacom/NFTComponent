@@ -7,8 +7,13 @@ import {
   //useLocation 
 } from 'react-router-dom'
 import styled from 'styled-components'
-import "@reach/dialog/styles.css";
-import { ConnectButton, setStyles , useSignMessage } from "tech-web3-connector";
+import "@reach/dialog/styles.css"
+import { ConnectButton, setStyles , useSignMessage } from "tech-web3-connector"
+
+// import { ConnectButton } from "../walletHooks/component/ButtonConnect/connectButton";
+// import { setStyles } from "../walletHooks/utils";
+// import { useSignMessage } from "../walletHooks/component/hooks/useSignMessage";
+
 //import StakeContext from '../context/StakeContext'
 //import GoogleAnalyticsReporter from '../components/analytics/GoogleAnalyticsReporter'
 //import AddressClaimModal from '../components/claim/AddressClaimModal'

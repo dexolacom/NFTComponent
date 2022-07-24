@@ -19,6 +19,7 @@ import AbiContract from '../../components/NFT/abi_contract_busd.json'
 import { AbiItem } from 'web3-utils'
 //
 import { Tokens, TokensSmollList } from '../../components/NFT/Tokens/Tokens'
+import { ConnectWallet } from '../../components/NFT/SelectedSteps/SelectedSteps.styles'
 //import { useBtnConnect } from "tech-web3-connector"
 //
 
@@ -111,6 +112,9 @@ const NFT: React.FC = () => {
               <>
                 <ContainerSelected>
                   <SelectedStepsTitle>{'Get more NFTs'}</SelectedStepsTitle>
+                  {account ? null : (
+                    <ConnectWallet>{'Connect your wallet to see the list of NFT'}</ConnectWallet>
+                  )}
                   {chainId === 56 || chainId === 97 ? (
                     <>
                       <TokensSmollList />
@@ -139,20 +143,20 @@ const NFT: React.FC = () => {
                     </>
                   ) : (
                     <div style={{ marginTop: '15px' }}>
-                      {!account ? null : (
+                      {/* {!account ? null : ( */}
                         <WarningBanner>
                           <img src={dAppsBinance} alt="ibnance Logo" />
                           {'This dApp works on binance network'}
                         </WarningBanner>
-                      )}
-                      <Button
+                      {/* )} */}
+                      {/* <Button
                         className={'at-click at-nft-btn-switchButton'}
-                        //clickHandler={() => changeProvider()}
+                        clickHandler={() => changeProvider()}
                         name={'Switch the network to Binance'}
                         size={'274px'}
                         height={'44px'}
                         color={'#fe5001'}
-                      />
+                      /> */}
                     </div>
                   )}
                 </ContainerSelected>
@@ -183,20 +187,20 @@ const NFT: React.FC = () => {
                   )
                 ) : (
                   <div style={{ marginTop: '15px' }}>
-                    {!account ? null : (
+                    {/* {!account ? null : ( */}
                       <WarningBanner>
                         <img src={dAppsBinance} alt="ibnance Logo" />
                         {'This dApp works on binance network'}
                       </WarningBanner>
-                    )}
-                    <Button
+                    {/* )} */}
+                    {/* <Button
                       className={'at-click at-nft-btn-switchButton'}
-                      //clickHandler={() => changeProvider()}
+                      clickHandler={() => changeProvider()}
                       name={'Switch the network to Binance'}
                       size={'274px'}
                       height={'44px'}
                       color={'#fe5001'}
-                    />
+                    /> */}
                   </div>
                 )}
                 <Tokens />

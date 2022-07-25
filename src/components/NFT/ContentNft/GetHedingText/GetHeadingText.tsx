@@ -19,7 +19,7 @@ const GetHeadingText: React.FC = () => {
           <LightQuestionHelper text={TooltipContent} />
         </TitleContainer>
         <HeadingTitleNft>
-          Note that part of your tokens will be converted in NBU and GNBU. 
+          Note that part of your tokens will be converted in TBT and BUSD. 
           You will get part of rewards in these tokens. Good news: 
           you're saving on gas fees
         </HeadingTitleNft>

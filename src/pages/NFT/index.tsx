@@ -1,5 +1,5 @@
-//@ts-nocheck
-import React, { useState, useEffect, Redirect } from 'react'
+
+import React, { useState, useEffect } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import HeadingText from '../../components/NFT/ContentNft/HedingText/HeadingText'
 import SubTitle from '../../components/NFT/ContentNft/SubTitleText/SubTitle'
@@ -36,6 +36,8 @@ import {
   WarningBanner
 } from './index.style'
 
+let userTokensArray: Array<any>
+
 const NFT: React.FC = () => {
   const history = useHistory()
   const { account, chainId } = useWeb3React()
@@ -48,7 +50,7 @@ const NFT: React.FC = () => {
     process.env.REACT_APP_NFT_TOKEN_CONTRACT
   )
   //
-  const [userTokens, setUserTokens] = useState([])
+  const [userTokens, setUserTokens] = useState(userTokensArray)
   const [isShowPage, setIsShowPage] = useState(false)
   //
 
@@ -72,7 +74,7 @@ const NFT: React.FC = () => {
 
   useEffect(() => {
     // select only active
-    const activeToken = userTokens?.filter(el => el.IsActive === true)
+    const activeToken = userTokens?.filter(el => el['IsActive'] === true)
     if (activeToken?.length > 0) {
       setIsShowPage(true)
     }

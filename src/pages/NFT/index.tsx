@@ -1,8 +1,8 @@
 //@ts-nocheck
-import React, { useState, useEffect, Redirect } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Route } from 'react-router-dom'
 import HeadingText from '../../components/NFT/ContentNft/HedingText/HeadingText'
-import SubTitle from '../../components/NFT/ContentNft/SubTitleText/SubTitle'
+//import SubTitle from '../../components/NFT/ContentNft/SubTitleText/SubTitle'
 import GetNFT_BNB from '../../components/NFT/GetTokens/GetNFT_BNB'
 import GetNFT_BUSD from '../../components/NFT/GetTokens/GetNFT_BUSD'
 import SelectedSteps from '../../components/NFT/SelectedSteps/SelectedSteps'
@@ -10,8 +10,6 @@ import Button from '../../components/NFT/Button/Button'
 import dAppsBinance from '../../assets/svg/dAppsBinance.svg'
 import { useHistory } from 'react-router-dom'
 import { useWeb3React } from '@web3-react/core'
-//import { useWalletModalToggle } from '../../state/application/hooks'
-//import changeProvider from '../../utils/currentNetworkChanger'
 import Web3 from 'web3'
 // abi
 import Abi from '../../components/NFT/abi_nft.json'
@@ -20,8 +18,6 @@ import { AbiItem } from 'web3-utils'
 //
 import { Tokens, TokensSmollList } from '../../components/NFT/Tokens/Tokens'
 import { ConnectWallet } from '../../components/NFT/SelectedSteps/SelectedSteps.styles'
-//import { useBtnConnect } from "tech-web3-connector"
-//
 
 import {
   Container,
@@ -39,7 +35,6 @@ import {
 const NFT: React.FC = () => {
   const history = useHistory()
   const { account, chainId } = useWeb3React()
-  //const toggleWalletModal = useWalletModalToggle()
   // 
   const web3 = new Web3(Web3.givenProvider || process.env.REACT_APP_NETWORK_URL)
   const NFT_CONTRACT = new web3.eth.Contract(Abi as AbiItem, process.env.REACT_APP_NFT_TOKEN_CONTRACT_BNB)

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { LightQuestionHelper } from '../QuestionHelpers/index'
 import { escapeRegExp } from '../../../utils'
 import Button from '../Button/Button'
@@ -9,14 +9,11 @@ import { SuccessNFTModal } from '../Modal/SuccessModal/SuccessModal'
 import { ErrorModal } from '../Modal/ErrorModal'
 import GetHeadingText from '../ContentNft/GetHedingText/GetHeadingText'
 import { PendingModal } from '../MadalPending/PendingModal'
-//import changeProvider from '../../../utils/currentNetworkChanger'
 import dAppsBinance from '../../../assets/svg/dAppsBinance.svg'
 import Web3 from 'web3'
 import { useWeb3React } from '@web3-react/core'
 import { ADDRESSES_FACTORY } from '../../../constants/borrow-lends/constants'
 import Abi_borrow_lends from '../../../constants/borrow-lends/logicAbi.json'
-//import { useWalletModalToggle } from '../../../state/application/hooks'
-// 
 import Abi from '../abi_nft.json'
 import { AbiItem } from 'web3-utils'
 //

@@ -1,9 +1,9 @@
 // @ts-nocheck
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Web3 from 'web3'
 import { convertToHuman } from '../../../hooks/useConvertToHuman'
 import BNBcurrency from '../../../assets/images/Nft-img/icon/BNBcurrency.svg'
-import BUSDcurrency from '../../../assets/images/Nft-img/icon/BUSDcurrency.svg'
+//import BUSDcurrency from '../../../assets/images/Nft-img/icon/BUSDcurrency.svg'
 import DefaultLogo from '../../../assets/images/Nft-img/icon/defaultLogo.svg'
 //
 import nftOne95 from '../../../assets/images/Nft-img/nft-one-95.png'
@@ -13,7 +13,6 @@ import nftOne96 from '../../../assets/images/Nft-img/nft-one-96.png'
 import { ModalNFT } from '../Modal/ModalNFT/ModalNFT'
 import { TokenCard, CloseTokenCard, SmollTokenCard } from './TokenCard'
 import { useWeb3React } from '@web3-react/core'
-//import { useWalletModalToggle } from '../../../state/application/hooks'
 //
 import { Container, TokenTooltip } from './Tokens.style'
 //
@@ -24,7 +23,6 @@ import { AbiItem } from 'web3-utils'
 
 export const Tokens = () => {
   const { account } = useWeb3React()
-  //const toggleWalletModal = useWalletModalToggle()
   const [isOpenModal, setIsOpenModal] = useState(false)
   const [currensyName, setCurrensyName] = useState('')
   const [minAmountBNBToken, setMinAmountBNBToken] = useState('0.00')
@@ -94,21 +92,21 @@ export const Tokens = () => {
   )
   const LPRewardsTooltipContentBNB = (
     <TokenTooltip>
-      <li>{' – 70% of your assets are provided as liquidity to BNB/NBU and BNB/GNBU pairs at Nimbus Swap. You receive 0,3% swap fees from all transactions made in these pairs. But while the swap fee level is fixed, your actual rewards depend on your pool share and the trade volume;'}</li>
-      <li>{' – The rewards accrue in BNB, NBU, and GNBU, and can be withdrawn when burning the NFT.'}</li>
+      <li>{' – 70% of your assets are provided as liquidity to BNB/BUSD and BNB/TBT pairs at Nimbus Swap. You receive 0,3% swap fees from all transactions made in these pairs. But while the swap fee level is fixed, your actual rewards depend on your pool share and the trade volume;'}</li>
+      <li>{' – The rewards accrue in BNB, BUD, and TBT, and can be withdrawn when burning the NFT.'}</li>
     </TokenTooltip>
   )
   const LPStakingTooltipContentBNB = (
     <TokenTooltip>
       <li>{' – When providing liquidity to the Nimbus Swap, LP tokens are received as a representation of your liquidity. They then get staked at a fixed rate of 100% APY. But since they represent your pool share, which fluctuates, your actual rewards also fluctuate over time;'}</li>
-      <li>{'– The rewards accrue in NBU, and can be withdrawn any time.'}</li>
+      <li>{'– The rewards accrue in TBT, and can be withdrawn any time.'}</li>
     </TokenTooltip>
   )
   //   Tooltip Text Smart LP BUSD
   const LPRewardsTooltipContentBUSD = (
     <TokenTooltip>
-      <li>{'– 70% of your assets are provided as liquidity to BNB/NBU and NBU/BUSD pairs at Nimbus Swap. You receive 0,3% swap fees from all transactions made in these pairs. But while the swap fee level is fixed, your actual rewards depend on your pool share and the trade volume;'}</li>
-      <li>{' – The rewards accrue in BNB, NBU, and BUSD, and can be withdrawn when burning the NFT'}</li>
+      <li>{'– 70% of your assets are provided as liquidity to BNB/BUSD and NBU/TBT pairs at Nimbus Swap. You receive 0,3% swap fees from all transactions made in these pairs. But while the swap fee level is fixed, your actual rewards depend on your pool share and the trade volume;'}</li>
+      <li>{' – The rewards accrue in BNB, BUSD, and TBT, and can be withdrawn when burning the NFT'}</li>
     </TokenTooltip>
   )
   const getRoute = () => {}

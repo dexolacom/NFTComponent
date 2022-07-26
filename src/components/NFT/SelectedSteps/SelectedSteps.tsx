@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Button from '../Button/Button'
 //
 import nftOne95 from '../../../assets/images/Nft-img/nft-one-95.png'
@@ -58,10 +58,8 @@ import {
   ListItemAmountRewards,
   ListItemTitleRewards
 } from './SelectedSteps.styles'
-import { findAllByAltText } from '@testing-library/react'
 
 const SelectedSteps = () => {
-  //const toggleWalletModal = useWalletModalToggle()
   const { account, chainId } = useWeb3React()
   // bnb
   const web3 = new Web3(Web3.givenProvider || process.env.REACT_APP_NETWORK_URL)

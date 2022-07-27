@@ -119,7 +119,7 @@ const GetNFT_BUSD = () => {
 
   // валидация ввода числа
   const enforcer = (nextUserInput: string) => {
-    let inputLength = nextUserInput.length
+    const inputLength = nextUserInput.length
     const inputRegex = RegExp(`^\\d*(?:\\\\[.])?\\d*$`)
     if (inputLength > 30) {
       return
@@ -306,15 +306,15 @@ const GetNFT_BUSD = () => {
                   onChange={e => {
                     enforcer(e.target.value)
                   }}
-                  pattern="^[0-9]*[.,]?[0-9]*$"
-                  type="text"
-                  placeholder="0.00"
-                  inputMode="decimal"
-                  autoComplete="off"
-                  autoCorrect="off"
-                  spellCheck="false"
-                  min="1"
-                  max="5"
+                  pattern='^[0-9]*[.,]?[0-9]*$'
+                  type='text'
+                  placeholder='0.00'
+                  inputMode='decimal'
+                  autoComplete='off'
+                  autoCorrect='off'
+                  spellCheck='false'
+                  min='1'
+                  max='5'
                   value={inputSense}
                 />
                 <InfoContainer>
@@ -330,7 +330,7 @@ const GetNFT_BUSD = () => {
                   {/* <MaxBtn>Max</MaxBtn> */}
                   <Сurrency>
                     <СurrencyIcon>
-                      <img src={BUSDcurrency} alt="Logo BUSD" />
+                      <img src={BUSDcurrency} alt='Logo BUSD' />
                     </СurrencyIcon>
                     <СurrencyName>BUSD</СurrencyName>
                   </Сurrency>
@@ -354,7 +354,7 @@ const GetNFT_BUSD = () => {
             ) : !account ? null : (
               <>
                 <WarningBanner style={{ margin: '20px 0px  0px', color: 'red' }}>
-                  <img src={dAppsBinance} alt="binance Logo" />
+                  <img src={dAppsBinance} alt='binance Logo' />
                   {'This dApp works on binance network'}
                 </WarningBanner>
               </>
@@ -376,7 +376,7 @@ const GetNFT_BUSD = () => {
                   name={+allowance <= 0 ? 'Approve' : 'Get NFT'}
                   isDisabled={isDisabled}
                   disabledName={'Enter the amount'}
-                  icon={isApproveFetching ? <Loader stroke="white" style={{ marginRight: '10px' }} /> : null}
+                  icon={isApproveFetching ? <Loader stroke='white' style={{ marginRight: '10px' }} /> : null}
                   color={'#fe5001'}
                   clickHandler={getNFTToken}
                 />

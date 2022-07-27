@@ -116,7 +116,7 @@ const GetNFT_BNB = () => {
 
   // валидация ввода числа
   const enforcer = (nextUserInput: string) => {
-    let inputLength = nextUserInput.length
+    const inputLength = nextUserInput.length
     const inputRegex = RegExp(`^\\d*(?:\\\\[.])?\\d*$`)
     if (inputLength > 30) {
       return
@@ -273,15 +273,15 @@ const GetNFT_BNB = () => {
                   onChange={e => {
                     enforcer(e.target.value)
                   }}
-                  pattern="^[0-9]*[.,]?[0-9]*$"
-                  type="text"
-                  placeholder="0.00"
-                  inputMode="decimal"
-                  autoComplete="off"
-                  autoCorrect="off"
-                  spellCheck="false"
-                  min="1"
-                  max="5"
+                  pattern='^[0-9]*[.,]?[0-9]*$'
+                  type='text'
+                  placeholder='0.00'
+                  inputMode='decimal'
+                  autoComplete='off'
+                  autoCorrect='off'
+                  spellCheck='false'
+                  min='1'
+                  max='5'
                   value={inputSense}
                 />
                 <InfoContainer>
@@ -297,7 +297,7 @@ const GetNFT_BNB = () => {
                   {/* <MaxBtn>Max</MaxBtn> */}
                   <Сurrency>
                     <СurrencyIcon>
-                      <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.svg" alt="LogoBNB" />
+                      <img src='https://cryptologos.cc/logos/binance-coin-bnb-logo.svg' alt='LogoBNB' />
                     </СurrencyIcon>
                     <СurrencyName>BNB</СurrencyName>
                   </Сurrency>
@@ -322,7 +322,7 @@ const GetNFT_BNB = () => {
             ) : !account ? null : (
               <>
                 <WarningBanner style={{ margin: '20px 0px  0px', color: 'red' }}>
-                  <img src={dAppsBinance} alt="" />
+                  <img src={dAppsBinance} alt='Binance simbol' />
                   {'This dApp works on binance network'}
                 </WarningBanner>
               </>

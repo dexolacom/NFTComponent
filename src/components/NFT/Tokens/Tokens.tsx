@@ -86,26 +86,42 @@ export const Tokens = () => {
   // Tooltip Text Smart LP BNB
   const LendTooltipContentBNB = (
     <TokenTooltip>
-      <li>{' – 30% of your BNB go to Lend dApp as loans. The APR there is flexible. The APR there is based on the market conditions so your rewards will vary'}</li>
+      <li>
+        {` – 30% of your BNB go to Lend dApp as loans. The APR there is flexible. 
+        The APR there is based on the market conditions so your rewards will vary`}
+      </li>
       <li>{' - The rewards accrue in BNB, and can be withdrawn when burning the NFT.'}</li>
     </TokenTooltip>
   )
   const LPRewardsTooltipContentBNB = (
     <TokenTooltip>
-      <li>{' – 70% of your assets are provided as liquidity to BNB/BUSD and BNB/TBT pairs at Nimbus Swap. You receive 0,3% swap fees from all transactions made in these pairs. But while the swap fee level is fixed, your actual rewards depend on your pool share and the trade volume;'}</li>
+      <li>
+        {` – 70% of your assets are provided as liquidity to BNB/BUSD and BNB/TBT pairs at Nimbus Swap. 
+        You receive 0,3% swap fees from all transactions made in these pairs. 
+        But while the swap fee level is fixed, your actual rewards depend on your pool share and the trade volume;`}
+      </li>
       <li>{' – The rewards accrue in BNB, BUD, and TBT, and can be withdrawn when burning the NFT.'}</li>
     </TokenTooltip>
   )
   const LPStakingTooltipContentBNB = (
     <TokenTooltip>
-      <li>{' – When providing liquidity to the Nimbus Swap, LP tokens are received as a representation of your liquidity. They then get staked at a fixed rate of 100% APY. But since they represent your pool share, which fluctuates, your actual rewards also fluctuate over time;'}</li>
+      <li>
+        {` – When providing liquidity to the Nimbus Swap, LP tokens are received as a representation 
+        of your liquidity. They then get staked at a fixed rate of 100% APY. But since they represent 
+        your pool share, which fluctuates, your actual rewards also fluctuate over time;`}
+      </li>
       <li>{'– The rewards accrue in TBT, and can be withdrawn any time.'}</li>
     </TokenTooltip>
   )
   //   Tooltip Text Smart LP BUSD
   const LPRewardsTooltipContentBUSD = (
     <TokenTooltip>
-      <li>{'– 70% of your assets are provided as liquidity to BNB/BUSD and NBU/TBT pairs at Nimbus Swap. You receive 0,3% swap fees from all transactions made in these pairs. But while the swap fee level is fixed, your actual rewards depend on your pool share and the trade volume;'}</li>
+      <li>
+        {`– 70% of your assets are provided as liquidity to BNB/BUSD and NBU/TBT pairs at Nimbus Swap. 
+        You receive 0,3% swap fees from all transactions made in these pairs. 
+        But while the swap fee level is fixed, 
+        your actual rewards depend on your pool share and the trade volume;`}
+      </li>
       <li>{' – The rewards accrue in BNB, BUSD, and TBT, and can be withdrawn when burning the NFT'}</li>
     </TokenTooltip>
   )
@@ -126,7 +142,7 @@ export const Tokens = () => {
           lendAPR={aprBNB}
           orangeBtnName={'Get Smart LP'}
           grayBtnName={'How it works'}
-          modalTitle="BNB"
+          modalTitle='BNB'
           openModal={setIsOpenModal}
           currentModal={openCurrentModal}
         />
@@ -191,7 +207,7 @@ export const TokensSmollList = () => {
         currencyLogo={BNBcurrency}
         tokenName={'Smart LP'}
         tokenStatus={'Live'}
-        currency="BNB"
+        currency='BNB'
         imageNft={nftOne96}
         amount={convertToHuman(minAmountBNBToken, '18')}
       />
@@ -209,7 +225,7 @@ export const TokensSmollList = () => {
         imageNft={nftOne95}
         tokenName={'Smart Staker'}
         tokenStatus={'In development'}
-        amount="--"
+        amount='--'
       />
     </Container>
   )

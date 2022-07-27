@@ -139,10 +139,10 @@ const NFT: React.FC = () => {
                   ) : (
                     <div style={{ marginTop: '15px' }}>
                       {/* {!account ? null : ( */}
-                        <WarningBanner>
-                          <img src={dAppsBinance} alt="ibnance Logo" />
-                          {'This dApp works on binance network'}
-                        </WarningBanner>
+                      <WarningBanner>
+                        <img src={dAppsBinance} alt='ibnance Logo' />
+                        {'This dApp works on binance network'}
+                      </WarningBanner>
                       {/* )} */}
                       {/* <Button
                         className={'at-click at-nft-btn-switchButton'}
@@ -183,10 +183,10 @@ const NFT: React.FC = () => {
                 ) : (
                   <div style={{ marginTop: '15px' }}>
                     {/* {!account ? null : ( */}
-                      <WarningBanner>
-                        <img src={dAppsBinance} alt="ibnance Logo" />
-                        {'This dApp works on binance network'}
-                      </WarningBanner>
+                    <WarningBanner>
+                      <img src={dAppsBinance} alt='ibnance Logo' />
+                      {'This dApp works on binance network'}
+                    </WarningBanner>
                     {/* )} */}
                     {/* <Button
                       className={'at-click at-nft-btn-switchButton'}

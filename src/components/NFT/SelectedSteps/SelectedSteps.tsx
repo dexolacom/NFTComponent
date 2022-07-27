@@ -106,11 +106,24 @@ const SelectedSteps = () => {
   // Total Amounts Of Rewards of all tokens
   const [totalAmountsOfRewards, setTotalAmountsOfRewards] = useState([])
 
-  //const [totals, setTotals] = useState({ totalBNB: '0.000', totalNBU: '0.000', totalGNBU: '0.000', totalBUSD: '0.000' })
-  const [totalsWithTBT, setTotalsWithTBT] = 
-    useState({ totalBNB: '0.000', totalBUSD: '0.000', totalTBT: '0.000' })
-  const [poolsWithTBT, setPoolsWithTBT] = 
-    useState({poolBNB: '0.00000', poolBUSD: '0.00000', poolTBT: '0.00000', LPStakingBNBBUSD: '0.00000', LPStakingBNBTBT: '0.00000'})
+  /* const [totals, setTotals] = useState({ 
+    totalBNB: '0.000', 
+    totalNBU: '0.000', 
+    totalGNBU: '0.000', 
+    totalBUSD: '0.000' 
+  }) */
+  const [totalsWithTBT, setTotalsWithTBT] = useState({ 
+    totalBNB: '0.000', 
+    totalBUSD: '0.000', 
+    totalTBT: '0.000' 
+  })
+  const [poolsWithTBT, setPoolsWithTBT] = useState({
+    poolBNB: '0.00000', 
+    poolBUSD: '0.00000', 
+    poolTBT: '0.00000', 
+    LPStakingBNBBUSD: '0.00000', 
+    LPStakingBNBTBT: '0.00000'
+  })
   // все токены купленые юзером
   const [userAllTokens, setUserAllTokens] = useState([])
   // получаем буквы для отображения валюты BNB && BUSD ...
@@ -537,7 +550,10 @@ const SelectedSteps = () => {
 
   return (
     <>
-      {isPendingModal && <PendingModal isVisible={isPendingModal} title={'Please wait, your transaction is being processed on the blockchain...'} />}
+      {isPendingModal && <PendingModal 
+        isVisible={isPendingModal} 
+        title={'Please wait, your transaction is being processed on the blockchain...'} />
+      }
       {isSuccessModal && <SuccessModal visible={isSuccessModal} handleClose={e => handleClose(e)} />}
       {isErrorModal && (
         <ErrorModal
@@ -555,8 +571,8 @@ const SelectedSteps = () => {
             <Button
               className={'at-click at-connect-to-wallet-nft'}
               size={'185px'}
-              height="44px"
-              fontSize="14px"
+              height='44px'
+              fontSize='14px'
               name={'Connect to a wallet'}
               color={'#fe5001'}
               //clickHandler={toggleWalletModal}
@@ -601,7 +617,7 @@ const SelectedSteps = () => {
                       </ListItem>
                       <ListItemLi>
                         <ListItemIcon>
-                          <img src={Frame_0} alt="Frame_0" />
+                          <img src={Frame_0} alt='Frame_0' />
                         </ListItemIcon>
                         <ListItemContainer>
                           <SpanFlex>
@@ -621,7 +637,7 @@ const SelectedSteps = () => {
                         <>
                           <ListItemLi>
                             <ListItemIcon>
-                              <img src={Frame_2} alt="Frame_2" />
+                              <img src={Frame_2} alt='Frame_2' />
                             </ListItemIcon>
                             <ListItemContainer>
                               {/* <SpanFlex>
@@ -644,7 +660,7 @@ const SelectedSteps = () => {
                           <Lane></Lane>
                           <ListItemLi>
                             <ListItemIcon>
-                              <img src={Frame_2} alt="Frame_2" />
+                              <img src={Frame_2} alt='Frame_2' />
                             </ListItemIcon>
                             <ListItemContainer>
                               {/* <SpanFlex>
@@ -689,7 +705,7 @@ const SelectedSteps = () => {
                       ) : null}
                       <ListItemLi>
                         <ListItemIcon>
-                          <img src={Frame_4} alt="Frame_4" />
+                          <img src={Frame_4} alt='Frame_4' />
                         </ListItemIcon>
                         <ListItemContainer>
                           {/* <SpanFlex>

@@ -104,7 +104,7 @@ export const TokenCard = ({
             <TokenStatus>&#160;{tokenStatus}</TokenStatus>
           </TokenDiv>
           <TokenAmountDiv>
-            <img src={currencyLogo} alt="Currensy logo" /> &#160;
+            <img src={currencyLogo} alt='Currensy logo' /> &#160;
             <TokenMinCost>Min cost: &#160;</TokenMinCost>
             <TokenAmount>
               &#160;{amount}&#160;{modalTitle}
@@ -113,7 +113,7 @@ export const TokenCard = ({
         </ListItem>
         <ListItemLi>
           <ListItemIcon>
-            <img src={Frame_1} alt="Frame_1" />
+            <img src={Frame_1} alt='Frame_1' />
           </ListItemIcon>
           <ListItemContainer>
             <ListItemAmount>{convertToHuman(String(lendAPR), '18').toFixed(2)}%</ListItemAmount>
@@ -127,7 +127,7 @@ export const TokenCard = ({
         <Lane></Lane>
         <ListItemLi>
           <ListItemIcon>
-            <img src={Frame_2} alt="Frame_2" />
+            <img src={Frame_2} alt='Frame_2' />
           </ListItemIcon>
           <ListItemContainer>
             <ListItemAmount>0.3%</ListItemAmount>
@@ -141,7 +141,7 @@ export const TokenCard = ({
         <Lane></Lane>
         <ListItemLi>
           <ListItemIcon>
-            <img src={Frame_3} alt="Frame_3" />
+            <img src={Frame_3} alt='Frame_3' />
           </ListItemIcon>
           <ListItemContainer>
             <ListItemAmount>100%</ListItemAmount>
@@ -222,7 +222,7 @@ export const CloseTokenCard = ({ tokenName, tokenStatus, amount, currencyLogo, i
             <TokenClosetatus>&#160;{tokenStatus}</TokenClosetatus>
           </TokenDiv>
           <TokenAmountDiv>
-            <img src={currencyLogo} alt="Currensy logo" /> &#160;
+            <img src={currencyLogo} alt='Currensy logo' /> &#160;
             <TokenMinCost>Min cost: &#160;</TokenMinCost>
             <TokenAmount>
               &#160;{amount}
@@ -237,7 +237,7 @@ export const CloseTokenCard = ({ tokenName, tokenStatus, amount, currencyLogo, i
           height={'44px'}
           fontSize={'17px'}
           isDisabled={true}
-          disabledName="Coming soon..."
+          disabledName='Coming soon...'
         />
       </List>
     </CardContainer>
@@ -272,7 +272,7 @@ export const SmollTokenCard = ({
             )}
           </TokenDiv>
           <TokenAmountDiv>
-            <img src={currencyLogo} alt="Currensy logo" /> &#160;
+            <img src={currencyLogo} alt='Currensy logo' /> &#160;
             <TokenMinCost>Min cost: &#160; </TokenMinCost>
             <TokenAmount>
               &#160;{amount}&#160;{modalTitle} {currency ? currency : null}

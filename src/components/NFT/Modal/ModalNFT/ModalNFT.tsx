@@ -69,7 +69,7 @@ export const ModalNFT = ({ isOpen, handleClose, currensyName }: ModalProps) => {
               size={'200px'}
               height={'44px'}
               fontSize={'17px'}
-              name="Get Smart LP"
+              name='Get Smart LP'
               color={'#fe5001'}
               clickHandler={getRouteForm}
             />

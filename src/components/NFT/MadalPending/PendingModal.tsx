@@ -21,12 +21,13 @@ export const PendingModal = ({ isVisible, title }: IProps) => {
       <ScrollFix>
         <ModalPaddings>
           <ContentWrapper>
-            <AutoColumn gap="24px" justify="center">
+            <AutoColumn gap='24px' justify='center'>
               <Loaders />
-              <AutoColumn gap="12px" justify="center">
+              <AutoColumn gap='12px' justify='center'>
                 <div style={{ fontWeight: '500', fontSize: '20', color: '#FFFFFF'}}>{'Processing...'}</div>
                 <div style={{ fontWeight: '400', fontSize: '13', color: '#BBBBBB', lineHeight: '24px'}}>
-                  {title ? title : 'Please wait, your transaction is being processed on the blockchain... Soon your NFT will be issued and available in your wallet right away.'}
+                  {title ? title : `Please wait, your transaction is being processed on the blockchain... 
+                  Soon your NFT will be issued and available in your wallet right away.`}
                 </div>
               </AutoColumn>
             </AutoColumn>
@@ -38,7 +39,7 @@ export const PendingModal = ({ isVisible, title }: IProps) => {
 }
 
 const ModalBackdrop = styled(DialogOverlay)`
-  ${props => (props.isVisible ? `display: flex;` : `display: none`)};
+  ${props => (props.isVisible ? 'display: flex;' : 'display: none')};
   justify-content: center;
   align-items: center;
   width: 100vw;

@@ -56,7 +56,9 @@ export const ModalNFT = ({ isOpen, handleClose, currensyName }: ModalProps) => {
                 </ListTitle>
                 <List>
                   <ListItem>Flexible APR for lending;</ListItem>
-                  <ListItem>{`Share of a fixed 0,3% swap fee on all trades in the BNB/NBU and BNB/${currensyName} pools;`}</ListItem>
+                  <ListItem>{
+                    `Share of a fixed 0,3% swap fee on all trades in the BNB/NBU and BNB/${currensyName} pools;`
+                  }</ListItem>
                   <ListItem>Fixed 100% APY for staking the received LP tokens.</ListItem>
                 </List>
                 <ListTitle>Receive rewards in real-time, save on gas fees, and redeem your assets any time.</ListTitle>
